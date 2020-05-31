@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-color: #dedede;
+}
 
 .red {
     color: #e35e6b;
@@ -18,4 +22,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .msg-error {
     background-color: #e35e6b;
     color:#FFF;
+}
+.content {
+    padding: 16px;
+    /* border: solid 1px; */
+    /* background-color: #eee; */
 }
