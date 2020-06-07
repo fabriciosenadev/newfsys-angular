@@ -1,0 +1,42 @@
+<div *ngIf="routeUrl==='home' || routeUrl=='about'">
+    <nav class="navbar navbar-expand-sm navbar-light bg-success menu-box">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+            data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" 
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="color: white;"></span>
+        </button>
+        <a class="navbar-brand text-white" href="#">Fsys</a>
+  
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-sm-0">
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="" style="text-align: center;">
+                        Início
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="/about" >Sobre</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav my-2 my-sm-0 menu-right">
+                <li class="nav-item">
+                    <a class="nav-link text-white border rounded" routerLink="/login">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white border rounded" routerLink="/register">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+</div>
+
+<div *ngIf="routeUrl==='login' || routeUrl==='register'">  
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <h1><a class="nav-link text-success" routerLink="">Fsys</a></h1>
+        </li>
+    </ul>
+</div>

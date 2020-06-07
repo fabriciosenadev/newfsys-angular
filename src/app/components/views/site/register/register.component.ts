@@ -2,15 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderService } from 'src/app/services/template/header/header.service';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: 'about.component.html',
-  styleUrls: ['./about.component.css']
+  selector: 'app-register',
+  template: `
+    <p>
+      register works!
+    </p>
+  `,
+  styleUrls: ['./register.component.css']
 })
-export class AboutComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   constructor(private headerService: HeaderService) {
     headerService.headerData = {
-      routeUrl: 'about'
+      routeUrl: 'register'
     }
    }
 
