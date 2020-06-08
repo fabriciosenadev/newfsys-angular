@@ -1,0 +1,46 @@
+
+.titulo-section1 {
+    padding: 2em 0 0.5em 0;
+    text-align: center;
+}
+
+.card-box{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.card {
+    height: 10em;
+    flex-basis: 30%;
+    margin: 10px;
+}
+
+.section2 {
+    margin: 100px;
+    display: flex;
+}
+
+blockquote {
+    width: 30%;
+    height: 18em;
+    border-radius: 10px;
+    background-color: white;
+}
+  
+.teste {
+    margin-left: 6em;
+    width: 30%;
+    height: 15em;
+    border: 1px solid black;
+}
+
+.title-section3 {
+    padding: 3em 0 0 0;
+    text-align: center;
+}
+
+  
+.material-icons {
+      height: 28px;
+      vertical-align: middle;
+}
+  
