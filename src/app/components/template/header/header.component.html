@@ -1,5 +1,6 @@
 <div *ngIf="routeUrl==='home' || routeUrl=='about'">
-    <nav class="navbar navbar-expand-sm navbar-light bg-success menu-box">
+    <app-top-menu></app-top-menu>
+    <!-- <nav class="navbar navbar-expand-sm navbar-light bg-success menu-box">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" 
             data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" 
@@ -30,7 +31,7 @@
             </ul>
         </div>
 
-    </nav>
+    </nav> -->
 </div>
 
 <div *ngIf="routeUrl==='login' || routeUrl==='register'">  
