@@ -1,14 +1,14 @@
 .footer {
-    /* position: fixed; */
+    position: fixed;
     bottom: 0;
-    right: 100px;
+    right: 0px;
     display: flex;
     justify-content: flex-end;
     background: #dedede;
 }
 
 .footer > span {
-    font-size: 1.1rem;
+    font-size: .8rem;
     font-weight: 300;
 }
 .green {
