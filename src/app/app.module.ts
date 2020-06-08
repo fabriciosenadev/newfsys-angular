@@ -17,6 +17,8 @@ import { HomeComponent } from './components/views/site/home/home.component';
 import { AboutComponent } from './components/views/site/about/about.component';
 import { RegisterComponent } from './components/views/site/register/register.component';
 import { LoginComponent } from './components/views/site/login/login.component';
+import { TopMenuComponent } from './components/template/site/top-menu/top-menu.component';
+import { TopLinkComponent } from './components/template/site/top-link/top-link.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { LoginComponent } from './components/views/site/login/login.component';
     HomeComponent,
     AboutComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    TopMenuComponent,
+    TopLinkComponent
   ],
   imports: [
     BrowserModule,
