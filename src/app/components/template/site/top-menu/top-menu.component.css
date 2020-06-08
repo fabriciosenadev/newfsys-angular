@@ -1,0 +1,7 @@
+.menu-right  > li {
+    margin: 5px;
+}
+
+.text-white:hover {
+    color: #ffffff80 !important;
+}
