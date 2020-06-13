@@ -3,11 +3,7 @@ import { HeaderService } from 'src/app/services/template/header/header.service';
 
 @Component({
   selector: 'app-register',
-  template: `
-    <p>
-      register works!
-    </p>
-  `,
+  templateUrl: 'register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
