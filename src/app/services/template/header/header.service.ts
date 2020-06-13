@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { HeaderData } from 'src/app/components/template/header/header-data.model';
+import { HeaderData } from 'src/app/components/models/header-data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class HeaderService {
 
   private _headerData = new BehaviorSubject<HeaderData>({
     routeUrl:''
-  });
+  }); 
 
   constructor() { }
 
