@@ -3,11 +3,7 @@ import { HeaderService } from 'src/app/services/template/header/header.service';
 
 @Component({
   selector: 'app-login',
-  template: `
-    <p>
-      login works!
-    </p>
-  `,
+  templateUrl: 'login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
