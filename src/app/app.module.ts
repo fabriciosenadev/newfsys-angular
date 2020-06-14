@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
@@ -36,9 +38,14 @@ import { TopLinkComponent } from './components/template/site/top-link/top-link.c
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+
     HttpClientModule,
+
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSnackBarModule,
+    
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
