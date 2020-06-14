@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-import { User } from '../../components/models/user.model';
-import { ApiService } from "../api/api.service";
-import { Observable, EMPTY } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { ApiService } from "../api/api.service";
+import { User } from '../../components/models/user.model';
+import { MessageService } from 'src/app/handlers/error/message.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,27 +15,14 @@ export class UserService {
   
 
   constructor(
-    private snackBar: MatSnackBar,
     private http: HttpClient,
-    private api: ApiService
+    private api: ApiService,
+    private msgService: MessageService
     ) { }
 
-    // baseUrl = 'http://localhost:3030/';
     baseUrl = this.api.url;
     route = '';
     userAction = '';
-
-    showMessage(
-      msg: string,
-      isError: boolean = false
-    ): void {
-      this.snackBar.open(msg, 'X', {
-        duration: 3000,
-        horizontalPosition: "right",
-        verticalPosition: "top",
-        panelClass: isError ? ['msg-error'] : ['msg-success']
-      })
-    }
 
     register(user: User): Observable<User>
     {
@@ -46,14 +34,7 @@ export class UserService {
         user
       ).pipe( 
         map(obj => obj),
-        catchError(error => this.errorHandler(error))
+        catchError(error => this.msgService.errorHandler(error))
       );
     }
-  
-  // devolve um Observable vazio com mensagem de erro
-  errorHandler(error: any): Observable<any> {
-    console.log(error);
-    this.showMessage(error, true);
-    return EMPTY;
-  }
 }
