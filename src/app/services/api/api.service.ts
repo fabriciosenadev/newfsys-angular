@@ -5,14 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  url:'http://localhost:3040';
+  url = 'http://localhost:3040';
   
-  route:{
-    user:'user',
+  route = {
+    user: 'user',
     launching:'launching',
   };
 
-  userAction:{
+  userAction = {
     register:'register',
     login:'login'
   }
