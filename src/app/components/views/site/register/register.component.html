@@ -3,27 +3,20 @@
         <div class="row">
 
             <div class="col-sm">
-                <!-- <?php include '../../resources/template/app/side-menu.php';?> -->
+
             </div>
 
             <div class="col-md-8" id="main">
-            
-                <!-- <div class="row justify-content-center">
-                <a href="index.php" style="color:black;">
-
-                    <h1>Fsys</h1>            
-                </a>    
-                </div> -->
 
                 <div class="row justify-content-center" style="margin-top:10px;">
                         
 
-                        <div class="border border-success rounded-bottom" 
+                    <div class="border border-success rounded" 
                         style="width:400px;padding: 10px; background-color:white;">
 
                         <div class="col" style="margin:15px 0;">
-
-                        <div>                                
+                            
+                            <div *ngIf="msg.length > 0 && msg.indexOf('saved')">                                
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     <strong>Sucesso!</strong>
                                     Cliquei <a routerLink="/login">aqui</a>  
@@ -32,76 +25,74 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-
-                        </div>
-
-
-                            <form action="" method="post">
-
-                            <div class="form-row">
-
-                                <div class="form-group col-md">
-                                    <label for="inputName">Nome completo</label>
-                                        <input type="text" id="inputName"name="name" value=""
-                                            class="form-control " require>
-                                        <div class="valid-feedback">
-                                            Parece bom!
-                                        </div>  
-                                        <div class="invalid-feedback">
-
-                                        </div>  
-                                </div>
-
-                            </div>
-                            <div class="form-row">
-
-                                <div class="form-group col-md">
-                                    <label for="inputEmail">E-mail</label>
-                                        <input type="e-mail" id="inputEmail"name="email" value=""
-                                            class="form-control " require>
-                                        <div class="valid-feedback">
-                                            Parece bom!
-                                        </div>  
-                                        <div class="invalid-feedback">
-
-                                        </div>  
-                                </div>
-
-                            </div>
-                            <div class="form-row">
-
-                                <div class="form-group col-md">
-                                    <label for="inputPassword">Senha (minimo 8 caracteres)</label>
-                                        <input type="password" id="inputPassword"name="password" value=""
-                                            class="form-control" require>
-                                        <div class="valid-feedback">
-                                            Parece bom!
-                                        </div>  
-                                        <div class="invalid-feedback">
-
-                                        </div>  
-                                </div>
-
-                            </div>
-                            <div class="form-row">
-
-                                <div class="form-group col-md">
-                                    <label for="inputVerify">Repita a senha</label>
-                                        <input type="password" id="inputVerify"name="verify" value=""
-                                            class="form-control " require>
-                                        <div class="valid-feedback">
-                                            Parece bom!
-                                        </div>  
-                                        <div class="invalid-feedback">
-
-                                        </div>  
-                                </div>
-
                             </div>
 
-                            <button type="submit" class="btn btn-success form-control" name="btnRegister" value="register">
-                                Cadastrar
-                            </button>
+                            <form>
+
+                                <div class="form-row">
+
+                                    <div class="form-group col-md">
+                                        <label for="inputName">Nome completo</label>
+                                            <input type="text" id="inputName"name="full_name" class="form-control "
+                                                [(ngModel)]="user.full_name" required>
+                                            <div class="valid-feedback">
+                                                Parece bom!
+                                            </div>  
+                                            <div class="invalid-feedback">
+
+                                            </div>  
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+                                    
+                                    <div class="form-group col-md">
+                                        <label for="inputEmail">E-mail</label>
+                                            <input type="e-mail" id="inputEmail"name="email" class="form-control"
+                                                [(ngModel)]="user.email" required>
+                                            <div class="valid-feedback">
+                                                Parece bom!
+                                            </div>  
+                                            <div class="invalid-feedback">
+
+                                            </div>  
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="form-group col-md">
+                                        <label for="inputPassword">Senha (minimo 8 caracteres)</label>
+                                            <input type="password" id="inputPassword"name="password" class="form-control"
+                                                [(ngModel)]="user.password" required>
+                                            <div class="valid-feedback">
+                                                Parece bom!
+                                            </div>  
+                                            <div class="invalid-feedback">
+
+                                            </div>  
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="form-group col-md">
+                                        <label for="inputVerify">Repita a senha</label>
+                                            <input type="password" id="inputVerify"name="verifyPass" class="form-control"
+                                                [(ngModel)]="user.verifyPass" require>
+                                            <div class="valid-feedback">
+                                                Parece bom!
+                                            </div>  
+                                            <div class="invalid-feedback">
+
+                                            </div>  
+                                    </div>
+
+                                </div>
+
+                                <button (click)="newUser()" class="btn btn-success form-control">
+                                    Cadastrar
+                                </button>
 
                             </form>
                         </div>
