@@ -21,6 +21,7 @@ import { RegisterComponent } from './components/views/site/register/register.com
 import { LoginComponent } from './components/views/site/login/login.component';
 import { TopMenuComponent } from './components/template/site/top-menu/top-menu.component';
 import { TopLinkComponent } from './components/template/site/top-link/top-link.component';
+import { ProfileComponent } from './components/views/app/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TopLinkComponent } from './components/template/site/top-link/top-link.c
     RegisterComponent,
     LoginComponent,
     TopMenuComponent,
-    TopLinkComponent
+    TopLinkComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
