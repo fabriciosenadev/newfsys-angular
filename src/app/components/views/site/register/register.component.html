@@ -16,7 +16,7 @@
 
                         <div class="col" style="margin:15px 0;">
                             
-                            <div *ngIf="msg.length > 0 && msg.indexOf('saved')">                                
+                            <!-- <div *ngIf="msg.length > 0 && msg.indexOf('saved')">                                
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     <strong>Sucesso!</strong>
                                     Cliquei <a routerLink="/login">aqui</a>  
@@ -25,7 +25,7 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <form>
 
@@ -33,7 +33,7 @@
 
                                     <div class="form-group col-md">
                                         <label for="inputName">Nome completo</label>
-                                            <input type="text" id="inputName"name="full_name" class="form-control "
+                                            <input name="full_name" class="form-control "
                                                 [(ngModel)]="user.full_name" required>
                                             <div class="valid-feedback">
                                                 Parece bom!
@@ -48,7 +48,7 @@
                                     
                                     <div class="form-group col-md">
                                         <label for="inputEmail">E-mail</label>
-                                            <input type="e-mail" id="inputEmail"name="email" class="form-control"
+                                            <input type="email" id="inputEmail"name="email" class="form-control"
                                                 [(ngModel)]="user.email" required>
                                             <div class="valid-feedback">
                                                 Parece bom!
@@ -79,7 +79,7 @@
                                     <div class="form-group col-md">
                                         <label for="inputVerify">Repita a senha</label>
                                             <input type="password" id="inputVerify"name="verifyPass" class="form-control"
-                                                [(ngModel)]="user.verifyPass" require>
+                                                [(ngModel)]="user.verifyPass" required>
                                             <div class="valid-feedback">
                                                 Parece bom!
                                             </div>  

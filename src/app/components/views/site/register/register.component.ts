@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { HeaderService } from 'src/app/services/template/header/header.service';
-import { User } from 'src/app/components/models/user.model';
+import { UserRegister } from 'src/app/components/models/user.model';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class RegisterComponent implements OnInit {
 
   msg = [];
-  user: User = {
+  user: UserRegister = {
     full_name:'',
     email:'',
     password:'',
@@ -36,26 +36,26 @@ export class RegisterComponent implements OnInit {
 
   newUser(): void
   {
-    console.log('retipPassword: ' + this.user.verifyPass, typeof this.user.verifyPass);
-    console.log('password: ' + this.user.password, typeof this.user.password);
-
-    if(this.user.verifyPass == this.user.password)
-    {
+    // if (this.user.full_name.trim().length < 8)
+    // {
+    //   this.userService.showMessage('insert you full name', true);
+    // }
+    // else if(this.user.verifyPass != this.user.password )
+    // {
+    //   this.userService.showMessage('passwords doesn\'t match', true);
+    // }
+    // else 
+    // {
       this.userService.register(this.user).subscribe(userReturn => {
         this.user = userReturn
-        console.log(userReturn.success);
         if(userReturn.success)
         {
-          this.msg = userReturn.success.split(' ');
-        }
-
-              
+          // this.msg = userReturn.success.split(' ');
+          this.userService.showMessage(userReturn.success);
+          this.router.navigate(['/login']);
+        }              
       });
-    }
-    else
-    {
-      console.log('Senhas não conferem');
-    }
+    // }
   }
 
 }
