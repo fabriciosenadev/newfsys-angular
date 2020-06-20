@@ -51,9 +51,12 @@ export class UserService {
     }
   
       // devolve um Observable vazio com mensagem de erro
-      errorHandler(error: any): Observable<any> {
-        console.log(error);
-        this.showMessage(error, true);
+      errorHandler(errorRes: any): Observable<any> {
+        let showMsg = errorRes.error.data[0].msg;
+        let param = errorRes.error.data[0].param;
+        // console.log(errorRes);
+        
+        this.showMessage(param + ' ' + showMsg, true);
         return EMPTY;
       }
 }
