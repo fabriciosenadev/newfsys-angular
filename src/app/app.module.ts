@@ -22,6 +22,7 @@ import { LoginComponent } from './components/views/site/login/login.component';
 import { TopMenuComponent } from './components/template/site/top-menu/top-menu.component';
 import { TopLinkComponent } from './components/template/site/top-link/top-link.component';
 import { ProfileComponent } from './components/views/app/profile/profile.component';
+import { ForgotComponent } from './components/views/site/forgot/forgot.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ProfileComponent } from './components/views/app/profile/profile.compone
     LoginComponent,
     TopMenuComponent,
     TopLinkComponent,
+    ForgotComponent,
     ProfileComponent
   ],
   imports: [
