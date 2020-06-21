@@ -14,7 +14,9 @@ export class ApiService {
 
   userAction = {
     register:'register',
-    login:'login'
+    login:'login',
+    forgot: 'forgot',
+    resetPass: 'reset_password'
   }
   
   constructor() { }
