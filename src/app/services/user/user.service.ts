@@ -5,7 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ApiService } from "../api/api.service";
-import { UserRegister } from '../../components/models/user.model';
+import { UserRegister, UserResetPass } from '../../components/models/user.model';
 
 
 @Injectable({
@@ -24,18 +24,45 @@ export class UserService {
     route = '';
     userAction = '';
 
-    register(user: UserRegister): Observable<UserRegister>
+    register(userRegister: UserRegister): Observable<UserRegister>
     {
       this.route = this.api.route.user;
       this.userAction = this.api.userAction.register;
 
       return this.http.post<UserRegister>(
         `${this.baseUrl}/${this.route}/${this.userAction}`, 
-        user
+        userRegister
       ).pipe( 
         map(obj => obj),
         catchError(error => this.errorHandler(error))
       );
+    }
+
+    forgot(userForgotPass: UserResetPass): Observable<UserResetPass>
+    {
+      this.route = this.api.route.user;
+      this.userAction = this.api.userAction.forgot;
+
+      return this.http.post<UserResetPass>(
+        `${this.baseUrl}/${this.route}/${this.userAction}`, 
+        userForgotPass
+      ).pipe( 
+        map(obj => obj),
+        catchError(error => this.errorHandler(error))
+      );
+    }
+    reset(userResetPass: UserResetPass): Observable<UserResetPass>
+    {
+      this.route = this.api.route.user;
+      this.userAction = this.api.userAction.resetPass;
+
+      return this.http.post<UserResetPass>(
+        `${this.baseUrl}/${this.route}/${this.userAction}`, 
+        userResetPass
+      ).pipe( 
+        map(obj => obj),
+        catchError(error => this.errorHandler(error))
+      );      
     }
 
     showMessage(
@@ -52,11 +79,20 @@ export class UserService {
   
       // devolve um Observable vazio com mensagem de erro
       errorHandler(errorRes: any): Observable<any> {
-        let showMsg = errorRes.error.data[0].msg;
-        let param = errorRes.error.data[0].param;
-        // console.log(errorRes);
-        
-        this.showMessage(param + ' ' + showMsg, true);
+        console.log(errorRes);
+        let showMsg = '';
+        let param = '';
+        if(errorRes.error.data)
+        {
+          showMsg = errorRes.error.data[0].msg;
+          param = errorRes.error.data[0].param;
+          this.showMessage(param + ' ' + showMsg, true);
+        }else if(errorRes.error.msg)
+        {
+          showMsg = errorRes.error.msg;
+          this.showMessage(showMsg, true);
+        }
+        // this.showMessage(' ', true);
         return EMPTY;
       }
 }
