@@ -3,8 +3,6 @@ export interface UserRegister {
     full_name: string,
     email: string,
     password: string,
-    
-    // usado apenas no front
     verifyPass: string,
 
     // retorno da API
@@ -20,4 +18,16 @@ export interface UserLogin {
     // retorno da API
     auth? : boolean,
     token? : string,
+}
+
+export interface UserResetPass {
+    [x: string]: any;
+    // dados enviados para API
+    email: string,
+    password?: string,
+    verifyPass?: string,
+
+    // retorno da API
+    success? : string,
+    id? : number,
 }
