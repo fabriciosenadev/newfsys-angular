@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
       this.user = loginReturn      
       if(loginReturn.token)
       {
+        localStorage.setItem('authToken', loginReturn.token);
         // console.log(loginReturn)
         this.router.navigate(['/app/profile']);
       }
