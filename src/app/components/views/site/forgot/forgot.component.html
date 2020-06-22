@@ -1,0 +1,100 @@
+    <!-- inicio  conteudo do site-->
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm">
+
+            </div>
+
+            <div class="col-md-8" id="main">
+
+                <div class="row justify-content-center" style="margin-top:10px;"
+                    *ngIf="!userResetPass.userId">
+                        
+
+                    <div class="border border-success rounded" 
+                        style="width:400px;padding: 10px; background-color:white;">
+
+                        <div class="col" style="margin:15px 0;">
+                            <h1>Redefinir de senha</h1>
+
+                            <form>
+
+                                <div class="form-row">
+                                    
+                                    <div class="form-group col-md">
+                                        <label for="inputEmail">E-mail</label>
+                                            <input type="email" id="inputEmail"name="email" class="form-control"
+                                            [(ngModel)]="userResetPass.email" required>
+                                    </div>
+
+                                </div>
+
+                                <button (click)="forgotPass()" class="btn btn-success form-control">
+                                    Verificar
+                                </button>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row justify-content-center" style="margin-top:10px;"
+                    *ngIf="userResetPass.userId">
+                        
+
+                    <div class="border border-success rounded" 
+                        style="width:400px;padding: 10px; background-color:white;">
+
+                        <div class="col" style="margin:15px 0;">
+                            <h1>Redefinir de senha</h1>
+
+                            <form>
+
+                                <div class="form-row">
+
+                                    <div class="form-group col-md">
+                                        <label for="inputPassword">Nova Senha (minimo 8 caracteres)</label>
+                                            <input type="password" id="inputPassword"name="password" class="form-control"
+                                            [(ngModel)]="userResetPass.password" required>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="form-group col-md">
+                                        <label for="inputVerify">Repita a senha</label>
+                                            <input type="password" id="inputVerify"name="verifyPass" class="form-control"
+                                            [(ngModel)]="userResetPass.verifyPass" required>
+                                    </div>
+
+                                </div>
+
+                                <button (click)="resetPass()" class="btn btn-success form-control">
+                                    Salvar
+                                </button>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-sm-2"></div>
+
+        </div>
+        
+    </div>
+    <!-- fim conteúdo do site -->
+        
+
+    <!-- fim container -->
+
+
+
