@@ -17,7 +17,11 @@ export class ApiService {
     login:'login',
     forgot: 'forgot',
     resetPass: 'reset_password'
-  }
+  };
+
+    systemAction = {
+        userInfo: 'info'        
+    };
   
   constructor() { }
 }
