@@ -21,11 +21,7 @@ export class ProfileComponent implements OnInit {
     {
         let token = localStorage.getItem('authToken');
 
-        if(!token)
-        {
-            this.sessionService.showMessage('please do login', true);
-            this.router.navigate(['/login']);
-        } 
+        if(!token) this.sessionService.forceLogin();
       
         headerService.headerData = {
             routeUrl: 'app'

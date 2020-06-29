@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 
 import { ApiService } from "../api/api.service";
 import { UserRegister, UserResetPass, UserInfo } from '../../components/models/user.model';
+import { SessionService } from './session.service';
 
 
 @Injectable({
@@ -19,7 +20,7 @@ export class UserService {
     private http: HttpClient,
     private api: ApiService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private sessionService: SessionService
     ) { }
 
     baseUrl = this.api.url;
@@ -102,10 +103,7 @@ export class UserService {
     errorHandler(errorRes: any): Observable<any> {
         console.log(errorRes);
 
-        if(errorRes.error.auth === false) {
-            this.showMessage('please do login', true);
-            this.router.navigate(['/login']);
-        }        
+        if(errorRes.error.auth === false) this.sessionService.forceLogin();
 
         let showMsg = '';
         let param = '';

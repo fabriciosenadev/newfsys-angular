@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, EMPTY } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 import { ApiService } from '../api/api.service';
 import { UserLogin } from 'src/app/components/models/user.model';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class SessionService {
   constructor(
     private http: HttpClient,
     private api: ApiService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
     ) { }
 
   baseUrl = this.api.url;
@@ -34,6 +36,12 @@ export class SessionService {
       map(obj => obj),
       catchError(error => this.errorHandler(error)
     ));
+  }
+
+  forceLogin(): void
+  {
+    this.showMessage('please do login', true);
+    this.router.navigate(['/login']);
   }
 
   showMessage(
