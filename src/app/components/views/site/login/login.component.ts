@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { HeaderService } from 'src/app/services/template/header/header.service';
 import { UserLogin } from 'src/app/components/models/user.model';
-import { SessionService } from 'src/app/services/user/session.service';
+import { SessionService } from 'src/app/services/system/session.service';
 
 @Component({
   selector: 'app-login',
