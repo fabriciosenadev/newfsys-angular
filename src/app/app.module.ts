@@ -23,6 +23,8 @@ import { TopMenuComponent } from './components/template/site/top-menu/top-menu.c
 import { TopLinkComponent } from './components/template/site/top-link/top-link.component';
 import { ProfileComponent } from './components/views/app/profile/profile.component';
 import { ForgotComponent } from './components/views/site/forgot/forgot.component';
+import { MenuComponent } from './components/template/app/menu/menu.component';
+import { SideMenuComponent } from './components/template/app/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { ForgotComponent } from './components/views/site/forgot/forgot.component
     TopMenuComponent,
     TopLinkComponent,
     ForgotComponent,
-    ProfileComponent
+    ProfileComponent,
+    MenuComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
