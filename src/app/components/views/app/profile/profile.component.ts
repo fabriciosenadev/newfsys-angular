@@ -2,14 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionService } from 'src/app/services/user/session.service';
 import { UserLogin } from 'src/app/components/models/user.model';
+import { HeaderService } from 'src/app/services/template/header/header.service';
 
 @Component({
   selector: 'app-profile',
-  template: `
-    <p>
-      profile works!
-    </p>
-  `,
+  templateUrl: 'profile.component.html',
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
@@ -18,16 +15,21 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private sessionService: SessionService,
-    private router: Router,
-    ) {
-    let token = localStorage.getItem('authToken');
-    console.log('token'+token);
-    if(!token)
+    private headerService: HeaderService,
+    private router: Router
+    ) 
     {
-      this.sessionService.showMessage('please do login', true);
-      this.router.navigate(['/login']);
-    } 
+        let token = localStorage.getItem('authToken');
+
+        if(!token)
+        {
+            this.sessionService.showMessage('please do login', true);
+            this.router.navigate(['/login']);
+        } 
       
+        headerService.headerData = {
+            routeUrl: 'app'
+        }
    }
 
   ngOnInit(): void {
