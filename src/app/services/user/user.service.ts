@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 import { ApiService } from "../api/api.service";
-import { UserRegister, UserResetPass, UserInfo } from '../../components/models/user.model';
+import { UserRegister, UserResetPass, UserInfo } from '../../models/user.model';
 import { SessionService } from '../system/session.service';
 
 
