@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionService } from 'src/app/services/system/session.service';
-import { UserLogin } from 'src/app/components/models/user.model';
+import { UserLogin } from 'src/app/models/user.model';
 import { HeaderService } from 'src/app/services/template/header/header.service';
 
 @Component({
