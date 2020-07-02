@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserInfo } from 'src/app/components/models/user.model';
-import { UserService } from 'src/app/services/user/user.service';
+import { UserInfo } from 'src/app/models/user.model';
+import { SystemService } from 'src/app/services/system/system.service';
 
 @Component({
   selector: 'app-menu',
@@ -14,14 +14,14 @@ export class MenuComponent implements OnInit {
         token: '',
         firstName: ''
     }
-    constructor(private userService: UserService) 
+    constructor(private systemService: SystemService) 
     {
         this.userInfo.token = localStorage.getItem('authToken');
 
-        this.userService.getInfo(this.userInfo).subscribe(userInfoReturn => {
+        this.systemService.getUserInfo(this.userInfo).subscribe(userInfoReturn => {
             console.log(userInfoReturn);
             this.userInfo = userInfoReturn;
-            this.userInfo.firstName = this.userInfo.full_name.split(' ')[0];
+            this.userInfo.firstName = this.userInfo.data.full_name.split(' ')[0];
         });
     }
 
