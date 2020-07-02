@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 import { ApiService } from '../api/api.service';
-import { UserLogin } from 'src/app/components/models/user.model';
+import { UserLogin } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root'
