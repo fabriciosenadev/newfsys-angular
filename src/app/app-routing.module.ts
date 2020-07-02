@@ -10,6 +10,8 @@ import { ForgotComponent } from './components/views/site/forgot/forgot.component
 
 // app components
 import { ProfileComponent } from './components/views/app/profile/profile.component';
+import { LaunchOutComponent } from './components/views/app/launch-out/launch-out.component';
+import { LaunchInComponent } from './components/views/app/launch-in/launch-in.component';
 
 const routes: Routes = [
   {
@@ -35,7 +37,15 @@ const routes: Routes = [
   {
     path: "app/profile",
     component: ProfileComponent
-  }
+  },
+  {
+    path: "app/launch/in",
+    component: LaunchInComponent
+  },
+  {
+    path: "app/launch/out",
+    component: LaunchOutComponent
+  },
 ];
 
 @NgModule({
