@@ -12,44 +12,49 @@ import { LoginComponent } from './components/views/app/login/login.component';
 import { ProfileComponent } from './components/views/app/profile/profile.component';
 import { LaunchOutComponent } from './components/views/app/launch-out/launch-out.component';
 import { LaunchInComponent } from './components/views/app/launch-in/launch-in.component';
+import { LogoutComponent } from './components/views/app/logout/logout.component';
 
 const routes: Routes = [
-  {
-    path: "",
-    component: HomeComponent
-  },
-  {
-    path: "about",
-    component: AboutComponent
-  },
-  {
-    path: "register",
-    component: RegisterComponent
-  },
-  {
-    path: "login",
-    component: LoginComponent
-  },
-  {
-    path:"forgot",
-    component: ForgotComponent
-  },
-  {
-    path: "app/profile",
-    component: ProfileComponent
-  },
-  {
-    path: "app/launch/in",
-    component: LaunchInComponent
-  },
-  {
-    path: "app/launch/out",
-    component: LaunchOutComponent
-  },
+    {
+        path: "",
+        component: HomeComponent
+    },
+    {
+        path: "about",
+        component: AboutComponent
+    },
+    {
+        path: "register",
+        component: RegisterComponent
+    },
+    {
+        path: "forgot",
+        component: ForgotComponent
+    },
+    {
+        path: "login",
+        component: LoginComponent
+    },
+    {
+        path: "logout",
+        component: LogoutComponent
+    },
+    {
+        path: "app/profile",
+        component: ProfileComponent
+    },
+    {
+        path: "app/launch/in",
+        component: LaunchInComponent
+    },
+    {
+        path: "app/launch/out",
+        component: LaunchOutComponent
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }
