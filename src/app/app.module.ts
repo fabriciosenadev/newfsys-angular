@@ -25,6 +25,8 @@ import { ProfileComponent } from './components/views/app/profile/profile.compone
 import { ForgotComponent } from './components/views/site/forgot/forgot.component';
 import { MenuComponent } from './components/template/app/menu/menu.component';
 import { SideMenuComponent } from './components/template/app/side-menu/side-menu.component';
+import { LaunchInComponent } from './components/views/app/launch-in/launch-in.component';
+import { LaunchOutComponent } from './components/views/app/launch-out/launch-out.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { SideMenuComponent } from './components/template/app/side-menu/side-menu
     ForgotComponent,
     ProfileComponent,
     MenuComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    LaunchInComponent,
+    LaunchOutComponent
   ],
   imports: [
     BrowserModule,
