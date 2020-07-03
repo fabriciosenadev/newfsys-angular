@@ -7,6 +7,7 @@ import { ApiService } from '../api/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { Categories } from 'src/app/models/category.model';
+import { PayMethods } from 'src/app/models/payMethod.model';
 
 @Injectable({
     providedIn: 'root'
@@ -45,8 +46,8 @@ export class SystemService {
 
     getCategories(
         categoryType: string = '',
-        userInfo: UserInfo
-        ): Observable<Categories>{
+        token: string
+    ): Observable<Categories> {
         this.route = this.api.route.system;
         this.systemRoute = this.api.systemRoute.categories;
         this.action = categoryType;
@@ -55,7 +56,24 @@ export class SystemService {
             `${this.baseUrl}/${this.route}/${this.systemRoute}/${this.action}`,
             {
                 headers: {
-                    auth_pass: userInfo.token,
+                    auth_pass: token,
+                },
+            }
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error))
+        );
+    }
+
+    getPayMethod(token: string): Observable<PayMethods> {
+        this.route = this.api.route.system;
+        this.systemRoute = this.api.systemRoute.payMethod;
+
+        return this.http.get<PayMethods>(
+            `${this.baseUrl}/${this.route}/${this.systemRoute}`,
+            {
+                headers: {
+                    auth_pass: token,
                 },
             }
         ).pipe(
