@@ -1,0 +1,104 @@
+    <!-- <hr> -->
+
+    <!-- inicio  conteudo do site-->
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm">
+                <app-side-menu></app-side-menu>
+            </div>
+
+            <div class="col-md-8" id="main">
+                <div class="row justify-content-center" style="margin-top:50px;">
+
+
+                    <div class="border-top border-success rounded-bottom" 
+                        style="width:500px;padding: 10px; background-color:white;">
+
+                        <form>
+
+                            <div class="form-row">
+
+                                <div class="form-group col-md">
+                                    <h2>Entrada</h2>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="form-group col-md-6">
+                                    <label for="inputDate">Data</label>
+                                        <input type="date" id="inputDate"name="date" [(ngModel)]="launchIn.date"
+                                            class="form-control">
+
+                                </div>
+
+                                <div class="form-group col-md-6">
+
+                                    <label for="inputCategory">Categoria</label>
+                                        <select id="inputCategory" name="category"
+                                        class="form-control" [(ngModel)]="launchIn.id_category">                                                
+                                                <option *ngFor="let item of categories.data" [ngValue]="item.id">{{item.category}}</option>
+                                        </select>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                
+                                <label for="inputDescription">Descrição</label>
+                                    <input type="text" class="form-control" id="inputDescription" [(ngModel)]="launchIn.description"
+                                        placeholder="Ex:.compras do mês" name="description">
+
+                            </div>
+
+                            <div class="form-row">
+                        
+                                <div class="form-group col-md-6">
+                                    <label for="inputValue">Valor</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">R$</div>
+                                        </div>
+                                        <input type="text" id="inputValue" name="value" step="0.01"
+                                            placeholder="1,57" class="form-control" [(ngModel)]="launchIn.value"> 
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+
+                                <div class="form-group col-md-2">
+                                    <button (click)="newLaunchIn()" class="btn btn-success" id="btnSave">
+                                        Gravar
+                                    </button>    
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                        <!-- <div>
+
+                                <div class="form-group col-md">
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Sucesso!</strong>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>                        
+                        </div> -->
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-sm-2"></div>
+
+        </div>
+    </div>
