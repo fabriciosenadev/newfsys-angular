@@ -19,7 +19,6 @@ export class MenuComponent implements OnInit {
         this.userInfo.token = localStorage.getItem('authToken');
 
         this.systemService.getUserInfo(this.userInfo).subscribe(userInfoReturn => {
-            console.log(userInfoReturn);
             this.userInfo = userInfoReturn;
             this.userInfo.firstName = this.userInfo.data.full_name.split(' ')[0];
         });
