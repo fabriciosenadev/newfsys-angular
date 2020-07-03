@@ -9,7 +9,7 @@ export class ApiService {
 
     route = {
         user: 'user',
-        launching: 'launching',
+        launch: 'launch',
         system: 'system',
     };
 
@@ -20,9 +20,15 @@ export class ApiService {
         resetPass: 'reset_password'
     };
 
+    launchAction = {
+        in: 'in',
+        out: 'out',
+    };
+
     systemRoute = {
         user: 'user',
         categories: 'categories',
+        payMethod: 'pay_methods',
     };
 
     systemAction = {
