@@ -6,7 +6,7 @@ import { map, catchError } from 'rxjs/operators';
 
 import { ApiService } from '../api/api.service';
 import { SessionService } from '../system/session.service';
-import { LaunchOut } from 'src/app/models/launch.model';
+import { LaunchOut, LaunchIn } from 'src/app/models/launch.model';
 
 @Injectable({
     providedIn: 'root'
@@ -24,6 +24,23 @@ export class LaunchService {
     route = '';
     action = '';
 
+    storeIn(launchIn: LaunchIn, token: string): Observable<LaunchIn>
+    {
+        this.route = this.api.route.launch;
+
+        return this.http.post<LaunchOut>(`${this.baseUrl}/${this.route}`, 
+        launchIn,
+        {
+            headers:{
+                auth_pass: token
+            }
+        }
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error))
+        );
+    }
+
     storeOut(launchOut: LaunchOut, token: string): Observable<LaunchOut>
     {
         this.route = this.api.route.launch;
@@ -39,26 +56,6 @@ export class LaunchService {
             catchError(error => this.errorHandler(error))
         );
     }
-    // storeOut(
-    //     launchOut: LaunchOut,
-    //     token: string
-    // ): Observable<LaunchOut> {
-    //     this.route = this.api.route.launch;
-    //     this.action = this.api.launchAction.out;
-
-    //     return this.http.post<LaunchOut>(
-    //         `${this.baseUrl}/${this.route}`,
-    //         launchOut,
-    //         {
-    //             headers: {
-    //                 auth_pass: token
-    //             }
-    //         }
-    //     ).pipe(
-    //         map(obj => obj),
-    //         catchError(error => this.errorHandler(error))
-    //     );
-    // }
 
     showMessage(
         msg: string,
