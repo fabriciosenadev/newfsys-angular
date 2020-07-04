@@ -23,6 +23,7 @@ export class ApiService {
     launchAction = {
         in: 'in',
         out: 'out',
+        filter: 'filter',
     };
 
     systemRoute = {
