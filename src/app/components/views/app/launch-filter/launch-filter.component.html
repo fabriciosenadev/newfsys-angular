@@ -1,0 +1,213 @@
+
+    <!-- <hr> -->
+
+    <!-- inicio  conteudo do site-->
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-2">
+                <app-side-menu></app-side-menu>
+            </div>
+
+            <div class="col-md-8" id="main">
+
+                <div class="row" style="margin-top:10px;margin-bottom:10px;">
+
+                    <div class="col">
+
+                        <div class="row justify-content-center">
+
+                            <form class="form-inline">
+
+                                <label class="sr-only" for="inlineFormInputGroupUsername2">Inicio</label>
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                    <div class="input-group-text">De</div>
+                                    </div>
+                                    <input type="date" class="form-control" name="dateFrom"
+                                        id="inlineFormInputGroupUsername2" placeholder="Username" 
+                                        [(ngModel)]="launchFilter.fromDate" required>
+                                </div>
+
+                                <label class="sr-only" for="inlineFormInputGroupUsername2">Fim</label>
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                    <div class="input-group-text">Até</div>
+                                    </div>
+                                    <input type="date" class="form-control" name="dateTo"
+                                        id="inlineFormInputGroupUsername2" placeholder="Username" 
+                                        [(ngModel)]="launchFilter.toDate" required>
+                                </div>
+                                <button (click)="filter()" name="btnFilter" class="btn btn-success mb-2">
+                                    <!-- Filtrar  -->
+                                    <i class="material-icons v-middle">
+                                        search
+                                    </i>
+                                </button>
+                                <!-- <button type="submit" name="btnFilter" class="btn btn-success mb-2">Filtrar <i class="fas fa-search"></i> </button> -->
+
+                            </form>
+
+                            </div>
+
+                                <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>Veja bem!</strong> 
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div> -->
+
+                                <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Sucesso!</strong>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div> -->
+
+                            </div>
+
+                        </div>
+                                        
+                        <div class="row">
+
+                            <div class="col">
+
+                                <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>Veja bem!</strong> Não encontramos resultados para esta pesquisa.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div> -->
+                                <!-- <div *ngIf="length > 0"> -->
+                                <div *ngIf="true">
+                                    <div class="row">
+                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="in-tab" data-toggle="tab" href="#in" role="tab" aria-controls="in" aria-selected="false">Recebi</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="out-tab" data-toggle="tab" href="#out" role="tab" aria-controls="out" aria-selected="true">Paguei</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="in" role="tabpanel" aria-labelledby="in-tab">
+                                    
+                                            <table class="table table-striped">
+                                                
+                                                <thead>
+                                                    <tr style="background-color: rgba(40, 167, 69, 0.4)">
+                                                        <th width="30px" class="text-center">#</th>
+                                                        <th>Data</th>                                                    
+                                                        <th>Valor (R$)</th>                                                    
+                                                        <!-- <th class="text-center">Status</th>                                                     -->
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <tr *ngFor="let obj of launchFilter.data">
+
+                                                        <th *ngIf="obj.applicable == 'in'" scope="row">                                                    
+                                                            <!-- <form action="" method="post">
+                                                                <input type="hidden" name="historicId">
+                                                                <input type="hidden" name="dateFrom">
+                                                                <input type="hidden" name="dateTo">
+                                                                <button class="btn btn-sm">
+                                                                    <i class="material-icons">
+                                                                        visibility
+                                                                    </i>
+                                                                </button>
+                                                            </form> -->
+                                                            <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
+                                                                <i class="material-icons">
+                                                                    visibility
+                                                                </i>
+                                                            </a>
+                                                        </th>
+                                                        <td *ngIf="obj.applicable == 'in'">{{ obj.date }}</td>                                                    
+                                                        <td *ngIf="obj.applicable == 'in'">{{ obj.value| currency:'BRL' }}</td>                                                    
+                                                        <!-- <td *ngIf="obj.applicable == 'in'"> -->
+                                                            <!-- classes bg-warning ou bg-success: avaliar se esta pendente ou ok -->
+                                                            <!-- <div class=" text-center bg-warning" style="padding:4px;border-radius:20px;color:white;">                                                        
+                                                                text
+                                                            </div>
+                                                        </td> -->
+
+                                                    </tr>
+
+                                                </tbody>
+
+                                            </table>
+
+                                        </div>
+
+                                        <div class="tab-pane fade" id="out" role="tabpanel" aria-labelledby="out-tab">
+
+                                            <table class="table table-striped">
+                                                
+                                                <thead>
+                                                    <tr style="background-color: rgba(220, 53, 69, 0.4)">
+                                                        <th width="30px" class="text-center">#</th>
+                                                        <th>Data</th>                                                    
+                                                        <th>Valor (R$)</th>                                                    
+                                                        <!-- <th class="text-center">Status</th>                                                     -->
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <tr *ngFor="let obj of launchFilter.data">
+
+                                                        <th *ngIf="obj.applicable == 'out'" scope="row">                                                    
+                                                            <!-- <form action="" method="post">
+                                                                <input type="hidden" name="historicId">
+                                                                <input type="hidden" name="dateFrom">
+                                                                <input type="hidden" name="dateTo">
+                                                                <button class="btn btn-sm">
+                                                                    <i class="material-icons">
+                                                                        visibility
+                                                                    </i>
+                                                                </button>
+                                                            </form> -->
+                                                            <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
+                                                                <i class="material-icons">
+                                                                    visibility
+                                                                </i>
+                                                            </a>
+                                                        </th>
+                                                        <td *ngIf="obj.applicable == 'out'">{{ obj.date }}</td>                                                    
+                                                        <td *ngIf="obj.applicable == 'out'">{{ obj.value| currency:'BRL' }}</td>                                                    
+                                                        <!-- <td *ngIf="obj.applicable == 'out'">
+                                                            <div class=" text-center" style="padding:4px;border-radius:20px;color:white;">                                                        
+                                                                text
+                                                            </div>
+                                                        </td> -->
+
+                                                    </tr>
+
+                                                </tbody>
+
+                                            </table>
+
+                                        </div>
+                                                        
+                                    </div>                
+                                </div>
+                            </div>
+                        
+                        </div>
+
+                    </div>
+
+                <!-- </div>
+
+            </div> -->
+
+            <div class="col-md-2"></div>
+
+        </div>
+    </div>
+
+    <!-- fim conteúdo do site -->
+
+    <!-- fim container -->

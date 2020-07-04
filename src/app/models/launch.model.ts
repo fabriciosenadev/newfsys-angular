@@ -14,3 +14,9 @@ export interface LaunchOut {
     value: Number,
     id_pay_method: Number,
 }
+
+export interface LaunchFilter {
+    [x: string]: any,
+    fromDate: Date,
+    toDate: Date 
+}
