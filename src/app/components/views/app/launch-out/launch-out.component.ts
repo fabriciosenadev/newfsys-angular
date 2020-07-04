@@ -6,6 +6,7 @@ import { Categories } from 'src/app/models/category.model';
 import { SystemService } from 'src/app/services/system/system.service';
 import { LaunchOut } from 'src/app/models/launch.model';
 import { LaunchService } from 'src/app/services/user/launch.service';
+import { HeaderService } from 'src/app/services/template/header/header.service';
 
 @Component({
     selector: 'app-launch-out',
@@ -35,9 +36,14 @@ export class LaunchOutComponent implements OnInit {
     }
 
     constructor(
+        private headerService: HeaderService,
         private systemService: SystemService,
         private launchService: LaunchService,
     ) {
+        headerService.headerData = {
+            routeUrl: 'app'
+        }
+
         this.systemService.getCategories('out', this.token).subscribe(categoriesReturn => {
             this.categories = categoriesReturn;
         });
