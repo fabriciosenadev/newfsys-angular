@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,10 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
@@ -31,6 +36,9 @@ import { MenuComponent } from './components/template/app/menu/menu.component';
 import { LaunchInComponent } from './components/views/app/launch-in/launch-in.component';
 import { LaunchOutComponent } from './components/views/app/launch-out/launch-out.component';
 import { LogoutComponent } from './components/views/app/logout/logout.component';
+import { LaunchFilterComponent } from './components/views/app/launch-filter/launch-filter.component';
+
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -49,7 +57,8 @@ import { LogoutComponent } from './components/views/app/logout/logout.component'
     SideMenuComponent,
     LaunchInComponent,
     LaunchOutComponent,
-    LogoutComponent
+    LogoutComponent,
+    LaunchFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -61,10 +70,16 @@ import { LogoutComponent } from './components/views/app/logout/logout.component'
     MatToolbarModule,
     MatSidenavModule,
     MatSnackBarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     
     FormsModule,
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'pt-BR'
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
