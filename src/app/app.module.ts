@@ -13,9 +13,6 @@ import { registerLocaleData } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
 
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
@@ -70,9 +67,6 @@ registerLocaleData(localePt);
     MatToolbarModule,
     MatSidenavModule,
     MatSnackBarModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
     
     FormsModule,
   ],
