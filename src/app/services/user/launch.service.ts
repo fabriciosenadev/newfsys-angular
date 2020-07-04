@@ -6,7 +6,7 @@ import { map, catchError } from 'rxjs/operators';
 
 import { ApiService } from '../api/api.service';
 import { SessionService } from '../system/session.service';
-import { LaunchOut, LaunchIn } from 'src/app/models/launch.model';
+import { LaunchOut, LaunchIn, LaunchFilter } from 'src/app/models/launch.model';
 
 @Injectable({
     providedIn: 'root'
@@ -24,33 +24,48 @@ export class LaunchService {
     route = '';
     action = '';
 
-    storeIn(launchIn: LaunchIn, token: string): Observable<LaunchIn>
-    {
+    storeIn(launchIn: LaunchIn, token: string): Observable<LaunchIn> {
         this.route = this.api.route.launch;
 
-        return this.http.post<LaunchOut>(`${this.baseUrl}/${this.route}`, 
-        launchIn,
-        {
-            headers:{
-                auth_pass: token
+        return this.http.post<LaunchOut>(`${this.baseUrl}/${this.route}`,
+            launchIn,
+            {
+                headers: {
+                    auth_pass: token
+                }
             }
-        }
         ).pipe(
             map(obj => obj),
             catchError(error => this.errorHandler(error))
         );
     }
 
-    storeOut(launchOut: LaunchOut, token: string): Observable<LaunchOut>
-    {
+    storeOut(launchOut: LaunchOut, token: string): Observable<LaunchOut> {
         this.route = this.api.route.launch;
 
         return this.http.post<LaunchOut>(`${this.baseUrl}/${this.route}`, launchOut,
-        {
-            headers:{
-                auth_pass: token
+            {
+                headers: {
+                    auth_pass: token
+                }
             }
-        }
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error))
+        );
+    }
+
+    filterByDate(launchFilter: LaunchFilter, token: string): Observable<LaunchFilter> {
+        this.route = this.api.route.launch;
+        this.action = this.api.launchAction.filter;
+
+        return this.http.post<LaunchFilter>(`${this.baseUrl}/${this.route}/${this.action}`
+            , launchFilter,
+            {
+                headers: {
+                    auth_pass: token
+                },
+            },
         ).pipe(
             map(obj => obj),
             catchError(error => this.errorHandler(error))
