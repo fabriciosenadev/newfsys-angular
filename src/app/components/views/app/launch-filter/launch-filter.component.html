@@ -11,7 +11,7 @@
 
             <div class="col-md-8" id="main">
 
-                <div class="row" style="margin-top:10px;margin-bottom:10px;">
+                <div class="row" style="margin-top:10px;margin-bottom: 80px;">
 
                     <div class="col">
 
@@ -72,14 +72,15 @@
 
                             <div class="col">
 
-                                <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <strong>Veja bem!</strong> Não encontramos resultados para esta pesquisa.
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div> -->
-                                <!-- <div *ngIf="length > 0"> -->
-                                <div *ngIf="true">
+                                <div *ngIf="length == 0">
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong>Veja bem!</strong> Não encontramos resultados para esta pesquisa.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div *ngIf="length > 0">
                                     <div class="row">
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item">
@@ -125,7 +126,7 @@
                                                                 </i>
                                                             </a>
                                                         </th>
-                                                        <td *ngIf="obj.applicable == 'in'">{{ obj.date }}</td>                                                    
+                                                        <td *ngIf="obj.applicable == 'in'">{{ obj.date | date:'shortDate' }}</td>                                                    
                                                         <td *ngIf="obj.applicable == 'in'">{{ obj.value| currency:'BRL' }}</td>                                                    
                                                         <!-- <td *ngIf="obj.applicable == 'in'"> -->
                                                             <!-- classes bg-warning ou bg-success: avaliar se esta pendente ou ok -->
