@@ -6,7 +6,7 @@ import { map, catchError } from 'rxjs/operators';
 
 import { ApiService } from '../api/api.service';
 import { SessionService } from '../system/session.service';
-import { LaunchOut, LaunchIn, LaunchFilter } from 'src/app/models/launch.model';
+import { LaunchOut, LaunchIn, LaunchFilter, LaunchShow } from 'src/app/models/launch.model';
 
 @Injectable({
     providedIn: 'root'
@@ -61,6 +61,34 @@ export class LaunchService {
 
         return this.http.post<LaunchFilter>(`${this.baseUrl}/${this.route}/${this.action}`
             , launchFilter,
+            {
+                headers: {
+                    auth_pass: token
+                },
+            },
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error))
+        );
+    }
+
+    filterById(id: Number, token: string): Observable<LaunchShow> {
+        this.route = this.api.route.launch;
+        return this.http.get<LaunchShow>(`${this.baseUrl}/${this.route}/${id}`,
+            {
+                headers: {
+                    auth_pass: token
+                },
+            },
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error))
+        );
+    }
+
+    deleteLaunch(id: Number, token: string): Observable<LaunchShow> {
+        this.route = this.api.route.launch;
+        return this.http.delete<LaunchShow>(`${this.baseUrl}/${this.route}/${id}`,
             {
                 headers: {
                     auth_pass: token
