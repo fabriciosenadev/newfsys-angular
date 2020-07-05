@@ -32,53 +32,53 @@ export class ProfileComponent implements OnInit {
     november: string = '11';
     december: string = '12';
 
-    januaryReceived: Number = 0;
-    januaryPaid: Number = 0;
-    januaryTotal: Number = 0;
+    januaryReceived: number = 0;
+    januaryPaid: number = 0;
+    januaryTotal: number = 0;
 
-    februaryReceived: Number = 0;
-    februaryPaid: Number = 0;
-    februaryTotal: Number = 0;
+    februaryReceived: number = 0;
+    februaryPaid: number = 0;
+    februaryTotal: number = 0;
 
-    marchReceived: Number = 0;
-    marchPaid: Number = 0;
-    marchTotal: Number = 0;
+    marchReceived: number = 0;
+    marchPaid: number = 0;
+    marchTotal: number = 0;
 
-    aprilReceived: Number = 0;
-    aprilPaid: Number = 0;
-    aprilTotal: Number = 0;
+    aprilReceived: number = 0;
+    aprilPaid: number = 0;
+    aprilTotal: number = 0;
 
-    mayReceived: Number = 0;
-    mayPaid: Number = 0;
-    mayTotal: Number = 0;
+    mayReceived: number = 0;
+    mayPaid: number = 0;
+    mayTotal: number = 0;
 
-    juneReceived: Number = 0;
-    junePaid: Number = 0;
-    juneTotal: Number = 0;
+    juneReceived: number = 0;
+    junePaid: number = 0;
+    juneTotal: number = 0;
 
-    julyReceived: Number = 0;
-    julyPaid: Number = 0;
-    julyTotal: Number = 0;
+    julyReceived: number = 0;
+    julyPaid: number = 0;
+    julyTotal: number = 0;
 
-    augustReceived: Number = 0;
-    augustPaid: Number = 0;
-    augustTotal: Number = 0;
+    augustReceived: number = 0;
+    augustPaid: number = 0;
+    augustTotal: number = 0;
 
-    septemberReceived: Number = 0;
-    septemberPaid: Number = 0;
-    septemberTotal: Number = 0;
+    septemberReceived: number = 0;
+    septemberPaid: number = 0;
+    septemberTotal: number = 0;
 
-    octoberReceived: Number = 0;
-    octoberPaid: Number = 0;
-    octoberTotal: Number = 0;
+    octoberReceived: number = 0;
+    octoberPaid: number = 0;
+    octoberTotal: number = 0;
 
-    novemberReceived: Number = 0;
-    novemberPaid: Number = 0;
-    novemberTotal: Number = 0;
+    novemberReceived: number = 0;
+    novemberPaid: number = 0;
+    novemberTotal: number = 0;
 
-    decemberReceived: Number = 0;
-    decemberPaid: Number = 0;
-    decemberTotal: Number = 0;
+    decemberReceived: number = 0;
+    decemberPaid: number = 0;
+    decemberTotal: number = 0;
 
 
     constructor(
@@ -108,7 +108,7 @@ export class ProfileComponent implements OnInit {
         this.year++;
         this.getMonth();
     }
-    
+
     getMonth(): void {
         this.getJanuary();
         this.getFebruary();
@@ -130,7 +130,12 @@ export class ProfileComponent implements OnInit {
 
             this.januaryReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.januaryPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            this.januaryTotal = this.month.total[0].value == null ? 0 : this.month.total[0].value;
+            if (this.januaryPaid <= this.januaryReceived) {
+                this.januaryTotal = this.januaryReceived - this.januaryPaid;
+            }
+            else {
+                this.januaryTotal = this.januaryPaid - this.januaryReceived;
+            }
         });
     }
 
@@ -140,7 +145,12 @@ export class ProfileComponent implements OnInit {
 
             this.februaryReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.februaryPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            this.februaryTotal = this.month.total[0].value == null ? 0 : this.month.total[0].value;
+            if (this.februaryPaid <= this.februaryReceived) {
+                this.februaryTotal = this.februaryReceived - this.februaryPaid;
+            }
+            else {
+                this.februaryTotal = this.februaryPaid - this.februaryReceived;
+            }
         });
     }
 
@@ -150,7 +160,12 @@ export class ProfileComponent implements OnInit {
 
             this.marchReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.marchPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            this.marchTotal = this.month.total[0].value == null ? 0 : this.month.total[0].value;
+            if (this.marchPaid <= this.marchReceived) {
+                this.marchTotal = this.marchReceived - this.marchPaid;
+            }
+            else {
+                this.marchTotal = this.marchPaid - this.marchReceived;
+            }
         });
     }
 
@@ -160,7 +175,12 @@ export class ProfileComponent implements OnInit {
 
             this.aprilReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.aprilPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            this.aprilTotal = this.month.total[0].value == null ? 0 : this.month.total[0].value;
+            if (this.aprilPaid <= this.aprilReceived) {
+                this.aprilTotal = this.aprilReceived - this.aprilPaid;
+            }
+            else {
+                this.aprilTotal = this.aprilPaid - this.aprilReceived;
+            }
         });
     }
 
@@ -170,7 +190,12 @@ export class ProfileComponent implements OnInit {
 
             this.mayReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.mayPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            this.mayTotal = this.month.total[0].value == null ? 0 : this.month.total[0].value;
+            if (this.mayPaid <= this.mayReceived) {
+                this.mayTotal = this.mayReceived - this.mayPaid;
+            }
+            else {
+                this.mayTotal = this.mayPaid - this.mayReceived;
+            }
         });
     }
 
@@ -180,7 +205,13 @@ export class ProfileComponent implements OnInit {
 
             this.juneReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.junePaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            this.juneTotal = this.month.total[0].value == null ? 0 : this.month.total[0].value;
+            if (this.junePaid <= this.juneReceived) {
+                this.juneTotal = this.juneReceived - this.junePaid;
+            }
+            else {
+                this.juneTotal = this.junePaid - this.juneReceived;
+            }
+
         });
     }
 
@@ -190,7 +221,13 @@ export class ProfileComponent implements OnInit {
 
             this.julyReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.julyPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            this.julyTotal = this.month.total[0].value == null ? 0 : this.month.total[0].value;
+            if (this.julyPaid <= this.julyReceived) {
+                this.julyTotal = this.julyReceived - this.julyPaid;
+            }
+            else {
+                this.julyTotal = this.julyPaid - this.julyReceived;
+            }
+
         });
     }
 
@@ -200,7 +237,13 @@ export class ProfileComponent implements OnInit {
 
             this.augustReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.augustPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            this.augustTotal = this.month.total[0].value == null ? 0 : this.month.total[0].value;
+            if (this.augustPaid <= this.augustReceived) {
+                this.augustTotal = this.augustReceived - this.augustPaid;
+            }
+            else {
+                this.augustTotal = this.augustPaid - this.augustReceived;
+            }
+
         });
     }
 
@@ -210,7 +253,12 @@ export class ProfileComponent implements OnInit {
 
             this.septemberReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.septemberPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            this.septemberTotal = this.month.total[0].value == null ? 0 : this.month.total[0].value;
+            if (this.septemberPaid <= this.septemberReceived) {
+                this.septemberTotal = this.septemberReceived - this.septemberPaid;
+            }
+            else {
+                this.septemberTotal = this.septemberPaid - this.septemberReceived;
+            }
         });
     }
 
@@ -220,7 +268,12 @@ export class ProfileComponent implements OnInit {
 
             this.octoberReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.octoberPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            this.octoberTotal = this.month.total[0].value == null ? 0 : this.month.total[0].value;
+            if (this.octoberPaid <= this.octoberReceived) {
+                this.octoberTotal = this.octoberReceived - this.octoberPaid;
+            }
+            else {
+                this.octoberTotal = this.octoberPaid - this.octoberReceived;
+            }
         });
     }
 
@@ -230,7 +283,12 @@ export class ProfileComponent implements OnInit {
 
             this.novemberReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.novemberPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            this.novemberTotal = this.month.total[0].value == null ? 0 : this.month.total[0].value;
+            if (this.novemberPaid <= this.novemberReceived) {
+                this.novemberTotal = this.novemberReceived - this.novemberPaid;
+            }
+            else {
+                this.novemberTotal = this.novemberPaid - this.novemberReceived;
+            }
         });
     }
 
@@ -240,7 +298,12 @@ export class ProfileComponent implements OnInit {
 
             this.decemberReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.decemberPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            this.decemberTotal = this.month.total[0].value == null ? 0 : this.month.total[0].value;
+            if(this.decemberPaid <= this.decemberReceived) {
+                this.decemberTotal = this.decemberReceived - this.decemberPaid;
+            }
+            else {
+                this.decemberTotal = this.decemberPaid - this.decemberReceived;
+            }
         });
     }
 
