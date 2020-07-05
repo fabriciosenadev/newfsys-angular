@@ -1,0 +1,134 @@
+<!-- <hr> -->
+
+<!-- inicio  conteudo do site-->
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-sm-2">
+            <app-side-menu></app-side-menu>
+        </div>
+
+        <div class="col-md-8" id="main">
+
+            <div class="row justify-content-center" style="margin-top:50px;margin-bottom: 80px;">
+
+                <div class="border-top border-success rounded-bottom"
+                    style="width:500px;padding: 10px; background-color:white;">
+
+                    <h2>Detalhes do lançamento</h2>
+                    <hr>
+                    <p>
+                        <strong>&raquo;</strong> Tipo de lançamento:
+                        {{ applicable == 'out' ? 'Saída' : 'Entrada' }}
+                    </p>
+                    <p>
+                        <strong>&raquo;</strong> Data:
+                        {{ date | date }}
+                    </p>
+                    <p>
+                        <strong>&raquo;</strong> Status:
+                        {{ status }}
+                    </p>
+                    <p>
+                        <strong>&raquo;</strong> Categoria:
+                        {{ category }}
+                    </p>
+                    <p *ngIf="pay_method != null">
+                        <strong>&raquo;</strong> Forma de Pagamento:
+                        {{ pay_method }}
+                    </p>
+                    <p>
+                        <strong>&raquo;</strong> Valor:
+                        {{ value | currency: 'BRL' }}
+                    </p>
+                    <p>
+                        <strong>&raquo;</strong> Descrição:
+                        {{ description }}
+                    </p>
+
+                    <hr>
+
+
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <div class=" row">
+                                <div class="col">
+                                    <div class="row justify-content-center">
+                                        <button (click)="goBack()" class="btn btn-md">
+                                            <!-- Voltar -->
+                                            <i class="material-icons">
+                                                reply
+                                            </i>
+                                            <!-- <i class="fas fa-reply "></i> -->
+                                        </button>
+                                    </div>
+
+                                </div>
+                                <div class="col">
+                                    <div class="row justify-content-center">
+                                        <!-- <a class="btn btn-md btn-warning text-white disabled"
+                                            alt="Opção indisponível no momento"> -->
+                                        <!-- Alterar -->
+                                        <!-- <i class="material-icons">
+                                                edit
+                                            </i> -->
+                                        <!-- <i class="fas fa-pencil-alt text-white"></i> -->
+                                        <!-- </a> -->
+                                    </div>
+
+                                </div>
+                                <div class="col">
+                                    <div class="row justify-content-center">
+                                        <button class="btn btn-md btn-danger" data-toggle="modal"
+                                            data-target="#deleteLaunch">
+                                            <!-- Deletar -->
+                                            <i class="material-icons">
+                                                delete
+                                            </i>
+                                            <!-- <i class="fas fa-trash-alt text-white"></i> -->
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-2"></div>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="deleteLaunch" tabindex="-1" role="dialog" aria-labelledby="deleteLaunchLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content alert-danger">
+            <div class="modal-header alert-warning">
+                <h2 class="modal-title text-danger" id="deleteLaunchLabel">
+                    <strong>Atenção</strong>
+                </h2>
+            </div>
+            <div class="modal-body alert-warning text-body">
+                Os dados serão removidos permanentemente. <br />
+                Deseja prosseguir?
+            </div>
+            <div class="modal-footer alert-warning">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" (click)="deleteLaunch()" class="btn btn-danger" data-dismiss="modal">
+                    Sim
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- fim conteúdo do site -->
+
+<!-- fim container -->
