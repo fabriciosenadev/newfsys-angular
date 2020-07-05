@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserInfo } from 'src/app/models/user.model';
-import { Observable, EMPTY } from 'rxjs';
+import { Observable, EMPTY, BehaviorSubject } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { SessionService } from './session.service';
 import { ApiService } from '../api/api.service';
@@ -8,6 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { Categories } from 'src/app/models/category.model';
 import { PayMethods } from 'src/app/models/payMethod.model';
+import { Month } from 'src/app/models/month.model';
 
 @Injectable({
     providedIn: 'root'
@@ -71,6 +72,22 @@ export class SystemService {
 
         return this.http.get<PayMethods>(
             `${this.baseUrl}/${this.route}/${this.systemRoute}`,
+            {
+                headers: {
+                    auth_pass: token,
+                },
+            }
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error))
+        );
+    }
+
+    getMonth(year: string, month: string, token: string): Observable<Month> {
+        this.route = this.api.route.system;
+
+        return this.http.get<Month>(
+            `${this.baseUrl}/${this.route}/${month}/${year}`,
             {
                 headers: {
                     auth_pass: token,
