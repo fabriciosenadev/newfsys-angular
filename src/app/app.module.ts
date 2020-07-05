@@ -13,6 +13,7 @@ import { registerLocaleData } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
 
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
@@ -34,6 +35,7 @@ import { LaunchInComponent } from './components/views/app/launch-in/launch-in.co
 import { LaunchOutComponent } from './components/views/app/launch-out/launch-out.component';
 import { LogoutComponent } from './components/views/app/logout/logout.component';
 import { LaunchFilterComponent } from './components/views/app/launch-filter/launch-filter.component';
+import { LaunchShowComponent } from './components/views/app/launch-show/launch-show.component';
 
 registerLocaleData(localePt);
 
@@ -55,7 +57,8 @@ registerLocaleData(localePt);
     LaunchInComponent,
     LaunchOutComponent,
     LogoutComponent,
-    LaunchFilterComponent
+    LaunchFilterComponent,
+    LaunchShowComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +70,7 @@ registerLocaleData(localePt);
     MatToolbarModule,
     MatSidenavModule,
     MatSnackBarModule,
+    MatCardModule,
     
     FormsModule,
   ],
