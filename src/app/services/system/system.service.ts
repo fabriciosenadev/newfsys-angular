@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserInfo } from 'src/app/models/user.model';
-import { Observable, EMPTY, BehaviorSubject } from 'rxjs';
+import { Observable, EMPTY } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { SessionService } from './session.service';
 import { ApiService } from '../api/api.service';
