@@ -14,6 +14,7 @@ import { LaunchOutComponent } from './components/views/app/launch-out/launch-out
 import { LaunchInComponent } from './components/views/app/launch-in/launch-in.component';
 import { LogoutComponent } from './components/views/app/logout/logout.component';
 import { LaunchFilterComponent } from './components/views/app/launch-filter/launch-filter.component';
+import { LaunchShowComponent } from './components/views/app/launch-show/launch-show.component';
 
 const routes: Routes = [
     {
@@ -55,6 +56,10 @@ const routes: Routes = [
     {
         path: "app/launch/filter",
         component: LaunchFilterComponent
+    },
+    {
+        path: "app/launch/:id",
+        component: LaunchShowComponent
     },
 ];
 
