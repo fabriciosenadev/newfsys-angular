@@ -13,7 +13,6 @@ import { registerLocaleData } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatCardModule } from '@angular/material/card';
 
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
@@ -70,7 +69,6 @@ registerLocaleData(localePt);
     MatToolbarModule,
     MatSidenavModule,
     MatSnackBarModule,
-    MatCardModule,
     
     FormsModule,
   ],
