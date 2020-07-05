@@ -1,157 +1,450 @@
+<!-- <hr> -->
 
-    <!-- <hr> -->
+<!-- inicio  conteudo do site-->
+<div class="container-fluid" style="margin-bottom: 100px;">
+    <div class="row">
 
-    <!-- inicio  conteudo do site-->
-    <div class="container-fluid" style="margin-bottom: 100px;">
-        <div class="row">
+        <div class="col-sm-2">
+            <app-side-menu></app-side-menu>
+        </div>
 
-            <div class="col-sm">
-                <app-side-menu></app-side-menu>
+        <div class="col-md-8" id="main">
+            <div class="row justify-content-center">
+                <!-- <h1>Main Area</h1> -->
             </div>
 
-            <div class="col-md-8" id="main">
-                <div class="row justify-content-center">
-                    <h1>Main Area</h1>
-                </div>
-                <div class="row justify-content-center" style="margin-top:50px;">                    
-
-                    <div class="card-deck">
-
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title">Mês</h5>
-                            </div>
-
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Entrada</li>
-                                    <li class="list-group-item">Pendente Entrada</li>
-                                    <li class="list-group-item">Saída</li>
-                                    <li class="list-group-item">Pendente Saída</li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                        <div class="card">
-                            
-                            <div class="card-body">
-                                <h5 class="card-title">Mês</h5>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Entrada</li>
-                                    <li class="list-group-item">Pendente Entrada</li>
-                                    <li class="list-group-item">Saída</li>
-                                    <li class="list-group-item">Pendente Saída</li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                Mês
-                            </div>
-
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Entrada</li>
-                                    <li class="list-group-item">Pendente Entrada</li>
-                                    <li class="list-group-item">Saída</li>
-                                    <li class="list-group-item">Pendente Saída</li>
-                                </ul>
-                            </div>
-                        </div>
+            <div class="row justify-content-center" style="margin-top: 50px;">
+                    <div style="margin-right:45px;">
+                        <button (click)="decreaseYear()" class="btn btn-sm">
+                            <h2>
+                                <i class="material-icons">
+                                    arrow_back_ios
+                                </i>
+                            </h2>
+                        </button>
                     </div>
+                
 
-                </div>
+                    <h2>{{ year }}</h2>
+                
+                    <div style="margin-left:50px;">
 
-                <div class="row justify-content-center" style="margin-top:50px;">                    
+                        <button (click)="increaseYear()" class="btn btn-sm">
+                            <h2>
+                                <i class="material-icons">
+                                    arrow_forward_ios
+                                </i>
+                            </h2>
+                        </button>
+                    </div>
+            </div>
 
-                    <div class="card-deck">
-                        <div class="card">
+
+            <div class="row justify-content-center" style="margin-top:50px;">
+
+                <div class="card-deck">
+
+                    <div class="card card-size">
                         <div class="card-header">
-                            <h5 class="card-title">Mês</h5>
-                            </div>
-                            <div class="card-body">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Entrada</li>
-                                <li class="list-group-item">Pendente Entrada</li>
-                                <li class="list-group-item">Saída</li>
-                                <li class="list-group-item">Pendente Saída</li>
-                                <!-- <li class="list-group-item">Cras justo odio</li>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Vestibulum at eros</li> -->
-                            </ul>
-                            <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p> -->
-                            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                            <h3 class="card-title">Janeiro</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>Entrada</td>
+                                            <td>{{ januaryReceived | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saída</td>
+                                            <td>{{ januaryPaid | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Disponível</td>
+                                            <td>{{ januaryTotal | currency:'BRL'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
 
                         </div>
-                        <div class="card">
-                            
-                            <div class="card-body">
-                            <h5 class="card-title">Mês</h5>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Entrada</li>
-                                <li class="list-group-item">Pendente Entrada</li>
-                                <li class="list-group-item">Saída</li>
-                                <li class="list-group-item">Pendente Saída</li>
-                                <!-- <li class="list-group-item">Vestibulum at eros</li> -->
-                            </ul>
-                            <!-- <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p> -->
-                            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-                            </div>
+                    </div>
+
+                    <div class="card card-size">
+                        <div class="card-header">
+                            <h3 class="card-title">Fevereiro</h3>
                         </div>
-                        <div class="card">
-                            <div class="card-header">
-                            Mês
-                            <!-- <h5 class="card-title">Card title</h5> -->
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>Entrada</td>
+                                            <td>{{ februaryReceived | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saída</td>
+                                            <td>{{ februaryPaid | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Disponível</td>
+                                            <td>{{ februaryTotal | currency:'BRL'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="card-body">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Entrada</li>
-                                <li class="list-group-item">Pendente Entrada</li>
-                                <li class="list-group-item">Saída</li>
-                                <li class="list-group-item">Pendente Saída</li>
-                                <!-- <li class="list-group-item">Cras justo odio</li>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Vestibulum at eros</li> -->
-                            </ul>
-                            <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p> -->
-                            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+
+                        </div>
+                    </div>
+
+                    <div class="card card-size">
+                        <div class="card-header">
+                            <h3 class="card-title">Março</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>Entrada</td>
+                                            <td>{{ marchReceived | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saída</td>
+                                            <td>{{ marchPaid | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Disponível</td>
+                                            <td>{{ marchTotal | currency:'BRL'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+            <div class="row justify-content-center" style="margin-top:50px;">
+
+                <div class="card-deck">
+
+                    <div class="card card-size">
+                        <div class="card-header">
+                            <h3 class="card-title">Abril</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>Entrada</td>
+                                            <td>{{ aprilReceived | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saída</td>
+                                            <td>{{ aprilPaid | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Disponível</td>
+                                            <td>{{ aprilTotal | currency:'BRL'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card card-size">
+                        <div class="card-header">
+                            <h3 class="card-title">Maio</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>Entrada</td>
+                                            <td>{{ mayReceived | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saída</td>
+                                            <td>{{ mayPaid | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Disponível</td>
+                                            <td>{{ mayTotal | currency:'BRL'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card card-size">
+                        <div class="card-header">
+                            <h3 class="card-title">Junho</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>Entrada</td>
+                                            <td>{{ juneReceived | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saída</td>
+                                            <td>{{ junePaid | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Disponível</td>
+                                            <td>{{ juneTotal | currency:'BRL'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
                     </div>
 
                 </div>
-                    <!-- <div class="row justify-content-center" style="margin-top: 50px;">
+
+            </div>
+            <div class="row justify-content-center" style="margin-top:50px;">
+
+                <div class="card-deck">
+
+                    <div class="card card-size">
+                        <div class="card-header">
+                            <h3 class="card-title">Julho</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>Entrada</td>
+                                            <td>{{ julyReceived | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saída</td>
+                                            <td>{{ julyPaid | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Disponível</td>
+                                            <td>{{ julyTotal | currency:'BRL'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card card-size">
+                        <div class="card-header">
+                            <h3 class="card-title">Agosto</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>Entrada</td>
+                                            <td>{{ augustReceived | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saída</td>
+                                            <td>{{ augustPaid | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Disponível</td>
+                                            <td>{{ augustTotal | currency:'BRL'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card card-size">
+                        <div class="card-header">
+                            <h3 class="card-title">Setembro</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>Entrada</td>
+                                            <td>{{ septemberReceived | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saída</td>
+                                            <td>{{ septemberPaid | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Disponível</td>
+                                            <td>{{ septemberTotal | currency:'BRL'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row justify-content-center" style="margin-top:50px;margin-bottom: 30px;">
+
+                <div class="card-deck">
+
+                    <div class="card card-size">
+                        <div class="card-header">
+                            <h3 class="card-title">Outubro</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>Entrada</td>
+                                            <td>{{ octoberReceived | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saída</td>
+                                            <td>{{ octoberPaid | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Disponível</td>
+                                            <td>{{ octoberTotal | currency:'BRL'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card card-size">
+                        <div class="card-header">
+                            <h3 class="card-title">Novembro</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>Entrada</td>
+                                            <td>{{ novemberReceived | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saída</td>
+                                            <td>{{ novemberPaid | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Disponível</td>
+                                            <td>{{ novemberTotal | currency:'BRL'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card card-size">
+                        <div class="card-header">
+                            <h3 class="card-title">Dezembro</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row justify-content-center">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>Entrada</td>
+                                            <td>{{ decemberReceived | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saída</td>
+                                            <td>{{ decemberPaid | currency:'BRL'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Disponível</td>
+                                            <td>{{ decemberTotal | currency:'BRL'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- <div class="row justify-content-center" style="margin-top: 50px;">
                     <p>Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics,
-                        raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation.
+                        raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade etdical Odd Future jean shorts paleo. Forage Shoreditch tousled aestdetic irony, street art organic Bushwick artisan cliche semiotics ugh syntd chillwave meditation.
                         Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.</p>
 
-                    <p>Ethical Kickstarter PBR asymmetrical lo-fi. Dreamcatcher street art Carles, stumptown gluten-free Kickstarter artisan Wes Anderson wolf pug. Godard sustainable you probably haven't heard of them, vegan farm-to-table Williamsburg slow-carb
+                    <p>Etdical Kickstarter PBR asymmetrical lo-fi. Dreamcatcher street art Carles, stumptown gluten-free Kickstarter artisan Wes Anderson wolf pug. Godard sustainable you probably haven't heard of tdem, vegan farm-to-table Williamsburg slow-carb
                         readymade disrupt deep v. Meggings seitan Wes Anderson semiotics, cliche American Apparel whatever. Helvetica cray plaid, vegan brunch Banksy leggings +1 direct trade. Wayfarers codeply PBR selfies. Banh mi McSweeney's Shoreditch selfies,
                         forage fingerstache food truck occupy YOLO Pitchfork fixie iPhone fanny pack art party Portland.</p>
 
 
 
                     <p>Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics,
-                        raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation.
+                        raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade etdical Odd Future jean shorts paleo. Forage Shoreditch tousled aestdetic irony, street art organic Bushwick artisan cliche semiotics ugh syntd chillwave meditation.
                         Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.</p>
                         
                     <p>Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics,
-                        raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation.
+                        raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade etdical Odd Future jean shorts paleo. Forage Shoreditch tousled aestdetic irony, street art organic Bushwick artisan cliche semiotics ugh syntd chillwave meditation.
                         Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.</p>
                     </div>     -->
-                
-            </div>
-
-            <div class="col-sm-2"></div>
 
         </div>
+
+        <div class="col-sm-2"></div>
+
     </div>
+</div>
 
-    <!-- fim conteúdo do site -->
+<!-- fim conteúdo do site -->
 
 
-    <!-- fim container -->
+<!-- fim container -->
