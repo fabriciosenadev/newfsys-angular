@@ -13,7 +13,7 @@ export class LaunchFilterComponent implements OnInit {
     token: string = localStorage.getItem('authToken');
 
     launches: [];
-    length: number = 0;
+    length: number = -1;
 
     launchFilter: LaunchFilter = {
         fromDate: new Date(),
@@ -35,9 +35,9 @@ export class LaunchFilterComponent implements OnInit {
     filter(): void {
         this.launchService.filterByDate(this.launchFilter, this.token).subscribe(filterReturn => {
             this.launchFilter = filterReturn;
-            console.log(filterReturn.data);
+            // console.log(filterReturn.data);
             this.length = this.launchFilter.data.length;
-            console.log(this.length);
+            // console.log(this.length);
         });
     }
 
