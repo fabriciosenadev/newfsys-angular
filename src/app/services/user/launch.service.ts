@@ -130,6 +130,10 @@ export class LaunchService {
             showMsg = errorRes.error.msg;
             this.showMessage(showMsg, true);
         }
+        else if (errorRes.error.error) {
+            showMsg = errorRes.error.error;
+            this.showMessage(showMsg, true);
+        }
 
         return EMPTY;
     }
