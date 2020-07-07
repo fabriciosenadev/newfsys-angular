@@ -19,7 +19,8 @@ import { LaunchShowComponent } from './components/views/app/launch-show/launch-s
 const routes: Routes = [
     {
         path: "",
-        component: HomeComponent
+        component: HomeComponent,
+        pathMatch: 'full'
     },
     {
         path: "about",
