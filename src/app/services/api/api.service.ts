@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-    url = 'https://newfsys-backend.herokuapp.com'; 
+    url = 'https://fathomless-gorge-34994.herokuapp.com/'; 
 
     route = {
         user: 'user',
