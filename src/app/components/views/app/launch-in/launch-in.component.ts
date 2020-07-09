@@ -49,7 +49,8 @@ export class LaunchInComponent implements OnInit {
     }
 
     newLaunchIn(): void {
-        this.launchIn.value = parseFloat(this.inputValue.replace(',','.'));
+        this.inputValue = this.inputValue.toString().replace(/,/g,'.');
+        this.launchIn.value = parseFloat(this.inputValue);
         
         this.launchService.storeIn(this.launchIn, this.token).subscribe(launchInReturn => {
             this.inputValue = '';

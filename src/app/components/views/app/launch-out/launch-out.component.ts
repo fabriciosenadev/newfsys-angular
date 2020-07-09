@@ -59,7 +59,8 @@ export class LaunchOutComponent implements OnInit {
     }
 
     newLaunchOut(): void {
-        this.launchOut.value = parseFloat(this.inputValue.replace(',','.'));
+        this.inputValue = this.inputValue.toString().replace(/,/g,'.');
+        this.launchOut.value = parseFloat(this.inputValue);
 
         this.launchService.storeOut(this.launchOut, this.token).subscribe(launchOutReturn => {
             this.inputValue = '';
