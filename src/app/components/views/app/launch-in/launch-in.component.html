@@ -50,7 +50,7 @@
                                 
                                 <label for="inputDescription">Descrição</label>
                                     <input type="text" class="form-control" id="inputDescription" [(ngModel)]="launchIn.description"
-                                        placeholder="Ex:.compras do mês" name="description">
+                                        placeholder="Ex: pagamento" name="description">
 
                             </div>
 
@@ -62,8 +62,8 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">R$</div>
                                         </div>
-                                        <input type="text" id="inputValue" name="value" step="0.01"
-                                            placeholder="1,57" class="form-control" [(ngModel)]="inputValue"> 
+                                        <input type="number" id="inputValue" name="value" step="0.01"
+                                            placeholder=" Ex: 1,57" class="form-control" [(ngModel)]="inputValue"> 
                                     </div>
 
                                 </div>
