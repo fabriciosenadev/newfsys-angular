@@ -16,6 +16,8 @@ import { HeaderService } from 'src/app/services/template/header/header.service';
 export class LaunchOutComponent implements OnInit {
 
     token: string = localStorage.getItem('authToken');
+    
+    inputValue: string = '';
 
     categories: Categories = {
         id: 0,
@@ -31,7 +33,7 @@ export class LaunchOutComponent implements OnInit {
         date: new Date(),
         id_category: 0,
         description: '',
-        value: 0,
+        value: 0.0,
         id_pay_method: 0,
     }
 
@@ -57,10 +59,11 @@ export class LaunchOutComponent implements OnInit {
     }
 
     newLaunchOut(): void {
-        console.log(this.launchOut);
+        this.launchOut.value = parseFloat(this.inputValue.replace(',','.'));
+
         this.launchService.storeOut(this.launchOut, this.token).subscribe(launchOutReturn => {
+            this.inputValue = '';
             this.launchOut = launchOutReturn;
-            console.log(launchOutReturn);
             this.launchService.showMessage(launchOutReturn.success);
         });
     }

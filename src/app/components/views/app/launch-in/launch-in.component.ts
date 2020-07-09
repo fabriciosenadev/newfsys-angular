@@ -17,6 +17,8 @@ export class LaunchInComponent implements OnInit {
 
     token: string = localStorage.getItem('authToken');
 
+    inputValue: string = '';
+
     categories: Categories = {
         id: 0,
         categories: {},
@@ -27,7 +29,7 @@ export class LaunchInComponent implements OnInit {
         id_category: 0,
         description: '',
         value: 0
-    }
+        }
 
     constructor(
         private headerService: HeaderService,
@@ -47,7 +49,10 @@ export class LaunchInComponent implements OnInit {
     }
 
     newLaunchIn(): void {
+        this.launchIn.value = parseFloat(this.inputValue.replace(',','.'));
+        
         this.launchService.storeIn(this.launchIn, this.token).subscribe(launchInReturn => {
+            this.inputValue = '';
             this.launchIn = launchInReturn;
             this.launchService.showMessage(launchInReturn.success);
         });
