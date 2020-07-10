@@ -66,6 +66,16 @@ export class LaunchOutComponent implements OnInit {
             this.inputValue = '';
             this.launchOut = launchOutReturn;
             this.launchService.showMessage(launchOutReturn.success);
+
+            this.launchOut.date = new Date;
+            this.launchOut.description = '';
+            this.launchOut.id_category = 0;
+            this.launchOut.value = 0;
+            this.launchOut.id_pay_method = 0;
+
+            // set all as the beginning
+            launchOutReturn = this.launchOut;
+            delete launchOutReturn.success;
         });
     }
 
