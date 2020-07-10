@@ -56,6 +56,15 @@ export class LaunchInComponent implements OnInit {
             this.inputValue = '';
             this.launchIn = launchInReturn;
             this.launchService.showMessage(launchInReturn.success);
+            
+            this.launchIn.date = new Date;
+            this.launchIn.description = '';
+            this.launchIn.id_category = 0;
+            this.launchIn.value = 0;
+            
+            // set all as the beginning
+            delete launchInReturn.success;
+            launchInReturn = this.launchIn;
         });
     }
 
