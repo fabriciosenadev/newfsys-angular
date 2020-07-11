@@ -5,6 +5,7 @@
     display: flex;
     justify-content: flex-end;
     background: #dedede;
+    z-index: 1;
 }
 
 .footer > span {
