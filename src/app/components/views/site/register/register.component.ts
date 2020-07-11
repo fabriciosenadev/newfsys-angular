@@ -32,10 +32,15 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user.email = this.userEmail;
   }
 
-  newUser(): void
-  {
+  get userEmail(): string {
+    return this.userService.userData.email;
+  }
+
+  newUser(): void    
+  {  
     // if (this.user.full_name.trim().length < 8)
     // {
     //   this.userService.showMessage('insert you full name', true);

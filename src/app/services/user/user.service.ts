@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, EMPTY } from 'rxjs';
+import { Observable, EMPTY, BehaviorSubject } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -14,7 +14,13 @@ import { SessionService } from '../system/session.service';
   providedIn: 'root'
 })
 export class UserService {
-  
+
+  private _userData = new BehaviorSubject<UserRegister>({
+    full_name: '',
+    email: '',
+    password: '',
+    verifyPass: ''
+  }); 
 
   constructor(
     private http: HttpClient,
@@ -26,6 +32,16 @@ export class UserService {
     baseUrl = this.api.url;
     route = '';
     action = '';
+
+    get userData(): UserRegister
+    {
+      return this._userData.value;
+    }
+  
+    set userData(userData: UserRegister)
+    {
+      this._userData.next(userData);
+    }
     
 
     register(userRegister: UserRegister): Observable<UserRegister>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from 'src/app/services/template/header/header.service';
+import { UserService } from 'src/app/services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +9,24 @@ import { HeaderService } from 'src/app/services/template/header/header.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private headerService: HeaderService) {
+  email: string = '';
+  constructor(
+    private headerService: HeaderService,
+    private userService: UserService,
+    private router: Router,
+    ) {
     headerService.headerData = {
       routeUrl: 'home'
     }
    }
 
   ngOnInit(): void {
+  }
+
+  sendEmail(): void
+  {
+    this.userService.userData.email = this.email;
+    this.router.navigate(['/register']);
   }
 
 }

@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       {
         localStorage.setItem('authToken', loginReturn.token);
         // console.log(loginReturn)
-        this.sessionService.showMessage('Logged with successfully');
+        this.sessionService.showMessage('Logado com sucesso');
         this.router.navigate(['/app/profile']);
       }
     });    
