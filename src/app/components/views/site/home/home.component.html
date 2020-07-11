@@ -10,19 +10,20 @@
                 <h2>Gerencie suas finanças <br>de forma simples.</h2>
                 
                 <h5>Cadastre-se, é facil e gratuito.</h5>
-                
-                <div class="input-group mb-3">
-                    
-                    <input type="text" class="form-control" placeholder="Digite seu e-mail."
-                        aria-label="Recipient's username" aria-describedby="button-addon2">
-                    
-                    <div class="input-group-append">
-                        <button class="btn btn-success" type="button" id="button-addon2">
-                            <a style="color:white;z-index: 9999;">Cadastre-se grátis</a>
-                        </button>
+                <form>                        
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Digite seu e-mail."
+                            aria-label="Recipient's username" aria-describedby="button-addon2"
+                            [(ngModel)]="email" name="email">
+                        
+                        <div class="input-group-append">
+                            <button class="btn btn-success" id="button-addon2" (click)="sendEmail()"
+                            style="color:white;z-index: 9999;">
+                                Cadastre-se grátis
+                            </button>
+                        </div>
                     </div>
-
-                </div>
+                </form>
 
             </div>
         </div>
