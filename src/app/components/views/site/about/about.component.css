@@ -50,7 +50,7 @@ blockquote {
 .photo-1 {
     min-width: 50px;
     width: 220px;
-    z-index: 1;
+    z-index: 2;
     position: relative;
     left:-110px; 
     box-shadow: 0px 0px 8px 10px #ddd;
@@ -59,7 +59,7 @@ blockquote {
 .photo-2 {
     min-width: 50px;
     width: 220px;
-    z-index: 2;
+    z-index: 3;
     position: relative;
     top:-40px; 
     left:-200px;
@@ -68,7 +68,7 @@ blockquote {
 .photo-3 {
     min-width: 50px;
     max-width: 220px;
-    z-index: 3;
+    z-index: 4;
     position: relative;
     top:-120px; 
     left: 0px;
