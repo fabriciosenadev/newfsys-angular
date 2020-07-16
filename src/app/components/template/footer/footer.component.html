@@ -1,10 +1,23 @@
-<mat-toolbar class="footer">
-    <span style="color:#000;">
-        Desenvolvido com 
-        <i class="material-icons v-middle red">
-            favorite
-        </i>
-        por <strong class="green">Solid STI</strong>
-        <!-- por <strong>Cod<span class="red">3</span>r</strong> -->
-    </span>
-</mat-toolbar>
+<div *ngIf="routeUrl!=='home' && routeUrl!=='about'">
+    <mat-toolbar  class="footer" appPosition>
+        <span style="color:#000;">
+            Desenvolvido com 
+            <i class="material-icons v-middle red">
+                favorite
+            </i>
+            por <strong class="green">Solid STI</strong>
+        </span>
+    </mat-toolbar>
+</div>
+
+<div *ngIf="routeUrl==='home' || routeUrl==='about'">
+    <mat-toolbar class="footer">
+        <span style="color:#000;">
+            Desenvolvido com 
+            <i class="material-icons v-middle red">
+                favorite
+            </i>
+            por <strong class="green">Solid STI</strong>
+        </span>
+    </mat-toolbar>
+</div>
