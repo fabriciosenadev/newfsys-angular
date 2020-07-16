@@ -36,6 +36,8 @@ import { LogoutComponent } from './components/views/app/logout/logout.component'
 import { LaunchFilterComponent } from './components/views/app/launch-filter/launch-filter.component';
 import { LaunchShowComponent } from './components/views/app/launch-show/launch-show.component';
 
+import { PositionDirective } from './directives/position.directive';
+
 registerLocaleData(localePt);
 
 @NgModule({
@@ -57,7 +59,8 @@ registerLocaleData(localePt);
     LaunchOutComponent,
     LogoutComponent,
     LaunchFilterComponent,
-    LaunchShowComponent
+    LaunchShowComponent,
+    PositionDirective
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,7 @@ registerLocaleData(localePt);
     MatToolbarModule,
     MatSidenavModule,
     MatSnackBarModule,
-    
+
     FormsModule,
   ],
   providers: [{
