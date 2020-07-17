@@ -61,8 +61,8 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">R$</div>
                                         </div>
-                                        <input type="number" id="inputValue" name="value" step="0.01"
-                                            placeholder=" Ex: 1,57" class="form-control" [(ngModel)]="inputValue"> 
+                                        <input currencyMask [(ngModel)]="inputValue" min="0.01" name="value"
+                                            placeholder="Ex: 1,57" class="form-control" id="inputValue"/>
                                     </div>
 
                                 </div>
