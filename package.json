@@ -4,7 +4,6 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --baseHref=\"https://fabriciosenadev.github.io/newfsys-angular/\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -23,6 +22,7 @@
     "@angular/router": "~9.1.1",
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
+    "ng2-currency-mask": "^9.0.2",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
