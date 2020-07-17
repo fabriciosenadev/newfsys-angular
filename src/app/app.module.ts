@@ -37,8 +37,19 @@ import { LaunchFilterComponent } from './components/views/app/launch-filter/laun
 import { LaunchShowComponent } from './components/views/app/launch-show/launch-show.component';
 
 import { PositionDirective } from './directives/position.directive';
+import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
 
 registerLocaleData(localePt);
+
+export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
+  align: "right",
+  allowNegative: false,
+  decimal: ",",
+  precision: 2,
+  prefix: "",
+  suffix: "",
+  thousands: "."
+};
 
 @NgModule({
   declarations: [
@@ -74,10 +85,14 @@ registerLocaleData(localePt);
     MatSnackBarModule,
 
     FormsModule,
+    CurrencyMaskModule,
   ],
   providers: [{
     provide: LOCALE_ID,
     useValue: 'pt-BR'
+  },
+  { provide: CURRENCY_MASK_CONFIG, 
+    useValue: CustomCurrencyMaskConfig 
   }],
   bootstrap: [AppComponent]
 })
