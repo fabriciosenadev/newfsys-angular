@@ -3,8 +3,8 @@ export interface UserLogin {
     // dados enviados para API
     email: string,
     password: string,
-    
+
     // retorno da API
-    auth? : boolean,
-    token? : string,
+    auth?: boolean,
+    token?: string,
 }

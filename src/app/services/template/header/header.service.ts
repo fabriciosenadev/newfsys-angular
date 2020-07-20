@@ -3,24 +3,22 @@ import { BehaviorSubject } from 'rxjs';
 import { HeaderData } from 'src/app/models/header-data.model';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class HeaderService {
 
-  private _headerData = new BehaviorSubject<HeaderData>({
-    routeUrl:''
-  }); 
+    private _headerData = new BehaviorSubject<HeaderData>({
+        routeUrl: ''
+    });
 
-  constructor() { }
+    constructor() { }
 
-  get headerData(): HeaderData
-  {
-    return this._headerData.value;
-  }
+    get headerData(): HeaderData {
+        return this._headerData.value;
+    }
 
-  set headerData(headerData: HeaderData)
-  {
-    this._headerData.next(headerData);
-  }
+    set headerData(headerData: HeaderData) {
+        this._headerData.next(headerData);
+    }
 
 }

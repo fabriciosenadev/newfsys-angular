@@ -1,86 +1,87 @@
-    <!-- <hr> -->
+<!-- <hr> -->
 
-    <!-- inicio  conteudo do site-->
-    <div class="container-fluid">
-        <div class="row">
+<!-- inicio  conteudo do site-->
+<div class="container-fluid">
+    <div class="row">
 
-            <div class="col-sm">
-                <app-side-menu></app-side-menu>
-            </div>
+        <div class="col-sm">
+            <app-side-menu></app-side-menu>
+        </div>
 
-            <div class="col-md-8" id="main">
-                <div class="row justify-content-center" style="margin-top:50px;margin-bottom: 80px;">
+        <div class="col-md-8" id="main">
+            <div class="row justify-content-center" style="margin-top:50px;margin-bottom: 80px;">
 
 
-                    <div class="border-top border-success rounded-bottom" 
-                        style="width:500px;padding: 10px; background-color:white;">
+                <div class="border-top border-success rounded-bottom"
+                    style="width:500px;padding: 10px; background-color:white;">
 
-                        <form>
+                    <form>
 
-                            <div class="form-row">
+                        <div class="form-row">
 
-                                <div class="form-group col-md">
-                                    <h2>Entrada</h2>
-                                </div>
+                            <div class="form-group col-md">
+                                <h2>Entrada</h2>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label for="inputDate">Data</label>
+                                <input type="date" id="inputDate" name="date" [(ngModel)]="launchIn.date"
+                                    class="form-control">
 
                             </div>
 
+                            <div class="form-group col-md-6">
 
-                            <div class="form-row">
-
-                                <div class="form-group col-md-6">
-                                    <label for="inputDate">Data</label>
-                                        <input type="date" id="inputDate"name="date" [(ngModel)]="launchIn.date"
-                                            class="form-control">
-
-                                </div>
-
-                                <div class="form-group col-md-6">
-
-                                    <label for="inputCategory">Categoria</label>
-                                        <select id="inputCategory" name="category"
-                                        class="form-control" [(ngModel)]="launchIn.id_category">                                                
-                                                <option *ngFor="let item of categories.data" [ngValue]="item.id">{{item.category}}</option>
-                                        </select>
-                                </div>
-
+                                <label for="inputCategory">Categoria</label>
+                                <select id="inputCategory" name="category" class="form-control"
+                                    [(ngModel)]="launchIn.id_category">
+                                    <option *ngFor="let item of categories.data" [ngValue]="item.id">{{item.category}}
+                                    </option>
+                                </select>
                             </div>
 
-                            <div class="form-group">
-                                
-                                <label for="inputDescription">Descrição</label>
-                                    <input type="text" class="form-control" id="inputDescription" [(ngModel)]="launchIn.description"
-                                        placeholder="Ex: pagamento" name="description">
-                            </div>
+                        </div>
 
-                            <div class="form-row">
-                        
-                                <div class="form-group col-md-6">
-                                    <label for="inputValue">Valor</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">R$</div>
-                                        </div>
-                                        <input currencyMask [(ngModel)]="inputValue" min="0.01" name="value"
-                                            placeholder="Ex: 1,57" class="form-control" id="inputValue"/>
+                        <div class="form-group">
+
+                            <label for="inputDescription">Descrição</label>
+                            <input type="text" class="form-control" id="inputDescription"
+                                [(ngModel)]="launchIn.description" placeholder="Ex: pagamento" name="description">
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label for="inputValue">Valor</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">R$</div>
                                     </div>
-
-                                </div>
-
-                            </div>
-                            <div class="form-row">
-
-                                <div class="form-group col-md-2">
-                                    <button (click)="newLaunchIn()" class="btn btn-success" id="btnSave">
-                                        Gravar
-                                    </button>    
+                                    <input currencyMask [(ngModel)]="inputValue" min="0.01" name="value"
+                                        placeholder="Ex: 1,57" class="form-control" id="inputValue" />
                                 </div>
 
                             </div>
 
-                        </form>
+                        </div>
+                        <div class="form-row">
 
-                        <!-- <div>
+                            <div class="form-group col-md-2">
+                                <button (click)="newLaunchIn()" class="btn btn-success" id="btnSave">
+                                    Gravar
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                    <!-- <div>
 
                                 <div class="form-group col-md">
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -91,13 +92,13 @@
                                     </div>
                                 </div>                        
                         </div> -->
-                    </div>
-
                 </div>
 
             </div>
 
-            <div class="col-sm-2"></div>
-
         </div>
+
+        <div class="col-sm-2"></div>
+
     </div>
+</div>

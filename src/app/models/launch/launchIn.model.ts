@@ -2,6 +2,6 @@ export interface LaunchIn {
     [x: string]: any,
     date: Date,
     id_category: Number,
-    description? : String,
+    description?: String,
     value: Number,
 }

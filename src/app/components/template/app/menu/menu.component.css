@@ -1,7 +1,8 @@
 .menu-box {
-    padding: 15px 10px 15px 10px;
-    background: #28a745;
-  }
-.link > li{
+  padding: 15px 10px 15px 10px;
+  background: #28a745;
+}
+
+.link>li {
   margin-right: 10px;
 }

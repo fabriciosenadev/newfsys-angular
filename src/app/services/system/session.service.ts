@@ -9,57 +9,55 @@ import { ApiService } from '../api/api.service';
 import { UserLogin } from '../../models/user/userLogin.model';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class SessionService {
 
-  constructor(
-    private http: HttpClient,
-    private api: ApiService,
-    private snackBar: MatSnackBar,
-    private router: Router
+    constructor(
+        private http: HttpClient,
+        private api: ApiService,
+        private snackBar: MatSnackBar,
+        private router: Router
     ) { }
 
-  baseUrl = this.api.url;
-  route = '';
-  userAction = '';
+    baseUrl = this.api.url;
+    route = '';
+    userAction = '';
 
-  login(user: UserLogin): Observable<UserLogin>
-  {
-    this.route = this.api.route.user;
-    this.userAction = this.api.userAction.login;
+    login(user: UserLogin): Observable<UserLogin> {
+        this.route = this.api.route.user;
+        this.userAction = this.api.userAction.login;
 
-    return this.http.post<UserLogin>(
-      `${this.baseUrl}/${this.route}/${this.userAction}`,
-      user
-    ).pipe(
-      map(obj => obj),
-      catchError(error => this.errorHandler(error)
-    ));
-  }
+        return this.http.post<UserLogin>(
+            `${this.baseUrl}/${this.route}/${this.userAction}`,
+            user
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error)
+            ));
+    }
 
-  forceLogin(): void
-  {
-    this.showMessage('please do login', true);
-    this.router.navigate(['/login']);
-  }
+    forceLogin(): void {
+        this.showMessage('please do login', true);
+        this.router.navigate(['/login']);
+    }
 
-  showMessage(
-    msg: string,
-    isError: boolean = false
-  ): void {
-    this.snackBar.open(msg, 'X', {
-      duration: 3000,
-      horizontalPosition: "right",
-      verticalPosition: "top",
-      panelClass: isError ? ['msg-error'] : ['msg-success']
-    });
-  }
+    showMessage(
+        msg: string,
+        isError: boolean = false
+    ): void {
+        this.snackBar.open(msg, 'X', {
+            duration: 3000,
+            horizontalPosition: "right",
+            verticalPosition: "top",
+            panelClass: isError ? ['msg-error'] : ['msg-success']
+        });
+    }
 
     // devolve um Observable vazio com mensagem de erro
     errorHandler(error: any): Observable<any> {
-      console.log(error);
-      this.showMessage(error.error.msg, true);
-      return EMPTY;
+        console.log(error);
+        this.showMessage(error.error.msg, true);
+        return EMPTY;
     }
 }

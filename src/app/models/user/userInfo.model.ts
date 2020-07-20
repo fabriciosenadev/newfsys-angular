@@ -3,5 +3,5 @@ export interface UserInfo {
     full_name: string,
     token: string,
     // dados para o menu interno do app
-    firstName? : string,
+    firstName?: string,
 }

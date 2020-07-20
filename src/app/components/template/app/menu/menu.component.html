@@ -1,44 +1,46 @@
 <nav class="navbar navbar-expand-sm navbar-light menu-box">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
-  
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto link">
-        <li class="nav-item active">
-          <a class='btn btn-success text-white' routerLink="/app/profile" >
-            <!-- Home  -->
-            <i class="material-icons v-middle">
-              home
-            </i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class='btn btn-success text-white' routerLink="/app/launch/filter">
-            Lançamentos
-            <i class="material-icons v-middle">
-              event
-            </i>
-          </a>
-        </li>
-      </ul>
-  
-      <ul class="navbar-nav my-2">
-        <li class="nav-item dropdown my-2 my-sm-0">
-          <a class="btn btn-success text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ userInfo.firstName }}
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <!-- <a href="<?php //echo $dir; ?>options/profile.php" class="dropdown-item">Perfil</a> -->
-              <!-- <a href="<?php //echo $dir; ?>options/profile.php" class="dropdown-item">Perfil</a> -->
-              <!-- <div class="dropdown-divider"></div>
+        <ul class="navbar-nav mr-auto link">
+            <li class="nav-item active">
+                <a class='btn btn-success text-white' routerLink="/app/profile">
+                    <!-- Home  -->
+                    <i class="material-icons v-middle">
+                        home
+                    </i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class='btn btn-success text-white' routerLink="/app/launch/filter">
+                    Lançamentos
+                    <i class="material-icons v-middle">
+                        event
+                    </i>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav my-2">
+            <li class="nav-item dropdown my-2 my-sm-0">
+                <a class="btn btn-success text-white dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ userInfo.firstName }}
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <!-- <a href="<?php //echo $dir; ?>options/profile.php" class="dropdown-item">Perfil</a> -->
+                    <!-- <a href="<?php //echo $dir; ?>options/profile.php" class="dropdown-item">Perfil</a> -->
+                    <!-- <div class="dropdown-divider"></div>
               <a href="<?php //echo $dir; ?>options/category.php" class="dropdown-item">Categorias</a> -->
-              <!-- <a class="dropdown-item">Opções</a>
+                    <!-- <a class="dropdown-item">Opções</a>
               <div class="dropdown-divider"></div> -->
-              <a routerLink="/logout" class="dropdown-item"><strong>Sair</strong></a>
-          </div>
-        </li>
-      </ul>
-  
+                    <a routerLink="/logout" class="dropdown-item"><strong>Sair</strong></a>
+                </div>
+            </li>
+        </ul>
+
     </div>
-  </nav>
+</nav>

@@ -1,28 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { 
-    margin: 0; 
-    font-family: Roboto, "Helvetica Neue", sans-serif; 
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
     background: #dedede;
 }
 
 .red {
     color: #e35e6b;
 }
+
 .v-middle {
     vertical-align: middle;
 }
 
 .msg-success {
     background-color: #2c8b42;
-    color:#FFF;
+    color: #FFF;
 }
 
 .msg-error {
     background-color: #81242e;
-    color:#FFF;
+    color: #FFF;
 }
+
 .content {
     padding: 16px;
     /* border: solid 1px; */

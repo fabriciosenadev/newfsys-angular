@@ -1,20 +1,20 @@
-    <!-- inicio  conteudo do site-->
-    <div class="container-fluid">
-        <div class="row">
+<!-- inicio  conteudo do site-->
+<div class="container-fluid">
+    <div class="row">
 
-            <div class="col-sm">
-                
-            </div>
+        <div class="col-sm">
 
-            <div class="col-md-8" id="main">
+        </div>
 
-                <div class="row justify-content-center" style="margin-top:50px;">
-                        
+        <div class="col-md-8" id="main">
 
-                        <div class="border border-success rounded-bottom" 
-                        style="width:400px;padding: 10px; background-color:white;">
+            <div class="row justify-content-center" style="margin-top:50px;">
 
-                        <div class="col" style="margin:15px 0;">
+
+                <div class="border border-success rounded-bottom"
+                    style="width:400px;padding: 10px; background-color:white;">
+
+                    <div class="col" style="margin:15px 0;">
 
                         <!-- <div>                                
 
@@ -28,63 +28,61 @@
                         </div> -->
 
 
-                            <form>
+                        <form>
 
-                                <div class="form-row">
+                            <div class="form-row">
 
-                                    <div class="form-group col-md">
-                                        <label for="inputEmail">E-mail</label>
-                                            <input [(ngModel)]="user.email" name="email"
-                                                class="form-control" placeholder="seu@email.com" required>
-                                            <div class="valid-feedback">
-                                                Parece bom!
-                                            </div>  
+                                <div class="form-group col-md">
+                                    <label for="inputEmail">E-mail</label>
+                                    <input [(ngModel)]="user.email" name="email" class="form-control"
+                                        placeholder="seu@email.com" required>
+                                    <div class="valid-feedback">
+                                        Parece bom!
                                     </div>
-
-                                </div>
-                                <div class="form-row">
-
-                                    <div class="form-group col-md">
-                                        <label for="inputPassword">Senha</label>
-                                            <input [(ngModel)]="user.password" name="password" type="password"
-                                                class="form-control" placeholder="********" required> 
-                                    </div>
-
                                 </div>
 
-                                <button (click)="login()" class="btn btn-success form-control">
+                            </div>
+                            <div class="form-row">
+
+                                <div class="form-group col-md">
+                                    <label for="inputPassword">Senha</label>
+                                    <input [(ngModel)]="user.password" name="password" type="password"
+                                        class="form-control" placeholder="********" required>
+                                </div>
+
+                            </div>
+
+                            <button (click)="login()" class="btn btn-success form-control">
                                 Entrar
-                                </button>
+                            </button>
 
-                                <div class="form-row">
-                                
-                                    <div class="form-group col-md">
-                                        <a routerLink="/forgot" class="forgot-password">esqueceu sua senha?</a>
-                                    </div>
-                                    
+                            <div class="form-row">
+
+                                <div class="form-group col-md">
+                                    <a routerLink="/forgot" class="forgot-password">esqueceu sua senha?</a>
                                 </div>
 
-                            </form>
-                        </div>
+                            </div>
 
+                        </form>
                     </div>
 
                 </div>
 
+            </div>
 
-                <div class="row justify-content-center" style="margin-top:10px;">
-                        
 
-                      <div class="border border-success rounded-bottom" 
-                        style="width:400px;padding: 10px; background-color:white;">
+            <div class="row justify-content-center" style="margin-top:10px;">
 
-                        <div class="col" style="margin:15px 0;">
+
+                <div class="border border-success rounded-bottom"
+                    style="width:400px;padding: 10px; background-color:white;">
+
+                    <div class="col" style="margin:15px 0;">
 
 
                         <p>Novo por aqui? <a routerLink="/register">Cadastre-se é gratuito!</a></p>
 
-
-                        </div>
 
                     </div>
 
@@ -92,16 +90,14 @@
 
             </div>
 
-            <div class="col-sm-2"></div>
-
         </div>
-        
+
+        <div class="col-sm-2"></div>
+
     </div>
-    <!-- fim conteúdo do site -->
-        
 
-    <!-- fim container -->
-
+</div>
+<!-- fim conteúdo do site -->
 
 
-
+<!-- fim container -->

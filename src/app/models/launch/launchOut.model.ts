@@ -2,7 +2,7 @@ export interface LaunchOut {
     [x: string]: any,
     date: Date,
     id_category: Number,
-    description? : String,
+    description?: String,
     value: Number,
     id_pay_method: Number,
 }

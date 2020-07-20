@@ -1,17 +1,18 @@
 .invide {
-  height: 30%;
-  padding: 5em 2em 7em;
-}
-  
-.invide h2 {
-  font-size: 35px;
+    height: 30%;
+    padding: 5em 2em 7em;
 }
 
-.card-box{
-  margin: 20px;
+.invide h2 {
+    font-size: 35px;
 }
+
+.card-box {
+    margin: 20px;
+}
+
 .card {
-  height: 10em;
-  flex-basis: 30%;
-  margin: 10px;
+    height: 10em;
+    flex-basis: 30%;
+    margin: 10px;
 }

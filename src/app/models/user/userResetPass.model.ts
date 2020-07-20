@@ -6,6 +6,6 @@ export interface UserResetPass {
     verifyPass?: string,
 
     // retorno da API
-    success? : string,
-    id? : number,
+    success?: string,
+    id?: number,
 }

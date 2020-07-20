@@ -1,5 +1,5 @@
 export interface Categories {
-    [x: string] : any,
+    [x: string]: any,
     id: number,
     categories: object,
 }

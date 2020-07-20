@@ -6,5 +6,5 @@ export interface UserRegister {
     verifyPass: string,
 
     // retorno da API
-    success? : string,
+    success?: string,
 }
