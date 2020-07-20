@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserInfo } from 'src/app/models/user.model';
+
 import { SystemService } from 'src/app/services/system/system.service';
+
+import { UserInfo } from '../../../../models/user/userInfo.model';
 
 @Component({
   selector: 'app-menu',

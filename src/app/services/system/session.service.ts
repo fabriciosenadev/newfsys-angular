@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, EMPTY } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Observable, EMPTY } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 import { ApiService } from '../api/api.service';
-import { UserLogin } from 'src/app/models/user.model';
+import { UserLogin } from '../../models/user/userLogin.model';
 
 @Injectable({
   providedIn: 'root'

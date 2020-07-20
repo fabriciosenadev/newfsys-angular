@@ -6,7 +6,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 import { ApiService } from "../api/api.service";
-import { UserRegister, UserResetPass, UserInfo } from '../../models/user.model';
+import { UserRegister } from '../../models/user/userRegister.model';
+import { UserResetPass } from '../../models/user/userResetPass.model';
+import { UserInfo } from '../../models/user/userInfo.model';
 import { SessionService } from '../system/session.service';
 
 
@@ -127,8 +129,8 @@ export class UserService {
         if(errorRes.error.data)
         {
           showMsg = errorRes.error.data[0].msg;
-          param = errorRes.error.data[0].param;
-          this.showMessage(param + ' ' + showMsg, true);
+          // param = errorRes.error.data[0].param;
+          this.showMessage(showMsg, true);
         }
         else if(errorRes.error.msg)
         {

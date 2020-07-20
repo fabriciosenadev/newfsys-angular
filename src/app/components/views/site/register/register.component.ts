@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { HeaderService } from 'src/app/services/template/header/header.service';
-import { UserRegister } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user/user.service';
+
+import { UserRegister } from 'src/app/models/user/userRegister.model';
 
 @Component({
   selector: 'app-register',

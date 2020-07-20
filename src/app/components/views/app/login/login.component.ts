@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 import { HeaderService } from 'src/app/services/template/header/header.service';
-import { UserLogin } from 'src/app/models/user.model';
 import { SessionService } from 'src/app/services/system/session.service';
+
+import { UserLogin } from 'src/app/models/user/userLogin.model';
 
 @Component({
   selector: 'app-login',
