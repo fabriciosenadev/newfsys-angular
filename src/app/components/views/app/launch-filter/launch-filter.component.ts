@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LaunchFilter } from 'src/app/models/launch.model';
+
+import { LaunchFilter } from 'src/app/models/launch/launchFilter.model';
+
 import { LaunchService } from 'src/app/services/user/launch.service';
 import { HeaderService } from 'src/app/services/template/header/header.service';
 

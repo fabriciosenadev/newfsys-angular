@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Categories } from 'src/app/models/category.model';
-import { LaunchIn } from 'src/app/models/launch.model';
+import { LaunchIn } from 'src/app/models/launch/launchIn.model';
 
 import { SystemService } from 'src/app/services/system/system.service';
 import { LaunchService } from 'src/app/services/user/launch.service';

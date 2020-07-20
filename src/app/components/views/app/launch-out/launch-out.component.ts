@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { PayMethods } from 'src/app/models/payMethod.model';
 import { Categories } from 'src/app/models/category.model';
+import { LaunchOut } from 'src/app/models/launch/launchOut.model';
 
 import { SystemService } from 'src/app/services/system/system.service';
-import { LaunchOut } from 'src/app/models/launch.model';
 import { LaunchService } from 'src/app/services/user/launch.service';
 import { HeaderService } from 'src/app/services/template/header/header.service';
 

@@ -1,31 +1,31 @@
-export interface LaunchIn {
-    [x: string]: any,
-    date: Date,
-    id_category: Number,
-    description? : String,
-    value: Number,
-}
+// export interface LaunchIn {
+//     [x: string]: any,
+//     date: Date,
+//     id_category: Number,
+//     description? : String,
+//     value: Number,
+// }
 
-export interface LaunchOut {
-    [x: string]: any,
-    date: Date,
-    id_category: Number,
-    description? : String,
-    value: Number,
-    id_pay_method: Number,
-}
+// export interface LaunchOut {
+//     [x: string]: any,
+//     date: Date,
+//     id_category: Number,
+//     description? : String,
+//     value: Number,
+//     id_pay_method: Number,
+// }
 
-export interface LaunchFilter {
-    [x: string]: any,
-    fromDate: Date,
-    toDate: Date 
-}
+// export interface LaunchFilter {
+//     [x: string]: any,
+//     fromDate: Date,
+//     toDate: Date 
+// }
 
-export interface LaunchShow {
-    [x: string]: any,
-    date: Date,
-    category: String,
-    description? : String,
-    value: Number,
-    pay_method? : String,
-}
+// export interface LaunchShow {
+//     [x: string]: any,
+//     date: Date,
+//     category: String,
+//     description? : String,
+//     value: Number,
+//     pay_method? : String,
+// }
