@@ -23,7 +23,7 @@
                                 <div class="form-group col-md">
                                     <label for="inputEmail">E-mail</label>
                                     <input type="text" formControlName="email" class="form-control"
-                                        [ngClass]="{ 'is-invalid': submitted && lf.email.errors }">
+                                        [ngClass]="{ 'is-invalid': lf.email.errors }">
                                     <div class="valid-feedback">
                                         Parece bom!
                                     </div>
@@ -35,7 +35,7 @@
                                 <div class="form-group col-md">
                                     <label for="inputPassword">Senha</label>
                                     <input type="password" formControlName="password" class="form-control"
-                                        [ngClass]="{ 'is-invalid': submitted && lf.password.errors }">
+                                        [ngClass]="{ 'is-invalid': lf.password.errors }">
                                 </div>
 
                             </div>
