@@ -28,14 +28,16 @@
                         </div> -->
 
 
-                        <form>
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
                             <div class="form-row">
 
                                 <div class="form-group col-md">
                                     <label for="inputEmail">E-mail</label>
-                                    <input [(ngModel)]="user.email" name="email" class="form-control"
-                                        placeholder="seu@email.com" required>
+                                    <!-- <input [(ngModel)]="user.email" name="email" class="form-control"
+                                        placeholder="seu@email.com" required> -->
+                                        <input type="text" formControlName="email" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && lf.email.errors }">
                                     <div class="valid-feedback">
                                         Parece bom!
                                     </div>
@@ -46,13 +48,15 @@
 
                                 <div class="form-group col-md">
                                     <label for="inputPassword">Senha</label>
-                                    <input [(ngModel)]="user.password" name="password" type="password"
-                                        class="form-control" placeholder="********" required>
+                                    <!-- <input [(ngModel)]="user.password" name="password" type="password"
+                                        class="form-control" placeholder="********" required> -->
+                                        <input type="password" formControlName="password" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && lf.password.errors }">
                                 </div>
 
                             </div>
 
-                            <button (click)="login()" class="btn btn-success form-control">
+                            <button type="submit" class="btn btn-success form-control">
                                 Entrar
                             </button>
 
