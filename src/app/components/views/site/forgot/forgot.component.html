@@ -16,19 +16,19 @@
                     <div class="col" style="margin:15px 0;">
                         <h1>Redefinir de senha</h1>
 
-                        <form>
+                        <form [formGroup]="forgotForm" (ngSubmit)="onSubmit()">
 
                             <div class="form-row">
 
                                 <div class="form-group col-md">
                                     <label for="inputEmail">E-mail</label>
-                                    <input type="email" id="inputEmail" name="email" class="form-control"
-                                        [(ngModel)]="userResetPass.email" required>
+                                    <input type="text" formControlName="email" class="form-control"
+                                        [ngClass]="{ 'is-invalid': f.email.errors }">
                                 </div>
 
                             </div>
 
-                            <button (click)="forgotPass()" class="btn btn-success form-control">
+                            <button type="submit" class="btn btn-success form-control">
                                 Verificar
                             </button>
 
@@ -47,15 +47,13 @@
                     <div class="col" style="margin:15px 0;">
                         <h1>Redefinir de senha</h1>
 
-                        <form>
+                        <form [formGroup]="resetForm" (ngSubmit)="onSubmit()">
 
                             <div class="form-row">
 
                                 <div class="form-group col-md">
                                     <label for="inputPassword">Nova Senha (minimo 8 caracteres)</label>
-                                    <input type="password" id="inputPassword" name="password" class="form-control"
-                                        [(ngModel)]="userResetPass.password" required>
-
+                                    <input type="password" formControlName="password" class="form-control">
                                 </div>
 
                             </div>
@@ -63,13 +61,12 @@
 
                                 <div class="form-group col-md">
                                     <label for="inputVerify">Repita a senha</label>
-                                    <input type="password" id="inputVerify" name="verifyPass" class="form-control"
-                                        [(ngModel)]="userResetPass.verifyPass" required>
+                                    <input type="password" formControlName="verifyPass" class="form-control">
                                 </div>
 
                             </div>
 
-                            <button (click)="resetPass()" class="btn btn-success form-control">
+                            <button type="submit" [disabled]="!resetForm.valid" class="btn btn-success form-control">
                                 Salvar
                             </button>
 
