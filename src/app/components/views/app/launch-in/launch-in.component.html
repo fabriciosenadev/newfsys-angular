@@ -15,7 +15,7 @@
                 <div class="border-top border-success rounded-bottom"
                     style="width:500px;padding: 10px; background-color:white;">
 
-                    <form>
+                    <form [formGroup]="launchInForm" (ngSubmit)="onSubmit()">
 
                         <div class="form-row">
 
@@ -30,7 +30,7 @@
 
                             <div class="form-group col-md-6">
                                 <label for="inputDate">Data</label>
-                                <input type="date" id="inputDate" name="date" [(ngModel)]="launchIn.date"
+                                <input type="date" id="inputDate" name="date" formControlName="date"
                                     class="form-control">
 
                             </div>
@@ -38,9 +38,10 @@
                             <div class="form-group col-md-6">
 
                                 <label for="inputCategory">Categoria</label>
-                                <select id="inputCategory" name="category" class="form-control"
-                                    [(ngModel)]="launchIn.id_category">
-                                    <option *ngFor="let item of categories.data" [ngValue]="item.id">{{item.category}}
+                                <select id="dropCategory" name="category" class="form-control"
+                                    formControlName="idCategory">
+                                    <option *ngFor="let item of categories.data" [ngValue]="item.id">
+                                        {{item.category}}
                                     </option>
                                 </select>
                             </div>
@@ -50,8 +51,8 @@
                         <div class="form-group">
 
                             <label for="inputDescription">Descrição</label>
-                            <input type="text" class="form-control" id="inputDescription"
-                                [(ngModel)]="launchIn.description" placeholder="Ex: pagamento" name="description">
+                            <input type="text" class="form-control" id="inputDescription" formControlName="description"
+                                placeholder="Ex: pagamento" name="description">
                         </div>
 
                         <div class="form-row">
@@ -62,7 +63,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">R$</div>
                                     </div>
-                                    <input currencyMask [(ngModel)]="inputValue" min="0.01" name="value"
+                                    <input currencyMask min="0.01" name="value" formControlName="value"
                                         placeholder="Ex: 1,57" class="form-control" id="inputValue" />
                                 </div>
 
@@ -72,7 +73,8 @@
                         <div class="form-row">
 
                             <div class="form-group col-md-2">
-                                <button (click)="newLaunchIn()" class="btn btn-success" id="btnSave">
+                                <button type="submit" [disabled]="!launchInForm.valid" class="btn btn-success"
+                                    id="btnSave">
                                     Gravar
                                 </button>
                             </div>
@@ -81,17 +83,6 @@
 
                     </form>
 
-                    <!-- <div>
-
-                                <div class="form-group col-md">
-                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                        <strong>Sucesso!</strong>
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                </div>                        
-                        </div> -->
                 </div>
 
             </div>

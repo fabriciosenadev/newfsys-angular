@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Categories } from 'src/app/models/category.model';
-import { LaunchIn } from 'src/app/models/launch/launchIn.model';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 import { SystemService } from 'src/app/services/system/system.service';
 import { LaunchService } from 'src/app/services/user/launch.service';
 import { HeaderService } from 'src/app/services/template/header/header.service';
 
+import { Categories } from 'src/app/models/category.model';
+import { LaunchIn } from 'src/app/models/launch/launchIn.model';
 
 @Component({
     selector: 'app-launch-in',
@@ -31,10 +31,15 @@ export class LaunchInComponent implements OnInit {
         value: 0
     }
 
+    launchInForm: FormGroup;
+
+    get f() { return this.launchInForm.controls; }
+
     constructor(
         private headerService: HeaderService,
         private systemService: SystemService,
-        private launchService: LaunchService
+        private launchService: LaunchService,
+        private formBuilder: FormBuilder,
     ) {
         headerService.headerData = {
             routeUrl: 'app'
@@ -46,12 +51,44 @@ export class LaunchInComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.launchInForm = this.formBuilder.group({
+            date: new FormControl(
+                this.launchIn.date,
+                [
+                    Validators.required,
+                ],
+            ),
+            idCategory: new FormControl(
+                this.launchIn.id_category,
+                [
+                    Validators.required,
+                ],
+            ),
+            description: new FormControl(
+                this.launchIn.description,
+            ),
+            value: new FormControl(
+                this.launchIn.value,
+                [
+                    Validators.required,
+                    Validators.min(0.01),
+                ],
+            ),
+        });
+    }
+
+    onSubmit() {
+        this.launchIn.date = this.launchInForm.value.date;
+        this.launchIn.id_category = this.launchInForm.value.idCategory;
+        this.launchIn.description = this.launchInForm.value.description;
+        this.launchIn.value = this.launchInForm.value.value;
+
+        this.newLaunchIn();
+
+        this.launchInForm.reset();
     }
 
     newLaunchIn(): void {
-        this.inputValue = this.inputValue.toString().replace(/,/g, '.');
-        this.launchIn.value = parseFloat(this.inputValue);
-
         this.launchService.storeIn(this.launchIn, this.token).subscribe(launchInReturn => {
             this.inputValue = '';
             this.launchIn = launchInReturn;

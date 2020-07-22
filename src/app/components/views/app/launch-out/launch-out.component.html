@@ -15,7 +15,7 @@
                 <div class="border-top border-danger rounded-bottom"
                     style="width:500px;padding: 10px; background-color:white;">
 
-                    <form>
+                    <form [formGroup]="launchOutForm" (ngSubmit)="onSubmit()">
 
                         <div class="form-row">
 
@@ -30,16 +30,15 @@
 
                             <div class="form-group col-md-6">
                                 <label for="inputDate">Data</label>
-                                <input type="date" id="inputDate" name="date" [(ngModel)]="launchOut.date"
+                                <input type="date" id="inputDate" name="date" formControlName="date"
                                     class="form-control">
-
                             </div>
 
                             <div class="form-group col-md-6">
 
                                 <label for="inputCategory">Categoria</label>
                                 <select id="inputCategory" name="category" class="form-control"
-                                    [(ngModel)]="launchOut.id_category">
+                                    formControlName="idCategory">
                                     <option *ngFor="let obj of categories.data" [ngValue]="obj.id">
                                         {{obj.category}}
                                     </option>
@@ -51,9 +50,8 @@
                         <div class="form-group">
 
                             <label for="inputDescription">Descrição</label>
-                            <input type="text" class="form-control" id="inputDescription"
-                                [(ngModel)]="launchOut.description" placeholder="Ex: compras do mês" name="description">
-
+                            <input type="text" class="form-control" id="inputDescription" formControlName="description"
+                                placeholder="Ex: compras do mês" name="description">
                         </div>
 
                         <div class="form-row">
@@ -64,7 +62,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">R$</div>
                                     </div>
-                                    <input currencyMask [(ngModel)]="inputValue" min="0.01" name="value"
+                                    <input currencyMask min="0.01" name="value" formControlName="value"
                                         placeholder="Ex: 1,57" class="form-control" id="inputValue" />
                                 </div>
 
@@ -73,7 +71,7 @@
                             <div class="form-group col-md-6">
                                 <label for="selectPayMethod">Forma de Pagamento</label>
                                 <select id="selectPayMethod" name="payMethod" class="form-control"
-                                    [(ngModel)]="launchOut.id_pay_method">
+                                    formControlName="idPayMethod">
                                     <option *ngFor="let obj of payMethods.data" [ngValue]="obj.id">
                                         {{obj.pay_method}}
                                     </option>
@@ -84,7 +82,8 @@
                         <div class="form-row">
 
                             <div class="form-group col-md-2">
-                                <button (click)="newLaunchOut()" class="btn btn-success" id="btnSave">
+                                <button type="submit" [disabled]="!launchOutForm.valid" class="btn btn-success"
+                                    id="btnSave">
                                     Gravar
                                 </button>
                             </div>
@@ -93,18 +92,6 @@
 
                     </form>
 
-                    <!-- <div>
-
-                                <div class="form-group col-md">
-                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                        <strong>Sucesso!</strong>
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                </div> 
-                                
-                        </div> -->
                 </div>
 
             </div>
