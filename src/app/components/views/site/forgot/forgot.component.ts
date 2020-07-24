@@ -35,7 +35,7 @@ export class ForgotComponent implements OnInit {
         private formBuilder: FormBuilder,
     ) {
         headerService.headerData = {
-            routeUrl: 'forgot'
+            topMenu: 'topLink',
         }
     }
 

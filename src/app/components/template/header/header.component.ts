@@ -16,4 +16,8 @@ export class HeaderComponent implements OnInit {
     get routeUrl(): string {
         return this.headerService.headerData.routeUrl;
     }
+
+    get topMenu(): string {
+        return this.headerService.headerData.topMenu;
+    }
 }

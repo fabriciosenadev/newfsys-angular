@@ -35,7 +35,8 @@ export class LaunchShowComponent implements OnInit {
 		private launchService: LaunchService,
 	) {
 		headerService.headerData = {
-			routeUrl: 'app'
+			topMenu: 'appMenu',
+			sideMenu: 'launchMenu',
 		}
 	}
 

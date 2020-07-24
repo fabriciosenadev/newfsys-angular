@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
         private formBuilder: FormBuilder,
     ) {
         headerService.headerData = {
-            routeUrl: 'register'
+            topMenu: 'topLink',
         }
     }
 

@@ -49,7 +49,8 @@ export class LaunchOutComponent implements OnInit {
         private formBuilder: FormBuilder,
     ) {
         headerService.headerData = {
-            routeUrl: 'app'
+            topMenu: 'appMenu',
+            sideMenu: 'launchMenu',
         }
 
         this.systemService.getCategories('out', this.token).subscribe(categoriesReturn => {

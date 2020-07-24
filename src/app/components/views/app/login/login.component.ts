@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         private formBuilder: FormBuilder,
     ) {
         headerService.headerData = {
-            routeUrl: 'login'
+            topMenu: 'topLink',
         }
     }
 

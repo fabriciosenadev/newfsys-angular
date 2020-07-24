@@ -27,7 +27,8 @@ export class LaunchFilterComponent implements OnInit {
         private headerService: HeaderService
     ) {
         headerService.headerData = {
-            routeUrl: 'app'
+            topMenu: 'appMenu',
+            sideMenu: 'launchMenu',
         }
     }
 

@@ -89,7 +89,8 @@ export class ProfileComponent implements OnInit {
         if (!this.token) this.sessionService.forceLogin();
 
         headerService.headerData = {
-            routeUrl: 'app'
+            topMenu: 'appMenu',
+            sideMenu: 'launchMenu',
         }
 
     }

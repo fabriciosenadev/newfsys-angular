@@ -42,7 +42,8 @@ export class LaunchInComponent implements OnInit {
         private formBuilder: FormBuilder,
     ) {
         headerService.headerData = {
-            routeUrl: 'app'
+            topMenu: 'appMenu',
+            sideMenu: 'launchMenu',
         }
 
         this.systemService.getCategories('in', this.token).subscribe(categoriesReturn => {

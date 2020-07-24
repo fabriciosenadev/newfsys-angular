@@ -8,7 +8,8 @@ import { HeaderData } from 'src/app/models/header-data.model';
 export class HeaderService {
 
     private _headerData = new BehaviorSubject<HeaderData>({
-        routeUrl: ''
+        topMenu: '',
+        sideMenu: '',
     });
 
     constructor() { }

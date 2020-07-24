@@ -10,7 +10,7 @@ export class AboutComponent implements OnInit {
 
     constructor(private headerService: HeaderService) {
         headerService.headerData = {
-            routeUrl: 'about'
+            topMenu: 'topMenu',
         }
     }
 
