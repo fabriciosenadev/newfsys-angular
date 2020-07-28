@@ -38,7 +38,7 @@ export class SessionService {
     }
 
     forceLogin(): void {
-        this.showMessage('please do login', true);
+        this.showMessage('Por favor faça login!', true);
         this.router.navigate(['/login']);
     }
 
