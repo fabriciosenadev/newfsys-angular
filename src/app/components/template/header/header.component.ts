@@ -13,10 +13,6 @@ export class HeaderComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    get routeUrl(): string {
-        return this.headerService.headerData.routeUrl;
-    }
-
     get topMenu(): string {
         return this.headerService.headerData.topMenu;
     }
