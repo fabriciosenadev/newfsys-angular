@@ -15,6 +15,9 @@ import { LaunchInComponent } from './components/views/app/launch-in/launch-in.co
 import { LogoutComponent } from './components/views/app/logout/logout.component';
 import { LaunchFilterComponent } from './components/views/app/launch-filter/launch-filter.component';
 import { LaunchShowComponent } from './components/views/app/launch-show/launch-show.component';
+import { UserComponent } from './components/views/app/user/user.component';
+import { UserDataComponent } from './components/views/app/user/user-data/user-data.component';
+import { CategoriesComponent } from './components/views/app/user/categories/categories.component';
 
 const routes: Routes = [
     {
@@ -61,6 +64,18 @@ const routes: Routes = [
     {
         path: "app/launch/:id",
         component: LaunchShowComponent
+    },
+    {
+        path: "app/user/options",
+        component: UserComponent
+    },
+    {
+        path: "app/user/data",
+        component: UserDataComponent
+    },
+    {
+        path: "app/user/categories",
+        component: CategoriesComponent
     },
 ];
 
