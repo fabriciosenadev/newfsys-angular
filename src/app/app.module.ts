@@ -39,10 +39,10 @@ import { LaunchMenuComponent } from './components/template/app/side-menu/launch-
 import { OptionsMenuComponent } from './components/template/app/side-menu/options-menu/options-menu.component';
 import { UserComponent } from './components/views/app/user/user.component';
 import { UserDataComponent } from './components/views/app/user/user-data/user-data.component';
+import { CategoriesComponent } from './components/views/app/user/categories/categories.component';
 
 import { PositionDirective } from './directives/position.directive';
 import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
-import { CategoriesComponent } from './components/views/app/user/categories/categories.component';
 
 registerLocaleData(localePt);
 
