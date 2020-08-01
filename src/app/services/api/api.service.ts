@@ -11,6 +11,7 @@ export class ApiService {
         user: 'user',
         launch: 'launch',
         system: 'system',
+        category: 'category',
     };
 
     userAction = {
@@ -24,6 +25,10 @@ export class ApiService {
         in: 'in',
         out: 'out',
         filter: 'filter',
+    };
+
+    categoryAction = {
+        new: 'new',
     };
 
     systemRoute = {

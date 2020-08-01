@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { UserInfo } from 'src/app/models/user.model';
+import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, EMPTY } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+
 import { SessionService } from './session.service';
 import { ApiService } from '../api/api.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { HttpClient } from '@angular/common/http';
+
+import { UserInfo } from '../../models/user/userInfo.model';
 import { Categories } from 'src/app/models/category.model';
 import { PayMethods } from 'src/app/models/payMethod.model';
 import { Month } from 'src/app/models/month.model';

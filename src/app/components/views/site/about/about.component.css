@@ -1,13 +1,13 @@
-
 .titulo-section1 {
     padding: 2em 0 0.5em 0;
     text-align: center;
 }
 
-.card-box{
+.card-box {
     margin-right: 20px;
     margin-left: 20px;
 }
+
 .card {
     height: 10em;
     flex-basis: 30%;
@@ -25,34 +25,32 @@ blockquote {
     border-radius: 10px;
     background-color: white;
 }
-  
-
 
 .title-section3 {
     padding: 3em 0 0 0;
     text-align: center;
 }
 
-  
 .material-icons {
-      height: 28px;
-      vertical-align: middle;
+    height: 28px;
+    vertical-align: middle;
 }
 
 .teste {
     margin: 0;
     width: 10%;
     /* height: 15em; */
-    background-color: rgba(0 , 0 , 0, 0.01);
+    background-color: rgba(0, 0, 0, 0.01);
     /* border: 1px solid black; */
     /* position: relative; */
 }
+
 .photo-1 {
     min-width: 50px;
     width: 220px;
     z-index: 2;
     position: relative;
-    left:-110px; 
+    left: -110px;
     box-shadow: 0px 0px 8px 10px #ddd;
 }
 
@@ -61,18 +59,17 @@ blockquote {
     width: 220px;
     z-index: 3;
     position: relative;
-    top:-40px; 
-    left:-200px;
+    top: -40px;
+    left: -200px;
     box-shadow: 0px 0px 8px 10px #ddd;
 }
+
 .photo-3 {
     min-width: 50px;
     max-width: 220px;
     z-index: 4;
     position: relative;
-    top:-120px; 
+    top: -120px;
     left: 0px;
     box-shadow: 0px 0px 8px 10px #ddd;
 }
-
-  

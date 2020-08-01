@@ -1,5 +1,5 @@
 export interface PayMethods {
-    [x: string] : any,
+    [x: string]: any,
     id: number,
     payMethods: object,
 }

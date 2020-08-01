@@ -89,7 +89,8 @@ export class ProfileComponent implements OnInit {
         if (!this.token) this.sessionService.forceLogin();
 
         headerService.headerData = {
-            routeUrl: 'app'
+            topMenu: 'appMenu',
+            sideMenu: 'launchMenu',
         }
 
     }
@@ -298,7 +299,7 @@ export class ProfileComponent implements OnInit {
 
             this.decemberReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.decemberPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            if(this.decemberPaid <= this.decemberReceived) {
+            if (this.decemberPaid <= this.decemberReceived) {
                 this.decemberTotal = this.decemberReceived - this.decemberPaid;
             }
             else {

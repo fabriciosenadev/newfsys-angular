@@ -18,7 +18,7 @@ export class LogoutComponent implements OnInit {
         private sessionService: SessionService
     ) {
         localStorage.clear();
-        this.sessionService.showMessage('Until next!');
+        this.sessionService.showMessage('Até a próxima!');
         this.router.navigate(['/login']);
     }
 

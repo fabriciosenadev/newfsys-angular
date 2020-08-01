@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+
+import { SystemService } from 'src/app/services/system/system.service';
+import { LaunchService } from 'src/app/services/user/launch.service';
+import { HeaderService } from 'src/app/services/template/header/header.service';
 
 import { PayMethods } from 'src/app/models/payMethod.model';
 import { Categories } from 'src/app/models/category.model';
-
-import { SystemService } from 'src/app/services/system/system.service';
-import { LaunchOut } from 'src/app/models/launch.model';
-import { LaunchService } from 'src/app/services/user/launch.service';
-import { HeaderService } from 'src/app/services/template/header/header.service';
+import { LaunchOut } from 'src/app/models/launch/launchOut.model';
 
 @Component({
     selector: 'app-launch-out',
@@ -16,7 +17,7 @@ import { HeaderService } from 'src/app/services/template/header/header.service';
 export class LaunchOutComponent implements OnInit {
 
     token: string = localStorage.getItem('authToken');
-    
+
     inputValue: string = '';
 
     categories: Categories = {
@@ -37,13 +38,19 @@ export class LaunchOutComponent implements OnInit {
         id_pay_method: 0,
     }
 
+    launchOutForm: FormGroup;
+
+    get f() { return this.launchOutForm.controls; }
+
     constructor(
         private headerService: HeaderService,
         private systemService: SystemService,
         private launchService: LaunchService,
+        private formBuilder: FormBuilder,
     ) {
         headerService.headerData = {
-            routeUrl: 'app'
+            topMenu: 'appMenu',
+            sideMenu: 'launchMenu',
         }
 
         this.systemService.getCategories('out', this.token).subscribe(categoriesReturn => {
@@ -56,12 +63,51 @@ export class LaunchOutComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.launchOutForm = this.formBuilder.group({
+            date: new FormControl(
+                this.launchOut.date,
+                [
+                    Validators.required,
+                ],
+            ),
+            idCategory: new FormControl(
+                this.launchOut.id_category,
+                [
+                    Validators.required,
+                ],
+            ),
+            description: new FormControl(
+                this.launchOut.description,
+            ),
+            value: new FormControl(
+                this.launchOut.value,
+                [
+                    Validators.required,
+                    Validators.min(0.01),
+                ],
+            ),
+            idPayMethod: new FormControl(
+                this.launchOut.id_pay_method,
+                [
+                    Validators.required,
+                ],
+            ),
+        });
+    }
+
+    onSubmit() {
+        this.launchOut.date = this.launchOutForm.value.date;
+        this.launchOut.id_category = this.launchOutForm.value.idCategory;
+        this.launchOut.description = this.launchOutForm.value.description;
+        this.launchOut.value = this.launchOutForm.value.value;
+        this.launchOut.id_pay_method = this.launchOutForm.value.idPayMethod;
+
+        this.newLaunchOut();
+
+        this.launchOutForm.reset();
     }
 
     newLaunchOut(): void {
-        this.inputValue = this.inputValue.toString().replace(/,/g,'.');
-        this.launchOut.value = parseFloat(this.inputValue);
-
         this.launchService.storeOut(this.launchOut, this.token).subscribe(launchOutReturn => {
             this.inputValue = '';
             this.launchOut = launchOutReturn;

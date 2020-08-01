@@ -1,117 +1,86 @@
-    <!-- inicio  conteudo do site-->
-    <div class="container-fluid">
-        <div class="row">
+<!-- inicio  conteudo do site-->
+<div class="container-fluid">
+    <div class="row">
 
-            <div class="col-sm">
+        <div class="col-sm">
 
-            </div>
+        </div>
 
-            <div class="col-md-8" id="main">
+        <div class="col-md-8" id="main">
 
-                <div class="row justify-content-center" style="margin-top:10px;">
-                        
+            <div class="row justify-content-center" style="margin-top:10px;">
 
-                    <div class="border border-success rounded" 
-                        style="width:400px;padding: 10px; background-color:white;">
 
-                        <div class="col" style="margin:15px 0;">
-                            
-                            <!-- <div *ngIf="msg.length > 0 && msg.indexOf('saved')">                                
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <strong>Sucesso!</strong>
-                                    Cliquei <a routerLink="/login">aqui</a>  
-                                    para fazer login.
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            </div> -->
+                <div class="border border-success rounded" style="width:400px;padding: 10px; background-color:white;">
 
-                            <form>
+                    <div class="col" style="margin:15px 0;">
 
-                                <div class="form-row">
+                        <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
 
-                                    <div class="form-group col-md">
-                                        <label for="inputName">Nome completo</label>
-                                            <input name="full_name" class="form-control "
-                                                [(ngModel)]="user.full_name" required>
-                                            <div class="valid-feedback">
-                                                Parece bom!
-                                            </div>  
-                                            <div class="invalid-feedback">
+                            <div class="form-row">
 
-                                            </div>  
-                                    </div>
-
-                                </div>
-                                <div class="form-row">
-                                    
-                                    <div class="form-group col-md">
-                                        <label for="inputEmail">E-mail</label>
-                                            <input type="email" id="inputEmail"name="email" class="form-control"
-                                                [(ngModel)]="user.email" required>
-                                            <div class="valid-feedback">
-                                                Parece bom!
-                                            </div>  
-                                            <div class="invalid-feedback">
-
-                                            </div>  
-                                    </div>
-
-                                </div>
-                                <div class="form-row">
-
-                                    <div class="form-group col-md">
-                                        <label for="inputPassword">Senha (minimo 8 caracteres)</label>
-                                            <input type="password" id="inputPassword"name="password" class="form-control"
-                                                [(ngModel)]="user.password" required>
-                                            <div class="valid-feedback">
-                                                Parece bom!
-                                            </div>  
-                                            <div class="invalid-feedback">
-
-                                            </div>  
-                                    </div>
-
-                                </div>
-                                <div class="form-row">
-
-                                    <div class="form-group col-md">
-                                        <label for="inputVerify">Repita a senha</label>
-                                            <input type="password" id="inputVerify"name="verifyPass" class="form-control"
-                                                [(ngModel)]="user.verifyPass" required>
-                                            <div class="valid-feedback">
-                                                Parece bom!
-                                            </div>  
-                                            <div class="invalid-feedback">
-
-                                            </div>  
-                                    </div>
-
+                                <div class="form-group col-md">
+                                    <label for="inputName">Nome completo
+                                        <span *ngIf="f.fullName.errors && f.fullName.errors.required">*</span>
+                                    </label>
+                                    <input type="text" formControlName="fullName" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
                                 </div>
 
-                                <button (click)="newUser()" class="btn btn-success form-control">
-                                    Cadastrar
-                                </button>
+                            </div>
+                            <div class="form-row">
 
-                            </form>
-                        </div>
+                                <div class="form-group col-md">
+                                    <label for="inputEmail">E-mail
+                                        <span *ngIf="f.email.errors && f.email.errors.required">*</span>
+                                    </label>
+                                    <input type="text" formControlName="email" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                </div>
 
+                            </div>
+                            <div class="form-row">
+
+                                <div class="form-group col-md">
+                                    <label for="inputPassword">Senha (minimo 8 caracteres)
+                                        <span *ngIf="f.password.errors && f.password.errors.required">*</span>
+                                    </label>
+                                    <input type="password" formControlName="password" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+
+                                <div class="form-group col-md">
+                                    <label for="inputVerify">Repita a senha
+                                        <span *ngIf="f.verifyPass.errors && f.verifyPass.errors.required">*</span>
+                                    </label>
+                                    <input type="password" formControlName="verifyPass" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.verifyPass.errors }">
+                                </div>
+
+                            </div>
+
+                            <button type="submit" [disabled]="!newUserForm.valid" class="btn btn-success form-control">
+                                Cadastrar
+                            </button>
+
+                        </form>
                     </div>
 
                 </div>
 
             </div>
 
-            <div class="col-sm-2"></div>
-
         </div>
-        
+
+        <div class="col-sm-2"></div>
+
     </div>
-    <!-- fim conteúdo do site -->
-        
 
-    <!-- fim container -->
-
+</div>
+<!-- fim conteúdo do site -->
 
 
+<!-- fim container -->

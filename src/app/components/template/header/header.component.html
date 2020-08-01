@@ -1,11 +1,23 @@
+<div *ngIf="topMenu === 'topMenu'">
+    <app-top-menu></app-top-menu>
+</div>
+
+<div *ngIf="topMenu === 'topLink'">
+    <app-top-link></app-top-link>
+</div>
+
+<div *ngIf="topMenu === 'appMenu'">
+    <app-menu></app-menu>
+</div>
+<!-- 
 <div *ngIf="routeUrl==='home' || routeUrl==='about'">
     <app-top-menu></app-top-menu>
 </div>
 
-<div *ngIf="routeUrl==='login' || routeUrl==='register' || routeUrl === 'forgot'">  
+<div *ngIf="routeUrl==='login' || routeUrl==='register' || routeUrl === 'forgot'">
     <app-top-link></app-top-link>
 </div>
 
-<div *ngIf="routeUrl==='app'">  
+<div *ngIf="routeUrl==='app'">
     <app-menu></app-menu>
-</div>
+</div> -->

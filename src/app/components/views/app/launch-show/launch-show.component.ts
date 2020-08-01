@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderService } from 'src/app/services/template/header/header.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { LaunchShow } from 'src/app/models/launch/launchShow.model';
+
+import { HeaderService } from 'src/app/services/template/header/header.service';
 import { LaunchService } from 'src/app/services/user/launch.service';
-import { LaunchShow } from 'src/app/models/launch.model';
+
 
 @Component({
 	selector: 'app-launch-show',
@@ -32,7 +35,8 @@ export class LaunchShowComponent implements OnInit {
 		private launchService: LaunchService,
 	) {
 		headerService.headerData = {
-			routeUrl: 'app'
+			topMenu: 'appMenu',
+			sideMenu: 'launchMenu',
 		}
 	}
 

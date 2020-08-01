@@ -1,3 +1,4 @@
 export interface HeaderData {
-    routeUrl: string,
+    topMenu?: string,
+    sideMenu?: string,
 }

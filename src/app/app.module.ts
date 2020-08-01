@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 
@@ -35,6 +35,11 @@ import { LaunchOutComponent } from './components/views/app/launch-out/launch-out
 import { LogoutComponent } from './components/views/app/logout/logout.component';
 import { LaunchFilterComponent } from './components/views/app/launch-filter/launch-filter.component';
 import { LaunchShowComponent } from './components/views/app/launch-show/launch-show.component';
+import { LaunchMenuComponent } from './components/template/app/side-menu/launch-menu/launch-menu.component';
+import { OptionsMenuComponent } from './components/template/app/side-menu/options-menu/options-menu.component';
+import { UserComponent } from './components/views/app/user/user.component';
+import { UserDataComponent } from './components/views/app/user/user-data/user-data.component';
+import { CategoriesComponent } from './components/views/app/user/categories/categories.component';
 
 import { PositionDirective } from './directives/position.directive';
 import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
@@ -71,7 +76,12 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     LogoutComponent,
     LaunchFilterComponent,
     LaunchShowComponent,
-    PositionDirective
+    PositionDirective,
+    LaunchMenuComponent,
+    OptionsMenuComponent,
+    UserComponent,
+    UserDataComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +95,9 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     MatSnackBarModule,
 
     FormsModule,
+
+    ReactiveFormsModule,
+    
     CurrencyMaskModule,
   ],
   providers: [{

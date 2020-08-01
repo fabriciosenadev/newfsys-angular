@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { UserInfo } from 'src/app/models/user.model';
+
 import { SystemService } from 'src/app/services/system/system.service';
 
+import { UserInfo } from '../../../../models/user/userInfo.model';
+
 @Component({
-  selector: 'app-menu',
-  templateUrl: 'menu.component.html',
-  styleUrls: ['./menu.component.css']
+    selector: 'app-menu',
+    templateUrl: 'menu.component.html',
+    styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
 
@@ -14,8 +16,7 @@ export class MenuComponent implements OnInit {
         token: '',
         firstName: ''
     }
-    constructor(private systemService: SystemService) 
-    {
+    constructor(private systemService: SystemService) {
         this.userInfo.token = localStorage.getItem('authToken');
 
         this.systemService.getUserInfo(this.userInfo).subscribe(userInfoReturn => {

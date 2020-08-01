@@ -1,7 +1,7 @@
-<div *ngIf="routeUrl!=='home' && routeUrl!=='about'">
-    <mat-toolbar  class="footer" appPosition>
+<div *ngIf="topMenu === 'topLink' || topMenu === 'appMenu'">
+    <mat-toolbar class="footer" appPosition>
         <span style="color:#000;">
-            Desenvolvido com 
+            Desenvolvido com
             <i class="material-icons v-middle red">
                 favorite
             </i>
@@ -10,10 +10,10 @@
     </mat-toolbar>
 </div>
 
-<div *ngIf="routeUrl==='home' || routeUrl==='about'">
+<div *ngIf="topMenu ==='topMenu'">
     <mat-toolbar class="footer">
         <span style="color:#000;">
-            Desenvolvido com 
+            Desenvolvido com
             <i class="material-icons v-middle red">
                 favorite
             </i>
