@@ -1,0 +1,141 @@
+<!-- <hr> -->
+
+<!-- inicio  conteudo do site-->
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-sm">
+            <app-side-menu></app-side-menu>
+        </div>
+
+        <div class="col-md-8" id="main">
+            <div class="row justify-content-center" style="margin-top:50px;margin-bottom: 80px;">
+
+                <div class="border-top rounded-bottom" style="width:500px;padding: 10px; background-color:white;">
+
+                    <form [formGroup]="resetForm" (ngSubmit)="onSubmit()">
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md">
+                                <h2>Meus dados</h2>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-4">
+
+                                <label>Nome</label>
+
+                            </div>
+
+                            <div class="form-group col-md-8">
+
+                                <label>{{ userInfo.full_name }}</label>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-4">
+
+                                <label>E-mail</label>
+
+                            </div>
+
+                            <div class="form-group col-md-8">
+
+                                <label>{{ userInfo.email }}</label>
+
+                            </div>
+
+                        </div>
+
+                        <hr>
+                        <p><strong>Alteração de senha</strong></p>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-4">
+
+                                <label>Nova Senha (minimo 8 caracteres)</label>
+
+                            </div>
+
+                            <div class="form-group col-md-8">
+
+                                <input type="password" formControlName="password" class="form-control">
+
+
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+
+                            <div class="form-group col-md-4">
+
+                                <label>Repetir Nova Senha</label>
+
+                            </div>
+
+                            <div class="form-group col-md-8">
+
+                                <input type="password" formControlName="verifyPass" class="form-control">
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-2">
+                                <button type="submit" [disabled]="!resetForm.valid" class="btn btn-success form-control">
+                                    Salvar
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                    <!-- <form [formGroup]="resetForm" (ngSubmit)="onSubmit()">
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md">
+                                <label for="inputPassword">Nova Senha (minimo 8 caracteres)</label>
+                                <input type="password" formControlName="password" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+
+                            <div class="form-group col-md">
+                                <label for="inputVerify">Repita a senha</label>
+                                <input type="password" formControlName="verifyPass" class="form-control">
+                            </div>
+
+                        </div>
+
+                        <button type="submit" [disabled]="!resetForm.valid" class="btn btn-success form-control">
+                            Salvar
+                        </button>
+
+                    </form> -->
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-sm-2"></div>
+
+    </div>
+</div>
