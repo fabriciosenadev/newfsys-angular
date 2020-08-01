@@ -95,7 +95,9 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     MatSnackBarModule,
 
     FormsModule,
+
     ReactiveFormsModule,
+    
     CurrencyMaskModule,
   ],
   providers: [{
