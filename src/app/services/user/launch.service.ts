@@ -63,13 +63,27 @@ export class LaunchService {
         this.route = this.api.route.launch;
         this.action = this.api.launchAction.filter;
 
-        return this.http.post<LaunchFilter>(`${this.baseUrl}/${this.route}/${this.action}`
-            , launchFilter,
+        let fromDate = launchFilter.fromDate.toString();
+        let toDate = launchFilter.toDate.toString();
+        let applicable = '';
+        applicable += launchFilter.in ? 'in': '';
+        applicable += launchFilter.out ? 'out': '';
+        console.log(applicable);
+        
+        return this.http.get<LaunchFilter>(`${this.baseUrl}/${this.route}/${this.action}`,
             {
                 headers: {
                     auth_pass: token
                 },
+                params: {
+                    fromDate,
+                    toDate,
+                    applicable, 
+                    idCategory: launchFilter.id_category,
+                    idPayMethod: launchFilter.id_pay_method,
+                }
             },
+            
         ).pipe(
             map(obj => obj),
             catchError(error => this.errorHandler(error))

@@ -27,7 +27,7 @@ export class LaunchInComponent implements OnInit {
     launchIn: LaunchIn = {
         date: new Date(),
         id_category: 0,
-        description: '',
+        description: null,
         value: 0
     }
 

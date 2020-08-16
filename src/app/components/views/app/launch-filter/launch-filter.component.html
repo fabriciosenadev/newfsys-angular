@@ -10,57 +10,124 @@
 
         <div class="col-md-8" id="main">
 
-            <div class="row" style="margin-top:10px;margin-bottom: 80px;">
+            <div class="row" style="margin-top:10px;margin-bottom:40px;">
 
                 <div class="col">
 
                     <div class="row justify-content-center">
 
-                        <form class="form-inline">
+                        <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+                            <div class="form-row">
 
-                            <label class="sr-only" for="inlineFormInputGroupUsername2">Inicio</label>
-                            <div class="input-group mb-2 mr-sm-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">De</div>
+                                <div class="form-group col-md-6">
+
+                                    <label class="sr-only" for="fromDate">Inicio</label>
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">De</div>
+                                        </div>
+                                        <input type="date" class="form-control" name="fromDate" id="fromDate"
+                                            placeholder="Username" formControlName="fromDate" required>
+                                    </div>
                                 </div>
                                 <input type="date" class="form-control" name="dateFrom"
                                     id="inlineFormInputGroupUsername2" placeholder="Username"
                                     [(ngModel)]="launchFilter.fromDate" required>
                             </div>
+                          
+                                <div class="form-group col-md-6">
 
-                            <label class="sr-only" for="inlineFormInputGroupUsername2">Fim</label>
-                            <div class="input-group mb-2 mr-sm-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">Até</div>
+                                    <label class="sr-only" for="toDate">Fim</label>
+                                    <div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">Até</div>
+                                        </div>
+                                        <input type="date" class="form-control" name="toDate" id="toDate"
+                                            placeholder="Username" formControlName="toDate" required>
+                                    </div>
                                 </div>
-                                <input type="date" class="form-control" name="dateTo" id="inlineFormInputGroupUsername2"
-                                    placeholder="Username" [(ngModel)]="launchFilter.toDate" required>
+
                             </div>
-                            <button (click)="filter()" name="btnFilter" class="btn btn-success mb-2">
-                                <!-- Filtrar  -->
-                                <i class="material-icons v-middle">
-                                    search
-                                </i>
-                            </button>
-                            <!-- <button type="submit" name="btnFilter" class="btn btn-success mb-2">Filtrar <i class="fas fa-search"></i> </button> -->
+                            <div class="form-row">
+                                <div class="form-group col-6">
+
+                                    <div class="row align-items-center justify-content-around">
+
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="receivedCheckbox"
+                                                formControlName="received" (change)="reloadCategories()">
+                                            <label class="custom-control-label" for="receivedCheckbox">Recebido</label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group col-6">
+
+                                    <div class="row align-items-center justify-content-around">
+
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="paidCHeckbox"
+                                                formControlName="paid" (change)="reloadCategories()">
+                                            <label class="custom-control-label" for="paidCHeckbox">Pago</label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+
+                                    <label for="inputState">Categorias</label>
+                                    <select id="inputState" class="form-control" name="category_id"
+                                        formControlName="idCategory">
+                                        <option [ngValue]="0">Todas</option>
+                                        <option *ngFor="let item of categories" [ngValue]="item.id">
+                                            <span *ngIf="item.applicable === 'in'">Recebido</span>
+                                            <span *ngIf="item.applicable === 'out'">Pago</span>
+                                            {{' : '+ item.category}}
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <div *ngIf="this.f.paid.value">
+                                        <label for="inputState">Formas de pgto.</label>
+                                        <select id="inputState" class="form-control" name="pay_method_id"
+                                            formControlName="idPayMethod">
+                                            <option [ngValue]="0">Todas</option>
+                                            <option *ngFor="let item of payMethods" [ngValue]="item.id">
+                                                {{item.pay_method}}
+                                            </option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-row">
+
+                                <div class="form-group col-md">
+
+                                    <div class="row align-items-center justify-content-center">
+
+                                        <button type="submit" [disabled]="!filterForm.valid" class="btn btn-success"
+                                            style="padding: 0.5rem 2.5rem;">
+                                            <!-- Filtrar  -->
+                                            <i class="material-icons v-middle">
+                                                search
+                                            </i>
+                                        </button>
+
+                                    </div>
+                                </div>
+
+                            </div>
 
                         </form>
 
                     </div>
-
-                    <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <strong>Veja bem!</strong> 
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div> -->
-
-                    <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <strong>Sucesso!</strong>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div> -->
 
                 </div>
 
@@ -79,7 +146,36 @@
                         </div>
                     </div>
                     <div *ngIf="length > 0">
-                        <div class="row">
+                        <div class="row" style="margin-bottom: 80px;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Data</th>
+                                        <th scope="col">Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let obj of launchFilter.data">
+                                        <th scope="row" [ngClass]="obj.applicable == 'out' ? 'bg-red':'bg-green'">
+                                            <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
+                                                <i class="material-icons">
+                                                    visibility
+                                                </i>
+                                            </a>
+                                        </th>
+                                        <td [ngClass]="obj.applicable == 'out' ? 'bg-red':'bg-green'">
+                                            {{ obj.date | date:'shortDate' }}
+                                        </td>
+                                        <td [ngClass]="obj.applicable == 'out' ? 'bg-red':'bg-green'">
+                                            {{ obj.value| currency:'BRL' }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- <div class="row">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="in-tab" data-toggle="tab" href="#in" role="tab"
@@ -90,27 +186,28 @@
                                         aria-controls="out" aria-selected="true">Paguei</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
 
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="in" role="tabpanel" aria-labelledby="in-tab">
+                        <!-- <div style="margin-bottom: 80px;">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="in" role="tabpanel" aria-labelledby="in-tab">
 
-                                <table class="table table-striped">
+                                    <table class="table table-striped">
 
-                                    <thead>
-                                        <tr style="background-color: rgba(40, 167, 69, 0.4)">
-                                            <th width="30px" class="text-center">#</th>
-                                            <th>Data</th>
-                                            <th>Valor (R$)</th>
-                                            <!-- <th class="text-center">Status</th>                                                     -->
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                        <thead>
+                                            <tr style="background-color: rgba(40, 167, 69, 0.4)">
+                                                <th width="30px" class="text-center">#</th>
+                                                <th>Data</th>
+                                                <th>Valor (R$)</th> -->
+                        <!-- <th class="text-center">Status</th>                                                     -->
+                        <!-- </tr>
+                                        </thead>
+                                        <tbody> -->
 
-                                        <tr *ngFor="let obj of launchFilter.data">
+                        <!-- <tr *ngFor="let obj of launchFilter.data">
 
-                                            <th *ngIf="obj.applicable == 'in'" scope="row">
-                                                <!-- <form action="" method="post">
+                                                <th *ngIf="obj.applicable == 'in'" scope="row"> -->
+                                            <!-- <form action="" method="post">
                                                                 <input type="hidden" name="historicId">
                                                                 <input type="hidden" name="dateFrom">
                                                                 <input type="hidden" name="dateTo">
@@ -120,47 +217,48 @@
                                                                     </i>
                                                                 </button>
                                                             </form> -->
-                                                <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
-                                                    <i class="material-icons">
-                                                        visibility
-                                                    </i>
-                                                </a>
-                                            </th>
-                                            <td *ngIf="obj.applicable == 'in'">{{ obj.date | date:'shortDate' }}</td>
-                                            <td *ngIf="obj.applicable == 'in'">{{ obj.value| currency:'BRL' }}</td>
-                                            <!-- <td *ngIf="obj.applicable == 'in'"> -->
-                                            <!-- classes bg-warning ou bg-success: avaliar se esta pendente ou ok -->
-                                            <!-- <div class=" text-center bg-warning" style="padding:4px;border-radius:20px;color:white;">                                                        
+                        <!-- <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
+                                                        <i class="material-icons">
+                                                            visibility
+                                                        </i>
+                                                    </a>
+                                                </th>
+                                                <td *ngIf="obj.applicable == 'in'">{{ obj.date | date:'shortDate' }}
+                                                </td>
+                                                <td *ngIf="obj.applicable == 'in'">{{ obj.value| currency:'BRL' }}</td> -->
+                        <!-- <td *ngIf="obj.applicable == 'in'"> -->
+                        <!-- classes bg-warning ou bg-success: avaliar se esta pendente ou ok -->
+                        <!-- <div class=" text-center bg-warning" style="padding:4px;border-radius:20px;color:white;">                                                        
                                                                 text
                                                             </div>
                                                         </td> -->
 
-                                        </tr>
+                        <!-- </tr>
 
-                                    </tbody>
+                                        </tbody>
 
-                                </table>
+                                    </table>
 
-                            </div>
+                                </div> -->
 
-                            <div class="tab-pane fade" id="out" role="tabpanel" aria-labelledby="out-tab">
+                        <!-- <div class="tab-pane fade" id="out" role="tabpanel" aria-labelledby="out-tab">
 
-                                <table class="table table-striped">
+                                    <table class="table table-striped">
 
-                                    <thead>
-                                        <tr style="background-color: rgba(220, 53, 69, 0.4)">
-                                            <th width="30px" class="text-center">#</th>
-                                            <th>Data</th>
-                                            <th>Valor (R$)</th>
-                                            <!-- <th class="text-center">Status</th>                                                     -->
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                        <thead>
+                                            <tr style="background-color: rgba(220, 53, 69, 0.4)">
+                                                <th width="30px" class="text-center">#</th>
+                                                <th>Data</th>
+                                                <th>Valor (R$)</th> -->
+                        <!-- <th class="text-center">Status</th>                                                     -->
+                        <!-- </tr>
+                                        </thead>
+                                        <tbody>
 
-                                        <tr *ngFor="let obj of launchFilter.data">
+                                            <tr *ngFor="let obj of launchFilter.data">
 
-                                            <th *ngIf="obj.applicable == 'out'" scope="row">
-                                                <!-- <form action="" method="post">
+                                                <th *ngIf="obj.applicable == 'out'" scope="row"> -->
+                        <!-- <form action="" method="post">
                                                                 <input type="hidden" name="historicId">
                                                                 <input type="hidden" name="dateFrom">
                                                                 <input type="hidden" name="dateTo">
@@ -170,33 +268,35 @@
                                                                     </i>
                                                                 </button>
                                                             </form> -->
-                                                <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
-                                                    <i class="material-icons">
-                                                        visibility
-                                                    </i>
-                                                </a>
-                                            </th>
-                                            <td *ngIf="obj.applicable == 'out'">{{ obj.date }}</td>
-                                            <td *ngIf="obj.applicable == 'out'">{{ obj.value| currency:'BRL' }}</td>
-                                            <!-- <td *ngIf="obj.applicable == 'out'">
+                        <!-- <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
+                                                        <i class="material-icons">
+                                                            visibility
+                                                        </i>
+                                                    </a>
+                                                </th>
+                                                <td *ngIf="obj.applicable == 'out'">{{ obj.date }}</td>
+                                                <td *ngIf="obj.applicable == 'out'">{{ obj.value| currency:'BRL' }}</td> -->
+                        <!-- <td *ngIf="obj.applicable == 'out'">
                                                             <div class=" text-center" style="padding:4px;border-radius:20px;color:white;">                                                        
                                                                 text
                                                             </div>
                                                         </td> -->
+                      
+                        <!-- </tr>
 
-                                        </tr>
+                                        </tbody>
 
-                                    </tbody>
+                                    </table>
 
-                                </table>
-
+                                </div>
                             </div>
 
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
             </div>
+
 
         </div>
 

@@ -1,12 +1,13 @@
 {
     "name": "nfsys-angular",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "generate:build": "ng build --prod --baseHref=\"https://fabriciosenadev.github.io/newfsys-angular/\""
     },
     "private": true,
     "dependencies": {
