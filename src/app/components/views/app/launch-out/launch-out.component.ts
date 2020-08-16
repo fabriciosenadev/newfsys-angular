@@ -33,7 +33,7 @@ export class LaunchOutComponent implements OnInit {
     launchOut: LaunchOut = {
         date: new Date(),
         id_category: 0,
-        description: '',
+        description: null,
         value: 0.0,
         id_pay_method: 0,
     }
