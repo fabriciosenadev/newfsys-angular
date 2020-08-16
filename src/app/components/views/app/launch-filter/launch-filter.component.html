@@ -30,7 +30,11 @@
                                             placeholder="Username" formControlName="fromDate" required>
                                     </div>
                                 </div>
-
+                                <input type="date" class="form-control" name="dateFrom"
+                                    id="inlineFormInputGroupUsername2" placeholder="Username"
+                                    [(ngModel)]="launchFilter.fromDate" required>
+                            </div>
+                          
                                 <div class="form-group col-md-6">
 
                                     <label class="sr-only" for="toDate">Fim</label>
@@ -203,7 +207,7 @@
                         <!-- <tr *ngFor="let obj of launchFilter.data">
 
                                                 <th *ngIf="obj.applicable == 'in'" scope="row"> -->
-                        <!-- <form action="" method="post">
+                                            <!-- <form action="" method="post">
                                                                 <input type="hidden" name="historicId">
                                                                 <input type="hidden" name="dateFrom">
                                                                 <input type="hidden" name="dateTo">
@@ -277,7 +281,7 @@
                                                                 text
                                                             </div>
                                                         </td> -->
-
+                      
                         <!-- </tr>
 
                                         </tbody>
@@ -292,6 +296,7 @@
                 </div>
 
             </div>
+
 
         </div>
 
