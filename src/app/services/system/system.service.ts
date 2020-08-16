@@ -53,14 +53,16 @@ export class SystemService {
     ): Observable<Categories> {
         this.route = this.api.route.system;
         this.systemRoute = this.api.systemRoute.categories;
-        this.action = categoryType;
 
         return this.http.get<Categories>(
-            `${this.baseUrl}/${this.route}/${this.systemRoute}/${this.action}`,
+            `${this.baseUrl}/${this.route}/${this.systemRoute}`,
             {
                 headers: {
                     auth_pass: token,
                 },
+                params: {
+                    applicable: categoryType
+                }
             }
         ).pipe(
             map(obj => obj),
