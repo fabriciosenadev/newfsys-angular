@@ -30,11 +30,7 @@
                                             placeholder="Username" formControlName="fromDate" required>
                                     </div>
                                 </div>
-                                <input type="date" class="form-control" name="dateFrom"
-                                    id="inlineFormInputGroupUsername2" placeholder="Username"
-                                    [(ngModel)]="launchFilter.fromDate" required>
-                            </div>
-                          
+
                                 <div class="form-group col-md-6">
 
                                     <label class="sr-only" for="toDate">Fim</label>
@@ -46,7 +42,6 @@
                                             placeholder="Username" formControlName="toDate" required>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-6">
@@ -174,130 +169,9 @@
                                 </tbody>
                             </table>
                         </div>
-
-                        <!-- <div class="row">
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="in-tab" data-toggle="tab" href="#in" role="tab"
-                                        aria-controls="in" aria-selected="false">Recebi</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="out-tab" data-toggle="tab" href="#out" role="tab"
-                                        aria-controls="out" aria-selected="true">Paguei</a>
-                                </li>
-                            </ul>
-                        </div> -->
-
-                        <!-- <div style="margin-bottom: 80px;">
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="in" role="tabpanel" aria-labelledby="in-tab">
-
-                                    <table class="table table-striped">
-
-                                        <thead>
-                                            <tr style="background-color: rgba(40, 167, 69, 0.4)">
-                                                <th width="30px" class="text-center">#</th>
-                                                <th>Data</th>
-                                                <th>Valor (R$)</th> -->
-                        <!-- <th class="text-center">Status</th>                                                     -->
-                        <!-- </tr>
-                                        </thead>
-                                        <tbody> -->
-
-                        <!-- <tr *ngFor="let obj of launchFilter.data">
-
-                                                <th *ngIf="obj.applicable == 'in'" scope="row"> -->
-                                            <!-- <form action="" method="post">
-                                                                <input type="hidden" name="historicId">
-                                                                <input type="hidden" name="dateFrom">
-                                                                <input type="hidden" name="dateTo">
-                                                                <button class="btn btn-sm">
-                                                                    <i class="material-icons">
-                                                                        visibility
-                                                                    </i>
-                                                                </button>
-                                                            </form> -->
-                        <!-- <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
-                                                        <i class="material-icons">
-                                                            visibility
-                                                        </i>
-                                                    </a>
-                                                </th>
-                                                <td *ngIf="obj.applicable == 'in'">{{ obj.date | date:'shortDate' }}
-                                                </td>
-                                                <td *ngIf="obj.applicable == 'in'">{{ obj.value| currency:'BRL' }}</td> -->
-                        <!-- <td *ngIf="obj.applicable == 'in'"> -->
-                        <!-- classes bg-warning ou bg-success: avaliar se esta pendente ou ok -->
-                        <!-- <div class=" text-center bg-warning" style="padding:4px;border-radius:20px;color:white;">                                                        
-                                                                text
-                                                            </div>
-                                                        </td> -->
-
-                        <!-- </tr>
-
-                                        </tbody>
-
-                                    </table>
-
-                                </div> -->
-
-                        <!-- <div class="tab-pane fade" id="out" role="tabpanel" aria-labelledby="out-tab">
-
-                                    <table class="table table-striped">
-
-                                        <thead>
-                                            <tr style="background-color: rgba(220, 53, 69, 0.4)">
-                                                <th width="30px" class="text-center">#</th>
-                                                <th>Data</th>
-                                                <th>Valor (R$)</th> -->
-                        <!-- <th class="text-center">Status</th>                                                     -->
-                        <!-- </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            <tr *ngFor="let obj of launchFilter.data">
-
-                                                <th *ngIf="obj.applicable == 'out'" scope="row"> -->
-                        <!-- <form action="" method="post">
-                                                                <input type="hidden" name="historicId">
-                                                                <input type="hidden" name="dateFrom">
-                                                                <input type="hidden" name="dateTo">
-                                                                <button class="btn btn-sm">
-                                                                    <i class="material-icons">
-                                                                        visibility
-                                                                    </i>
-                                                                </button>
-                                                            </form> -->
-                        <!-- <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
-                                                        <i class="material-icons">
-                                                            visibility
-                                                        </i>
-                                                    </a>
-                                                </th>
-                                                <td *ngIf="obj.applicable == 'out'">{{ obj.date }}</td>
-                                                <td *ngIf="obj.applicable == 'out'">{{ obj.value| currency:'BRL' }}</td> -->
-                        <!-- <td *ngIf="obj.applicable == 'out'">
-                                                            <div class=" text-center" style="padding:4px;border-radius:20px;color:white;">                                                        
-                                                                text
-                                                            </div>
-                                                        </td> -->
-                      
-                        <!-- </tr>
-
-                                        </tbody>
-
-                                    </table>
-
-                                </div>
-                            </div>
-
-                        </div> -->
                     </div>
                 </div>
-
             </div>
-
-
         </div>
 
         <!-- </div>
