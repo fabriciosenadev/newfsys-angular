@@ -78,7 +78,7 @@
                                     <select id="inputState" class="form-control" name="category_id"
                                         formControlName="idCategory">
                                         <option [ngValue]="0">Todas</option>
-                                        <option *ngFor="let item of categories" [ngValue]="item.id">
+                                        <option *ngFor="let item of categories.data" [ngValue]="item.id">
                                             <span *ngIf="item.applicable === 'in'">Recebido</span>
                                             <span *ngIf="item.applicable === 'out'">Pago</span>
                                             {{' : '+ item.category}}
@@ -89,14 +89,21 @@
                                 <div class="form-group col-md-6">
                                     <div *ngIf="this.f.paid.value">
                                         <label for="inputState">Formas de pgto.</label>
-                                        <select id="inputState" class="form-control" name="pay_method_id"
+                                        <!-- <select id="inputState" class="form-control" name="pay_method_id"
                                             formControlName="idPayMethod">
                                             <option [ngValue]="0">Todas</option>
                                             <option *ngFor="let item of payMethods" [ngValue]="item.id">
                                                 {{item.pay_method}}
                                             </option>
 
-                                        </select>
+                                        </select> -->
+                                        <select id="selectPayMethod" name="payMethod" class="form-control"
+                                        formControlName="idPayMethod">
+                                        <option [ngValue]="0">Todas</option>
+                                        <option *ngFor="let obj of payMethods.data" [ngValue]="obj.id">
+                                            {{obj.pay_method}}
+                                        </option>
+                                    </select>
                                     </div>
 
                                 </div>
