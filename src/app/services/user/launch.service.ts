@@ -118,6 +118,22 @@ export class LaunchService {
         );
     }
 
+    updateStatus(status: String, id: Number, token:string):Observable<LaunchShow> {
+        this.route = this.api.route.launch;
+        this.action = this.api.launchAction.updateStatus;
+        return this.http.put<LaunchShow>(`${this.baseUrl}/${this.route}/${this.action}/${id}`,
+            { status },
+            {
+                headers: {
+                    auth_pass: token
+                },
+            },
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error))
+        );
+    }
+
     showMessage(
         msg: string,
         isError: boolean = false
