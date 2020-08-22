@@ -36,23 +36,31 @@
 
                             <div class="form-group col-md-6">
 
-                                <label for="inputCategory">Categoria</label>
+                                <label for="inputCategory">
+                                    Categoria
+                                    <app-categories-link></app-categories-link>
+                                </label>
+
                                 <select id="inputCategory" name="category" class="form-control"
                                     formControlName="idCategory">
                                     <option *ngFor="let obj of categories.data" [ngValue]="obj.id">
                                         {{obj.category}}
                                     </option>
                                 </select>
+
                             </div>
 
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-row">
 
-                            <label for="inputDescription">Descrição</label>
-                            <input type="text" class="form-control" id="inputDescription" formControlName="description"
-                                placeholder="Ex: compras do mês" name="description">
+                            <div class="form-group col-md">
 
+                                <label for="inputDescription">Descrição</label>
+                                <input type="text" class="form-control" id="inputDescription"
+                                    formControlName="description" placeholder="Ex: compras do mês" name="description">
+
+                            </div>
                         </div>
                         <div class="form-row">
 
