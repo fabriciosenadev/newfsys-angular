@@ -118,9 +118,6 @@ export class LaunchFilterComponent implements OnInit {
     }
 
     loadPayMethod() {
-        // this.systemService.getPayMethod(this.token).subscribe(paymethodsReturn => {
-        //     this.payMethods = paymethodsReturn.data;
-        // });
         this.systemService.getPayMethod(this.token).subscribe(paymethodsReturn => {
             this.payMethods = paymethodsReturn;
         });
