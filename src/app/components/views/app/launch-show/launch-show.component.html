@@ -27,7 +27,34 @@
                     </p>
                     <p>
                         <strong>&raquo;</strong> Status:
-                        {{ status }}
+                        <span class="bg-success text-white rounded-pill" *ngIf="status === 'paid'"
+                            style="padding: 0.2rem 0.3rem;">
+                            Paguei
+                        </span>
+                        <span class="bg-success text-white rounded-pill" *ngIf="status === 'received'"
+                            style="padding: 0.2rem 0.3rem;">
+                            Recebi
+                        </span>
+                        <span class="bg-warning rounded-pill" *ngIf="status === 'pending'"
+                            style="padding: 0.2rem 0.3rem;">
+                            Pendente
+                        </span>
+                        <a (click)="updateStatus()" class="border rounded"
+                            style="margin-left:10px; padding: 0.4rem;cursor: pointer;">
+                            Marcar como:
+                            <span class="bg-success text-white rounded-pill"
+                                *ngIf="pay_method !== null && status === 'pending'" style="padding: 0.2rem 0.3rem;">
+                                Paguei
+                            </span>
+                            <span class="bg-success text-white rounded-pill"
+                                *ngIf="pay_method === null && status === 'pending'" style="padding: 0.2rem 0.3rem;">
+                                Recebi
+                            </span>
+                            <span class="bg-warning rounded-pill" *ngIf="status === 'paid' || status === 'received'"
+                                style="padding: 0.2rem 0.3rem;">
+                                Pendente
+                            </span>
+                        </a>
                     </p>
                     <p>
                         <strong>&raquo;</strong> Categoria:

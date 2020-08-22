@@ -20,7 +20,7 @@ export class LaunchShowComponent implements OnInit {
 	applicable: String;
 	category: String;
 	date: Date;
-	status: String = 'Não disponível no momento';
+	status: String;
 	description: String;
 	id: Number;
 	pay_method: String;
@@ -57,6 +57,7 @@ export class LaunchShowComponent implements OnInit {
 			this.pay_method = this.launch.pay_method;
 			this.value = this.launch.value;
 			this.description = this.launch.description;
+			this.status = this.launch.status;
 		});
 	}
 
@@ -72,6 +73,23 @@ export class LaunchShowComponent implements OnInit {
 
 	goBack(): void {
 		window.history.back();
+	}
+
+	updateStatus(): void {
+		if (this.pay_method === null && this.status === 'pending')
+			this.status = 'received';
+		else if (this.pay_method !== null && this.status === 'pending')
+			this.status = 'paid';
+		else
+			this.status = 'pending';
+
+		this.launchService.updateStatus(
+			this.status,
+			this.id,
+			this.token
+		).subscribe(updateReturn => {
+			this.launchService.showMessage(updateReturn.success)
+		});
 	}
 
 }

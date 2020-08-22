@@ -25,6 +25,7 @@ export class ApiService {
         in: 'in',
         out: 'out',
         filter: 'filter',
+        updateStatus: 'update_status'
     };
 
     categoryAction = {

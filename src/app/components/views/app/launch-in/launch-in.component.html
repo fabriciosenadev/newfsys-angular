@@ -37,7 +37,10 @@
 
                             <div class="form-group col-md-6">
 
-                                <label for="inputCategory">Categoria</label>
+                                <label for="inputCategory">
+                                    Categoria
+                                    <app-categories-link></app-categories-link>
+                                </label>
                                 <select id="dropCategory" name="category" class="form-control"
                                     formControlName="idCategory">
                                     <option *ngFor="let item of categories.data" [ngValue]="item.id">

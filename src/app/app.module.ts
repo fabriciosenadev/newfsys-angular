@@ -43,6 +43,7 @@ import { CategoriesComponent } from './components/views/app/user/categories/cate
 
 import { PositionDirective } from './directives/position.directive';
 import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
+import { CategoriesLinkComponent } from './components/template/app/categories-link/categories-link.component';
 
 registerLocaleData(localePt);
 
@@ -82,6 +83,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     UserComponent,
     UserDataComponent,
     CategoriesComponent,
+    CategoriesLinkComponent,
   ],
   imports: [
     BrowserModule,

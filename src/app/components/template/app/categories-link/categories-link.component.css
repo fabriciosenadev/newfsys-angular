@@ -1,0 +1,11 @@
+.categories-link {
+    margin: 0 0 0 4.9rem;
+    padding: 5px;
+    text-decoration: none;
+    color:#000;
+    background-color: #f8f9fa;
+}
+.categories-link:hover {
+    background-color:#28a745;
+    color:#FFF;
+}
