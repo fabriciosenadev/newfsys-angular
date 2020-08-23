@@ -24,7 +24,7 @@
         "bootstrap": "^4.5.0",
         "chart.js": "^2.9.3",
         "jquery": "^3.5.1",
-        "ng-chartjs": "^0.2.1",
+        "ng2-charts": "^2.3.3",
         "ng2-currency-mask": "^9.0.2",
         "popper.js": "^1.16.1",
         "rxjs": "~6.5.4",
