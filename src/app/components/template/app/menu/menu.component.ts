@@ -28,7 +28,8 @@ export class MenuComponent implements OnInit {
             this.userInfo.firstName = this.userInfo.data.full_name.split(' ')[0];
         });
 
-        if (!this.userInfo.token) this.sessionService.forceLogin();
+        if (!this.userInfo.token || this.userInfo === null) 
+            this.sessionService.forceLogin();
     }
 
     ngOnInit(): void {
