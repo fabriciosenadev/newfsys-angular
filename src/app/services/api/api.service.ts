@@ -36,6 +36,7 @@ export class ApiService {
         user: 'user',
         categories: 'categories',
         payMethod: 'pay_methods',
+        userProfile: 'user_profile',
     };
 
     systemAction = {
