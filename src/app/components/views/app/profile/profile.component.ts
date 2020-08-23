@@ -82,17 +82,13 @@ export class ProfileComponent implements OnInit {
 
 
     constructor(
-        private sessionService: SessionService,
         private headerService: HeaderService,
         private systemService: SystemService,
     ) {
-        if (!this.token) this.sessionService.forceLogin();
-
         headerService.headerData = {
             topMenu: 'appMenu',
             sideMenu: 'launchMenu',
         }
-
     }
 
     ngOnInit(): void {
