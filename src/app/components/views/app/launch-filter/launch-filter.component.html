@@ -89,14 +89,6 @@
                                 <div class="form-group col-md-6">
                                     <div *ngIf="this.f.paid.value">
                                         <label for="inputState">Formas de pgto.</label>
-                                        <!-- <select id="inputState" class="form-control" name="pay_method_id"
-                                            formControlName="idPayMethod">
-                                            <option [ngValue]="0">Todas</option>
-                                            <option *ngFor="let item of payMethods" [ngValue]="item.id">
-                                                {{item.pay_method}}
-                                            </option>
-
-                                        </select> -->
                                         <select id="selectPayMethod" name="payMethod" class="form-control"
                                         formControlName="idPayMethod">
                                         <option [ngValue]="0">Todas</option>
@@ -114,6 +106,14 @@
 
                                     <div class="row align-items-center justify-content-center">
 
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-row">
+
+                                <div class="form-group col-md">
+                                    <div class="row align-items-center justify-content-center">
                                         <button type="submit" [disabled]="!filterForm.valid" class="btn btn-success"
                                             style="padding: 0.5rem 2.5rem;">
                                             <!-- Filtrar  -->
