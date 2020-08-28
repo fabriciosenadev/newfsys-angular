@@ -36,6 +36,8 @@ export class LaunchOutComponent implements OnInit {
         description: null,
         value: 0.0,
         id_pay_method: 0,
+        status: 'pending',
+        paid: false
     }
 
     launchOutForm: FormGroup;
@@ -92,6 +94,10 @@ export class LaunchOutComponent implements OnInit {
                     Validators.required,
                 ],
             ),
+            isPaid: new FormControl(
+                this.launchOut.paid,
+                []
+            ),
         });
     }
 
@@ -101,6 +107,8 @@ export class LaunchOutComponent implements OnInit {
         this.launchOut.description = this.launchOutForm.value.description;
         this.launchOut.value = this.launchOutForm.value.value;
         this.launchOut.id_pay_method = this.launchOutForm.value.idPayMethod;
+        
+        if(this.launchOutForm.value.isPaid) this.launchOut.status = 'paid';
 
         this.newLaunchOut();
 
@@ -118,6 +126,7 @@ export class LaunchOutComponent implements OnInit {
             this.launchOut.id_category = 0;
             this.launchOut.value = 0;
             this.launchOut.id_pay_method = 0;
+            this.launchOut.status = 'pending';
 
             // set all as the beginning
             launchOutReturn = this.launchOut;
