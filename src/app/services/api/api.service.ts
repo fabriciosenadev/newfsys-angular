@@ -37,6 +37,7 @@ export class ApiService {
         categories: 'categories',
         payMethod: 'pay_methods',
         userProfile: 'user_profile',
+        pieChart: 'pie_chart',
     };
 
     systemAction = {
