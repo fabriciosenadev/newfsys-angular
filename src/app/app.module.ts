@@ -14,6 +14,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+import { ChartsModule } from 'ng2-charts';
+
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 
@@ -40,10 +42,13 @@ import { OptionsMenuComponent } from './components/template/app/side-menu/option
 import { UserComponent } from './components/views/app/user/user.component';
 import { UserDataComponent } from './components/views/app/user/user-data/user-data.component';
 import { CategoriesComponent } from './components/views/app/user/categories/categories.component';
+import { CategoriesLinkComponent } from './components/template/app/categories-link/categories-link.component';
+import { MonthDetailsComponent } from './components/views/app/month-details/month-details.component';
+import { PieChartComponent } from './components/template/app/graphs/pie-chart/pie-chart.component';
 
 import { PositionDirective } from './directives/position.directive';
+
 import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
-import { CategoriesLinkComponent } from './components/template/app/categories-link/categories-link.component';
 
 registerLocaleData(localePt);
 
@@ -84,6 +89,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     UserDataComponent,
     CategoriesComponent,
     CategoriesLinkComponent,
+    MonthDetailsComponent,
+    PieChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -97,10 +104,11 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     MatSnackBarModule,
 
     FormsModule,
-
     ReactiveFormsModule,
     
     CurrencyMaskModule,
+
+    ChartsModule,
   ],
   providers: [{
     provide: LOCALE_ID,
