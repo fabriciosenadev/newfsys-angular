@@ -23,6 +23,17 @@ export class MonthDetailsComponent implements OnInit {
     pieChartOutLabels = [];
     pieChartOutData = [];
 
+    detailsInNonPendingData = [];
+    detailsOutNonPendingData = [];
+
+    detailsInPendingData = [];
+    detailsOutPendingData = [];
+
+    lengthInNonPending: number = -1;
+    lengthOutNonPending: number = -1;
+    lengthInPending: number = -1;
+    lengthOutPending: number = -1;
+
     constructor(
         private headerService: HeaderService,
         private systemService: SystemService,
@@ -42,8 +53,9 @@ export class MonthDetailsComponent implements OnInit {
             this.systemService.showMessage('Mês informado não localizado', true)
             this.goBack();
         }
-        
+
         this.pieChart();
+        this.detailsMonth();
     }
 
     pieChart() {
@@ -65,6 +77,21 @@ export class MonthDetailsComponent implements OnInit {
                     this.goBack();
                 }
             });
+    }
+
+    detailsMonth() {
+        this.systemService.getDetailByMoth(this.year, this.month, this.token)
+            .subscribe(detailsMonthReturn => {
+                this.detailsInNonPendingData = detailsMonthReturn.historicsInNonPendingData;
+                this.detailsOutNonPendingData = detailsMonthReturn.historicsOutNonPendingData;
+                this.detailsInPendingData = detailsMonthReturn.historicsInPendingData;
+                this.detailsOutPendingData = detailsMonthReturn.historicsOutPendingData;
+                this.lengthInNonPending = this.detailsInNonPendingData.length;
+                this.lengthOutNonPending = this.detailsOutNonPendingData.length;
+                this.lengthInPending = this.detailsInPendingData.length;
+                this.lengthOutPending = this.detailsOutPendingData.length;
+                console.log(detailsMonthReturn);                
+            })
     }
 
     goBack(): void {
