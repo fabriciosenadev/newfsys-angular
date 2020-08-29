@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SessionService } from 'src/app/services/system/session.service';
 import { HeaderService } from 'src/app/services/template/header/header.service';
 import { SystemService } from 'src/app/services/system/system.service';
@@ -84,6 +85,7 @@ export class ProfileComponent implements OnInit {
     constructor(
         private headerService: HeaderService,
         private systemService: SystemService,
+        private router: Router,
     ) {
         headerService.headerData = {
             topMenu: 'appMenu',
@@ -304,4 +306,7 @@ export class ProfileComponent implements OnInit {
         });
     }
 
+    showResume(month: string){
+        this.router.navigate([`/app/details/${this.year}/${month}`])
+    }
 }
