@@ -7,7 +7,7 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "generate:build": "ng build --prod --baseHref=\"https://fabriciosenadev.github.io/newfsys-angular/\""
+        "github:build": "ng build --prod --baseHref=\"https://fabriciosenadev.github.io/newfsys-angular/\""
     },
     "private": true,
     "dependencies": {
