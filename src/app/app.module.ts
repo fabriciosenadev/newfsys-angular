@@ -49,6 +49,7 @@ import { PieChartComponent } from './components/template/app/graphs/pie-chart/pi
 import { PositionDirective } from './directives/position.directive';
 
 import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
+import { CategoriesLinkComponent } from './components/template/app/categories-link/categories-link.component';
 
 registerLocaleData(localePt);
 
