@@ -53,7 +53,7 @@ export class MonthDetailsComponent implements OnInit {
             this.systemService.showMessage('Mês informado não localizado', true)
             this.goBack();
         }
-
+      
         this.pieChart();
         this.detailsMonth();
     }
