@@ -1,0 +1,50 @@
+<!-- <hr> -->
+
+<!-- inicio  conteudo do site-->
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-sm">
+            <app-side-menu></app-side-menu>
+        </div>
+
+        <div class="col-md-8" id="main">
+            <div class="row justify-content-center" style="margin-top:50px;margin-bottom: 80px;">
+
+                <div class="col-sm">
+                    <div class="border-top border-success rounded-bottom"
+                        style="margin-top:10px;padding: 10px; background-color:white;">
+                        <h1>Entrada</h1>
+
+                        <span *ngIf="pieChartInData.length > 0">
+                            <app-pie-chart [dataSet]="pieChartInData" [labels]="pieChartInLabels">
+                            </app-pie-chart>
+                        </span>
+                            
+                    </div>
+
+                </div>
+
+                <div class="col-sm">
+
+                    <div class="border-top border-success rounded-bottom"
+                        style="margin-top:10px;padding: 10px; background-color:white;">
+                        <h1>Saida</h1>
+
+                        <span *ngIf="pieChartOutData.length > 0">
+                            <app-pie-chart [dataSet]="pieChartOutData" [labels]="pieChartOutLabels">
+                            </app-pie-chart>
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-sm-2"></div>
+
+    </div>
+</div>
