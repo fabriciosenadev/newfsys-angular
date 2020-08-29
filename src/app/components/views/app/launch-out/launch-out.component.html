@@ -89,11 +89,28 @@
                         </div>
                         <div class="form-row">
 
-                            <div class="form-group col-md-2">
-                                <button type="submit" [disabled]="!launchOutForm.valid" class="btn btn-success"
-                                    id="btnSave">
-                                    Gravar
-                                </button>
+                            <div class="form-group col-6">
+
+                                <div class="row align-items-center justify-content-center">
+
+                                    <div class="custom-control custom-switch" style="margin-top: 10px;">
+                                        <input type="checkbox" class="custom-control-input" id="isPaidCheckbox"
+                                            formControlName="isPaid">
+                                        <label class="custom-control-label" for="isPaidCheckbox">Marcar como
+                                            pago</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <div class="row align-items-center justify-content-center">
+                                    <button type="submit" [disabled]="!launchOutForm.valid" class="btn btn-success"
+                                        id="btnSave">
+                                        Gravar
+                                    </button>
+                                </div>
                             </div>
 
                         </div>

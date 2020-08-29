@@ -18,6 +18,7 @@ import { LaunchShowComponent } from './components/views/app/launch-show/launch-s
 import { UserComponent } from './components/views/app/user/user.component';
 import { UserDataComponent } from './components/views/app/user/user-data/user-data.component';
 import { CategoriesComponent } from './components/views/app/user/categories/categories.component';
+import { MonthDetailsComponent } from './components/views/app/month-details/month-details.component'; 
 
 const routes: Routes = [
     {
@@ -77,6 +78,10 @@ const routes: Routes = [
         path: "app/user/categories",
         component: CategoriesComponent
     },
+    {
+        path: "app/details/:year/:month",
+        component:MonthDetailsComponent
+    }
 ];
 
 @NgModule({

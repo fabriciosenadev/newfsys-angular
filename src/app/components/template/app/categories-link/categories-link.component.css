@@ -1,11 +1,18 @@
 .categories-link {
-    margin: 0 0 0 4.9rem;
+    margin: 0 0 0 11.7rem;
     padding: 5px;
     text-decoration: none;
-    color:#000;
+    color: #000;
     background-color: #f8f9fa;
 }
+
 .categories-link:hover {
-    background-color:#28a745;
-    color:#FFF;
+    background-color: #28a745;
+    color: #FFF;
+}
+
+@media(min-width: 760px) {
+    .categories-link {
+        margin: 0 0 0 4.9rem;
+    }
 }

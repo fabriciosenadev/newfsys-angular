@@ -28,7 +28,9 @@ export class LaunchInComponent implements OnInit {
         date: new Date(),
         id_category: 0,
         description: null,
-        value: 0
+        value: 0,
+        status: 'pending',
+        received: false,
     }
 
     launchInForm: FormGroup;
@@ -75,6 +77,10 @@ export class LaunchInComponent implements OnInit {
                     Validators.min(0.01),
                 ],
             ),
+            isReceived: new FormControl(
+                this.launchIn.received,
+                [],
+            ),
         });
     }
 
@@ -84,6 +90,8 @@ export class LaunchInComponent implements OnInit {
         this.launchIn.description = this.launchInForm.value.description;
         this.launchIn.value = this.launchInForm.value.value;
 
+        if(this.launchInForm.value.isReceived) this.launchIn.status = 'received';
+        
         this.newLaunchIn();
 
         this.launchInForm.reset();
@@ -99,6 +107,7 @@ export class LaunchInComponent implements OnInit {
             this.launchIn.description = '';
             this.launchIn.id_category = 0;
             this.launchIn.value = 0;
+            this.launchIn.status = 'pending';
 
             // set all as the beginning
             delete launchInReturn.success;

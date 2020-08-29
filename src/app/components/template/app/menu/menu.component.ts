@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { SystemService } from 'src/app/services/system/system.service';
 
 import { UserInfo } from '../../../../models/user/userInfo.model';
+import { SessionService } from 'src/app/services/system/session.service';
 
 @Component({
     selector: 'app-menu',
@@ -16,13 +17,19 @@ export class MenuComponent implements OnInit {
         token: '',
         firstName: ''
     }
-    constructor(private systemService: SystemService) {
+    constructor(
+        private systemService: SystemService,
+        private sessionService: SessionService,
+    ) {
         this.userInfo.token = localStorage.getItem('authToken');
 
         this.systemService.getUserInfo(this.userInfo).subscribe(userInfoReturn => {
             this.userInfo = userInfoReturn;
             this.userInfo.firstName = this.userInfo.data.full_name.split(' ')[0];
         });
+
+        if (!this.userInfo.token || this.userInfo === null) 
+            this.sessionService.forceLogin();
     }
 
     ngOnInit(): void {

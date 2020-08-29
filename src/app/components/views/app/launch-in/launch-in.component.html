@@ -71,14 +71,31 @@
 
                             </div>
 
+                            <div class="form-group col-6">
+
+                                <div class="row align-items-center justify-content-center">
+
+                                    <div class="custom-control custom-switch" style="margin-top: 35px;">
+                                        <input type="checkbox" class="custom-control-input" id="isReceivedCheckbox"
+                                            formControlName="isReceived">
+                                        <label class="custom-control-label" for="isReceivedCheckbox">Marcar como
+                                            recebido</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
                         </div>
                         <div class="form-row">
 
-                            <div class="form-group col-md-2">
-                                <button type="submit" [disabled]="!launchInForm.valid" class="btn btn-success"
-                                    id="btnSave">
-                                    Gravar
-                                </button>
+                            <div class="form-group col-md-6">
+                                <div class="row align-items-center justify-content-center">
+                                    <button type="submit" [disabled]="!launchInForm.valid" class="btn btn-success"
+                                        id="btnSave">
+                                        Gravar
+                                    </button>
+                                </div>
                             </div>
 
                         </div>

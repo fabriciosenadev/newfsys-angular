@@ -89,13 +89,39 @@ export class SystemService {
 
     getMonth(year: string, month: string, token: string): Observable<Month> {
         this.route = this.api.route.system;
+        this.systemRoute = this.api.systemRoute.userProfile;
 
         return this.http.get<Month>(
-            `${this.baseUrl}/${this.route}/${month}/${year}`,
+            `${this.baseUrl}/${this.route}/${this.systemRoute}`,
             {
                 headers: {
                     auth_pass: token,
                 },
+                params:{
+                    month,
+                    year,
+                }
+            }
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error))
+        );
+    }
+
+    pieChart(year: string, month: string, token: string): Observable<Month> {
+        this.route = this.api.route.system;
+        this.systemRoute = this.api.systemRoute.pieChart;
+
+        return this.http.get<Month>(
+            `${this.baseUrl}/${this.route}/${this.systemRoute}`,
+            {
+                headers: {
+                    auth_pass: token,
+                },
+                params: {
+                    month,
+                    year
+                }
             }
         ).pipe(
             map(obj => obj),
