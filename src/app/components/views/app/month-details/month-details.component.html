@@ -9,6 +9,7 @@
         </div>
 
         <div class="col-md-8" id="main">
+
             <div class="row justify-content-center" style="margin-top:50px;margin-bottom: 80px;">
 
                 <div class="col-sm">
@@ -20,7 +21,6 @@
                             <app-pie-chart [dataSet]="pieChartInData" [labels]="pieChartInLabels">
                             </app-pie-chart>
                         </span>
-                            
                     </div>
 
                 </div>
@@ -35,6 +35,160 @@
                             <app-pie-chart [dataSet]="pieChartOutData" [labels]="pieChartOutLabels">
                             </app-pie-chart>
                         </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center" style="margin-top:50px;margin-bottom: 80px;">
+
+                <div class="col-sm">
+                    <div class="border-top border-success rounded-bottom"
+                        style="margin-top:10px;padding: 10px; background-color:white;">
+                        <h1>Entrada</h1>
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let obj of detailsInNonPendingData">
+                                    <th scope="row">
+                                        <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
+                                            <i class="material-icons">
+                                                visibility
+                                            </i>
+                                        </a>
+                                    </th>
+                                    <td>
+                                        {{ obj.date | date:'shortDate' }}
+                                    </td>
+                                    <td>
+                                        {{ obj.value| currency:'BRL' }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm">
+
+                    <div class="border-top border-success rounded-bottom"
+                        style="margin-top:10px;padding: 10px; background-color:white;">
+                        <h1>Saida</h1>
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let obj of detailsOutNonPendingData">
+                                    <th scope="row">
+                                        <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
+                                            <i class="material-icons">
+                                                visibility
+                                            </i>
+                                        </a>
+                                    </th>
+                                    <td>
+                                        {{ obj.date | date:'shortDate' }}
+                                    </td>
+                                    <td>
+                                        {{ obj.value| currency:'BRL' }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center" style="margin-top:50px;margin-bottom: 80px;">
+
+                <div class="col-sm" *ngIf="lengthInPending > 0">
+                    <div class="border-top border-success rounded-bottom"
+                        style="margin-top:10px;padding: 10px; background-color:white;">
+                        <h1>Pendente Entrada</h1>
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let obj of detailsInPendingData">
+                                    <th scope="row">
+                                        <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
+                                            <i class="material-icons">
+                                                visibility
+                                            </i>
+                                        </a>
+                                    </th>
+                                    <td>
+                                        {{ obj.date | date:'shortDate' }}
+                                    </td>
+                                    <td>
+                                        {{ obj.value| currency:'BRL' }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm"  *ngIf="lengthOutPending > 0">
+
+                    <div class="border-top border-success rounded-bottom"
+                        style="margin-top:10px;padding: 10px; background-color:white;">
+                        <h1> pendente Saida</h1>
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let obj of detailsOutPendingData">
+                                    <th scope="row">
+                                        <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
+                                            <i class="material-icons">
+                                                visibility
+                                            </i>
+                                        </a>
+                                    </th>
+                                    <td>
+                                        {{ obj.date | date:'shortDate' }}
+                                    </td>
+                                    <td>
+                                        {{ obj.value| currency:'BRL' }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                     </div>
 
