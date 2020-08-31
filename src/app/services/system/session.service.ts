@@ -57,7 +57,22 @@ export class SessionService {
     // devolve um Observable vazio com mensagem de erro
     errorHandler(errorRes: any): Observable<any> {
         console.log(errorRes);
-        this.showMessage(errorRes.error.data[0].msg, true);
+
+        if (errorRes.error.auth === false) this.forceLogin();
+
+        let showMsg = '';
+        let param = '';
+
+        if (errorRes.error.data) {
+            showMsg = errorRes.error.data[0].msg;
+            // param = errorRes.error.data[0].param;
+            this.showMessage(showMsg, true);
+        }
+        else if (errorRes.error.msg) {
+            showMsg = errorRes.error.msg;
+            this.showMessage(showMsg, true);
+        }
+
         return EMPTY;
     }
 }
