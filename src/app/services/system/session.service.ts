@@ -55,9 +55,9 @@ export class SessionService {
     }
 
     // devolve um Observable vazio com mensagem de erro
-    errorHandler(error: any): Observable<any> {
-        console.log(error);
-        this.showMessage(error.error.msg, true);
+    errorHandler(errorRes: any): Observable<any> {
+        console.log(errorRes);
+        this.showMessage(errorRes.error.data[0].msg, true);
         return EMPTY;
     }
 }
