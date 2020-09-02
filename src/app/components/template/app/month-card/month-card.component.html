@@ -1,0 +1,32 @@
+<div class="card card-size">
+    <div class="card-header">
+        <h3 class="card-title">{{ monthName }}</h3>
+    </div>
+
+    <div class="card-body">
+
+        <div class="row justify-content-center">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>Entrada</td>
+                        <td>{{ monthReceived | currency:'BRL'}}</td>
+                    </tr>
+                    <tr>
+                        <td>Saída</td>
+                        <td>{{ monthPaid | currency:'BRL'}}</td>
+                    </tr>
+                    <tr>
+                        <td>Total Disp.</td>
+                        <td>{{ monthReceived - monthPaid | currency:'BRL'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button (click)="showResume()" class="btn btn-sm btn-success"
+                [disabled]="(monthReceived - monthPaid) == 0">
+                Mais detalhes
+            </button>
+        </div>
+
+    </div>
+</div>
