@@ -44,104 +44,14 @@
 
                 <div class="card-deck">
 
-                    <div class="card card-size">
-                        <div class="card-header">
-                            <h3 class="card-title">Janeiro</h3>
-                        </div>
+                    <app-month-card [monthId]="january" [monthReceived]="januaryReceived" [monthPaid]="januaryPaid"
+                        [selectedYear]="year"></app-month-card>
 
-                        <div class="card-body">
+                    <app-month-card [monthId]="february" [monthReceived]="februaryReceived" [monthPaid]="februaryPaid"
+                        [selectedYear]="year"></app-month-card>
 
-                            <div class="row justify-content-center">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>Entrada</td>
-                                            <td>{{ januaryReceived | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saída</td>
-                                            <td>{{ januaryPaid | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Disp.</td>
-                                            <td>{{ januaryTotal | currency:'BRL'}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button (click)="showResume(january)" class="btn btn-sm btn-success"
-                                    [disabled]="januaryTotal == 0">
-                                    Mais detalhes
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="card card-size">
-                        <div class="card-header">
-                            <h3 class="card-title">Fevereiro</h3>
-                        </div>
-
-                        <div class="card-body">
-
-                            <div class="row justify-content-center">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>Entrada</td>
-                                            <td>{{ februaryReceived | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saída</td>
-                                            <td>{{ februaryPaid | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Disp.</td>
-                                            <td>{{ februaryTotal | currency:'BRL'}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button (click)="showResume(february)" class="btn btn-sm btn-success"
-                                    [disabled]="februaryTotal == 0">
-                                    Mais detalhes
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="card card-size">
-                        <div class="card-header">
-                            <h3 class="card-title">Março</h3>
-                        </div>
-
-                        <div class="card-body">
-
-                            <div class="row justify-content-center">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>Entrada</td>
-                                            <td>{{ marchReceived | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saída</td>
-                                            <td>{{ marchPaid | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Disp.</td>
-                                            <td>{{ marchTotal | currency:'BRL'}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button (click)="showResume(march)" class="btn btn-sm btn-success"
-                                    [disabled]="marchTotal == 0">
-                                    Mais detalhes
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
+                    <app-month-card [monthId]="march" [monthReceived]="marchReceived" [monthPaid]="marchPaid"
+                        [selectedYear]="year"></app-month-card>
 
                 </div>
 
@@ -150,103 +60,14 @@
 
                 <div class="card-deck">
 
-                    <div class="card card-size">
-                        <div class="card-header">
-                            <h3 class="card-title">Abril</h3>
-                        </div>
+                    <app-month-card [monthId]="april" [monthReceived]="aprilReceived" [monthPaid]="aprilPaid"
+                        [selectedYear]="year"></app-month-card>
 
-                        <div class="card-body">
+                    <app-month-card [monthId]="may" [monthReceived]="mayReceived" [monthPaid]="mayPaid"
+                        [selectedYear]="year"></app-month-card>
 
-                            <div class="row justify-content-center">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>Entrada</td>
-                                            <td>{{ aprilReceived | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saída</td>
-                                            <td>{{ aprilPaid | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Disp.</td>
-                                            <td>{{ aprilTotal | currency:'BRL'}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button (click)="showResume(april)" class="btn btn-sm btn-success"
-                                    [disabled]="aprilTotal == 0">
-                                    Mais detalhes
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="card card-size">
-                        <div class="card-header">
-                            <h3 class="card-title">Maio</h3>
-                        </div>
-
-                        <div class="card-body">
-
-                            <div class="row justify-content-center">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>Entrada</td>
-                                            <td>{{ mayReceived | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saída</td>
-                                            <td>{{ mayPaid | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Disp.</td>
-                                            <td>{{ mayTotal | currency:'BRL'}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button (click)="showResume(may)" class="btn btn-sm btn-success"
-                                    [disabled]="mayTotal == 0">
-                                    Mais detalhes
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card card-size">
-                        <div class="card-header">
-                            <h3 class="card-title">Junho</h3>
-                        </div>
-
-                        <div class="card-body">
-
-                            <div class="row justify-content-center">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>Entrada</td>
-                                            <td>{{ juneReceived | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saída</td>
-                                            <td>{{ junePaid | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Disp.</td>
-                                            <td>{{ juneTotal | currency:'BRL'}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button (click)="showResume(june)" class="btn btn-sm btn-success"
-                                    [disabled]="juneTotal == 0">
-                                    Mais detalhes
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
+                    <app-month-card [monthId]="june" [monthReceived]="juneReceived" [monthPaid]="junePaid"
+                        [selectedYear]="year"></app-month-card>
 
                 </div>
 
@@ -255,104 +76,14 @@
 
                 <div class="card-deck">
 
-                    <div class="card card-size">
-                        <div class="card-header">
-                            <h3 class="card-title">Julho</h3>
-                        </div>
+                    <app-month-card [monthId]="july" [monthReceived]="julyReceived" [monthPaid]="julyPaid"
+                        [selectedYear]="year"></app-month-card>
 
-                        <div class="card-body">
+                    <app-month-card [monthId]="august" [monthReceived]="augustReceived" [monthPaid]="augustPaid"
+                        [selectedYear]="year"></app-month-card>
 
-                            <div class="row justify-content-center">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>Entrada</td>
-                                            <td>{{ julyReceived | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saída</td>
-                                            <td>{{ julyPaid | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Disp.</td>
-                                            <td>{{ julyTotal | currency:'BRL'}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button (click)="showResume(july)" class="btn btn-sm btn-success"
-                                    [disabled]="julyTotal == 0">
-                                    Mais detalhes
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="card card-size">
-                        <div class="card-header">
-                            <h3 class="card-title">Agosto</h3>
-                        </div>
-
-                        <div class="card-body">
-
-                            <div class="row justify-content-center">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>Entrada</td>
-                                            <td>{{ augustReceived | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saída</td>
-                                            <td>{{ augustPaid | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Disp.</td>
-                                            <td>{{ augustTotal | currency:'BRL'}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button (click)="showResume(august)" class="btn btn-sm btn-success"
-                                    [disabled]="augustTotal == 0">
-                                    Mais detalhes
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="card card-size">
-                        <div class="card-header">
-                            <h3 class="card-title">Setembro</h3>
-                        </div>
-
-                        <div class="card-body">
-
-                            <div class="row justify-content-center">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>Entrada</td>
-                                            <td>{{ septemberReceived | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saída</td>
-                                            <td>{{ septemberPaid | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Disp.</td>
-                                            <td>{{ septemberTotal | currency:'BRL'}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button (click)="showResume(september)" class="btn btn-sm btn-success"
-                                    [disabled]="septemberTotal == 0">
-                                    Mais detalhes
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
+                    <app-month-card [monthId]="september" [monthReceived]="septemberReceived"
+                        [monthPaid]="septemberPaid" [selectedYear]="year"></app-month-card>
 
                 </div>
 
@@ -361,104 +92,14 @@
 
                 <div class="card-deck">
 
-                    <div class="card card-size">
-                        <div class="card-header">
-                            <h3 class="card-title">Outubro</h3>
-                        </div>
+                    <app-month-card [monthId]="october" [monthReceived]="octoberReceived"
+                        [monthPaid]="octoberPaid" [selectedYear]="year"></app-month-card>
 
-                        <div class="card-body">
+                    <app-month-card [monthId]="november" [monthReceived]="novemberReceived"
+                        [monthPaid]="novemberPaid" [selectedYear]="year"></app-month-card>
 
-                            <div class="row justify-content-center">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>Entrada</td>
-                                            <td>{{ octoberReceived | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saída</td>
-                                            <td>{{ octoberPaid | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Disp.</td>
-                                            <td>{{ octoberTotal | currency:'BRL'}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button (click)="showResume(october)" class="btn btn-sm btn-success"
-                                    [disabled]="octoberTotal == 0">
-                                    Mais detalhes
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="card card-size">
-                        <div class="card-header">
-                            <h3 class="card-title">Novembro</h3>
-                        </div>
-
-                        <div class="card-body">
-
-                            <div class="row justify-content-center">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>Entrada</td>
-                                            <td>{{ novemberReceived | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saída</td>
-                                            <td>{{ novemberPaid | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Disp.</td>
-                                            <td>{{ novemberTotal | currency:'BRL'}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button (click)="showResume(november)" class="btn btn-sm btn-success"
-                                    [disabled]="novemberTotal == 0">
-                                    Mais detalhes
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="card card-size">
-                        <div class="card-header">
-                            <h3 class="card-title">Dezembro</h3>
-                        </div>
-
-                        <div class="card-body">
-
-                            <div class="row justify-content-center">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>Entrada</td>
-                                            <td>{{ decemberReceived | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saída</td>
-                                            <td>{{ decemberPaid | currency:'BRL'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Disp.</td>
-                                            <td>{{ decemberTotal | currency:'BRL'}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button (click)="showResume(december)" class="btn btn-sm btn-success"
-                                    [disabled]="decemberTotal == 0">
-                                    Mais detalhes
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
+                    <app-month-card [monthId]="december" [monthReceived]="decemberReceived"
+                        [monthPaid]="decemberPaid" [selectedYear]="year"></app-month-card>
 
                 </div>
 

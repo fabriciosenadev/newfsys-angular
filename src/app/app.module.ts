@@ -45,6 +45,7 @@ import { CategoriesComponent } from './components/views/app/user/categories/cate
 import { CategoriesLinkComponent } from './components/template/app/categories-link/categories-link.component';
 import { MonthDetailsComponent } from './components/views/app/month-details/month-details.component';
 import { PieChartComponent } from './components/template/app/graphs/pie-chart/pie-chart.component';
+import { MonthCardComponent } from './components/template/app/month-card/month-card.component';
 
 import { PositionDirective } from './directives/position.directive';
 
@@ -91,6 +92,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     CategoriesLinkComponent,
     MonthDetailsComponent,
     PieChartComponent,
+    MonthCardComponent,
   ],
   imports: [
     BrowserModule,

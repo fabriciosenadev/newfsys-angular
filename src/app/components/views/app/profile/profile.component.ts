@@ -129,12 +129,6 @@ export class ProfileComponent implements OnInit {
 
             this.januaryReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.januaryPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            if (this.januaryPaid <= this.januaryReceived) {
-                this.januaryTotal = this.januaryReceived - this.januaryPaid;
-            }
-            else {
-                this.januaryTotal = this.januaryPaid - this.januaryReceived;
-            }
         });
     }
 
@@ -144,12 +138,6 @@ export class ProfileComponent implements OnInit {
 
             this.februaryReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.februaryPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            if (this.februaryPaid <= this.februaryReceived) {
-                this.februaryTotal = this.februaryReceived - this.februaryPaid;
-            }
-            else {
-                this.februaryTotal = this.februaryPaid - this.februaryReceived;
-            }
         });
     }
 
@@ -159,12 +147,6 @@ export class ProfileComponent implements OnInit {
 
             this.marchReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.marchPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            if (this.marchPaid <= this.marchReceived) {
-                this.marchTotal = this.marchReceived - this.marchPaid;
-            }
-            else {
-                this.marchTotal = this.marchPaid - this.marchReceived;
-            }
         });
     }
 
@@ -174,12 +156,6 @@ export class ProfileComponent implements OnInit {
 
             this.aprilReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.aprilPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            if (this.aprilPaid <= this.aprilReceived) {
-                this.aprilTotal = this.aprilReceived - this.aprilPaid;
-            }
-            else {
-                this.aprilTotal = this.aprilPaid - this.aprilReceived;
-            }
         });
     }
 
@@ -189,12 +165,6 @@ export class ProfileComponent implements OnInit {
 
             this.mayReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.mayPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            if (this.mayPaid <= this.mayReceived) {
-                this.mayTotal = this.mayReceived - this.mayPaid;
-            }
-            else {
-                this.mayTotal = this.mayPaid - this.mayReceived;
-            }
         });
     }
 
@@ -204,13 +174,6 @@ export class ProfileComponent implements OnInit {
 
             this.juneReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.junePaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            if (this.junePaid <= this.juneReceived) {
-                this.juneTotal = this.juneReceived - this.junePaid;
-            }
-            else {
-                this.juneTotal = this.junePaid - this.juneReceived;
-            }
-
         });
     }
 
@@ -220,13 +183,6 @@ export class ProfileComponent implements OnInit {
 
             this.julyReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.julyPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            if (this.julyPaid <= this.julyReceived) {
-                this.julyTotal = this.julyReceived - this.julyPaid;
-            }
-            else {
-                this.julyTotal = this.julyPaid - this.julyReceived;
-            }
-
         });
     }
 
@@ -236,13 +192,6 @@ export class ProfileComponent implements OnInit {
 
             this.augustReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.augustPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            if (this.augustPaid <= this.augustReceived) {
-                this.augustTotal = this.augustReceived - this.augustPaid;
-            }
-            else {
-                this.augustTotal = this.augustPaid - this.augustReceived;
-            }
-
         });
     }
 
@@ -252,12 +201,6 @@ export class ProfileComponent implements OnInit {
 
             this.septemberReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.septemberPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            if (this.septemberPaid <= this.septemberReceived) {
-                this.septemberTotal = this.septemberReceived - this.septemberPaid;
-            }
-            else {
-                this.septemberTotal = this.septemberPaid - this.septemberReceived;
-            }
         });
     }
 
@@ -267,12 +210,6 @@ export class ProfileComponent implements OnInit {
 
             this.octoberReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.octoberPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            if (this.octoberPaid <= this.octoberReceived) {
-                this.octoberTotal = this.octoberReceived - this.octoberPaid;
-            }
-            else {
-                this.octoberTotal = this.octoberPaid - this.octoberReceived;
-            }
         });
     }
 
@@ -282,12 +219,6 @@ export class ProfileComponent implements OnInit {
 
             this.novemberReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.novemberPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            if (this.novemberPaid <= this.novemberReceived) {
-                this.novemberTotal = this.novemberReceived - this.novemberPaid;
-            }
-            else {
-                this.novemberTotal = this.novemberPaid - this.novemberReceived;
-            }
         });
     }
 
@@ -297,12 +228,6 @@ export class ProfileComponent implements OnInit {
 
             this.decemberReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.decemberPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
-            if (this.decemberPaid <= this.decemberReceived) {
-                this.decemberTotal = this.decemberReceived - this.decemberPaid;
-            }
-            else {
-                this.decemberTotal = this.decemberPaid - this.decemberReceived;
-            }
         });
     }
 
