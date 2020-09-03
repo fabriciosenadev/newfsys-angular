@@ -230,8 +230,4 @@ export class ProfileComponent implements OnInit {
             this.decemberPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
         });
     }
-
-    showResume(month: string){
-        this.router.navigate([`/app/details/${this.year}/${month}`])
-    }
 }
