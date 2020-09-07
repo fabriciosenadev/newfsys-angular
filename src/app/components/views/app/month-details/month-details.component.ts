@@ -16,6 +16,7 @@ export class MonthDetailsComponent implements OnInit {
     token = localStorage.getItem('authToken');
     year = '';
     month = '';
+    origin = 'details';
 
     pieChartInLabels = [];
     pieChartInData = [];
@@ -23,16 +24,14 @@ export class MonthDetailsComponent implements OnInit {
     pieChartOutLabels = [];
     pieChartOutData = [];
 
+    pieChartOfPayMethodsLabels = [];
+    pieChartOftotalsByPayMethodData = [];
+
     detailsInNonPendingData = [];
     detailsOutNonPendingData = [];
 
     detailsInPendingData = [];
     detailsOutPendingData = [];
-
-    lengthInNonPending: number = -1;
-    lengthOutNonPending: number = -1;
-    lengthInPending: number = -1;
-    lengthOutPending: number = -1;
 
     constructor(
         private headerService: HeaderService,
@@ -53,7 +52,7 @@ export class MonthDetailsComponent implements OnInit {
             this.systemService.showMessage('Mês informado não localizado', true)
             this.goBack();
         }
-      
+
         this.pieChart();
         this.detailsMonth();
     }
@@ -61,16 +60,15 @@ export class MonthDetailsComponent implements OnInit {
     pieChart() {
         this.systemService.pieChart(this.year, this.month, this.token)
             .subscribe(pieChartReturn => {
-                //#region pieChartIn
                 this.pieChartInLabels = pieChartReturn.categoriesIn;
                 this.pieChartInData = pieChartReturn.valuesIn;
-                //#endregion
 
-                //#endregion pieChartOut
                 this.pieChartOutLabels = pieChartReturn.categoriesOut;
                 this.pieChartOutData = pieChartReturn.valuesOut;
 
-                //#endregion
+                this.pieChartOfPayMethodsLabels = pieChartReturn.payMethods;
+                this.pieChartOftotalsByPayMethodData = pieChartReturn.totalsByPayMethod;               
+
                 if (this.pieChartInData.length == 0 && this.pieChartOutData.length == 0) {
                     let msg = 'Não existem dados de lançamento para o mês selecionado';
                     this.systemService.showMessage(msg, true);
@@ -85,12 +83,7 @@ export class MonthDetailsComponent implements OnInit {
                 this.detailsInNonPendingData = detailsMonthReturn.historicsInNonPendingData;
                 this.detailsOutNonPendingData = detailsMonthReturn.historicsOutNonPendingData;
                 this.detailsInPendingData = detailsMonthReturn.historicsInPendingData;
-                this.detailsOutPendingData = detailsMonthReturn.historicsOutPendingData;
-                this.lengthInNonPending = this.detailsInNonPendingData.length;
-                this.lengthOutNonPending = this.detailsOutNonPendingData.length;
-                this.lengthInPending = this.detailsInPendingData.length;
-                this.lengthOutPending = this.detailsOutPendingData.length;
-                console.log(detailsMonthReturn);                
+                this.detailsOutPendingData = detailsMonthReturn.historicsOutPendingData;                
             })
     }
 
