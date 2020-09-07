@@ -90,17 +90,17 @@
                                     <div *ngIf="this.f.paid.value">
                                         <label for="inputState">Formas de pgto.</label>
                                         <select id="selectPayMethod" name="payMethod" class="form-control"
-                                        formControlName="idPayMethod">
-                                        <option [ngValue]="0">Todas</option>
-                                        <option *ngFor="let obj of payMethods.data" [ngValue]="obj.id">
-                                            {{obj.pay_method}}
-                                        </option>
-                                    </select>
+                                            formControlName="idPayMethod">
+                                            <option [ngValue]="0">Todas</option>
+                                            <option *ngFor="let obj of payMethods.data" [ngValue]="obj.id">
+                                                {{obj.pay_method}}
+                                            </option>
+                                        </select>
                                     </div>
 
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <!-- <div class="form-row">
 
                                 <div class="form-group col-md">
 
@@ -109,7 +109,7 @@
                                     </div>
 
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-row">
 
                                 <div class="form-group col-md">
@@ -139,7 +139,7 @@
 
                 <div class="col">
 
-                    <div *ngIf="length == 0">
+                    <div *ngIf="launchFilter.length == 0">
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             <strong>Veja bem!</strong> Não encontramos resultados para esta pesquisa.
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -147,43 +147,18 @@
                             </button>
                         </div>
                     </div>
-                    <div *ngIf="length > 0">
-                        <div class="row" style="margin-bottom: 80px;">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Data</th>
-                                        <th scope="col">Valor</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let obj of launchFilter.data">
-                                        <th scope="row" [ngClass]="obj.applicable == 'out' ? 'bg-red':'bg-green'">
-                                            <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
-                                                <i class="material-icons">
-                                                    visibility
-                                                </i>
-                                            </a>
-                                        </th>
-                                        <td [ngClass]="obj.applicable == 'out' ? 'bg-red':'bg-green'">
-                                            {{ obj.date | date:'shortDate' }}
-                                        </td>
-                                        <td [ngClass]="obj.applicable == 'out' ? 'bg-red':'bg-green'">
-                                            {{ obj.value| currency:'BRL' }}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                    <div class="row justify-content-center" style="margin-bottom: 80px;">
+
+                        <div class="col-sm" *ngIf="launchFilter.length > 0">
+                            <app-table [showData]="launchFilter" [origin]="origin"></app-table>
                         </div>
+
                     </div>
+
                 </div>
             </div>
         </div>
-
-        <!-- </div>
-
-            </div> -->
 
         <div class="col-md-2"></div>
 

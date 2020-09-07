@@ -17,9 +17,8 @@ import { SystemService } from 'src/app/services/system/system.service';
 export class LaunchFilterComponent implements OnInit {
 
     token: string = localStorage.getItem('authToken');
-
+    origin = 'filter';
     launches: [];
-    length: number = -1;
 
     launchFilter: LaunchFilter = {
         fromDate: new Date(),
@@ -39,7 +38,6 @@ export class LaunchFilterComponent implements OnInit {
         id: 0,
         payMethods: {},
     }
-
 
     filterForm: FormGroup;
 
@@ -106,8 +104,7 @@ export class LaunchFilterComponent implements OnInit {
 
     filter(): void {
         this.launchService.filterByDate(this.launchFilter, this.token).subscribe(filterReturn => {
-            this.launchFilter = filterReturn;
-            this.length = this.launchFilter.data.length;
+            this.launchFilter = filterReturn.data;            
         });
     }
 
@@ -124,9 +121,6 @@ export class LaunchFilterComponent implements OnInit {
     }
 
     reloadCategories() {
-        // console.log(this.filterForm.controls);
-        console.log(this.f.received.value, this.f.paid.value);
-
         let received = this.f.received.value;
         let paid = this.f.paid.value;
         let reload = '';
