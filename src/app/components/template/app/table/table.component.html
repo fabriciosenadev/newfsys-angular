@@ -1,0 +1,53 @@
+<table class="table table-hover" *ngIf="origin === 'details'">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Data</th>
+            <th scope="col">Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let obj of showData">
+            <th scope="row">
+                <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
+                    <i class="material-icons">
+                        visibility
+                    </i>
+                </a>
+            </th>
+            <td>
+                {{ obj.date | date:'shortDate' }}
+            </td>
+            <td>
+                {{ obj.value| currency:'BRL' }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table table-hover" *ngIf="origin === 'filter'">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Data</th>
+            <th scope="col">Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let obj of showData">
+            <th scope="row" [ngClass]="obj.applicable === 'out' ? 'bg-red':'bg-green'">
+                <a routerLink="/app/launch/{{ obj.id }}" class="btn btn-sm">
+                    <i class="material-icons">
+                        visibility
+                    </i>
+                </a>
+            </th>
+            <td [ngClass]="obj.applicable === 'out' ? 'bg-red':'bg-green'">
+                {{ obj.date | date:'shortDate' }}
+            </td>
+            <td [ngClass]="obj.applicable === 'out' ? 'bg-red':'bg-green'">
+                {{ obj.value | currency:'BRL' }}
+            </td>
+        </tr>
+    </tbody>
+</table>
