@@ -134,6 +134,38 @@ export class LaunchService {
         );
     }
 
+    updateIn(launchIn: LaunchIn, id: number, token: string): Observable<LaunchIn>{
+        this.route = this.api.route.launch;
+        
+        return this.http.put<LaunchIn>(`${this.baseUrl}/${this.route}/${id}`,
+            launchIn,
+            {
+                headers: {
+                    auth_pass: token
+                },
+            },
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error))
+        );
+    }
+
+    updateOut(launchOut: LaunchOut, id: number, token: string): Observable<LaunchOut>{
+        this.route = this.api.route.launch;
+        
+        return this.http.put<LaunchOut>(`${this.baseUrl}/${this.route}/${id}`,
+            launchOut,
+            {
+                headers: {
+                    auth_pass: token
+                },
+            },
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error))
+        );
+    }
+
     showMessage(
         msg: string,
         isError: boolean = false
