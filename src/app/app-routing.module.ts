@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // site components
@@ -10,8 +10,6 @@ import { ForgotComponent } from './components/views/site/forgot/forgot.component
 // app components
 import { LoginComponent } from './components/views/app/login/login.component';
 import { ProfileComponent } from './components/views/app/profile/profile.component';
-import { LaunchOutComponent } from './components/views/app/launch-out/launch-out.component';
-import { LaunchInComponent } from './components/views/app/launch-in/launch-in.component';
 import { LogoutComponent } from './components/views/app/logout/logout.component';
 import { LaunchFilterComponent } from './components/views/app/launch-filter/launch-filter.component';
 import { LaunchShowComponent } from './components/views/app/launch-show/launch-show.component';
@@ -19,6 +17,10 @@ import { UserComponent } from './components/views/app/user/user.component';
 import { UserDataComponent } from './components/views/app/user/user-data/user-data.component';
 import { CategoriesComponent } from './components/views/app/user/categories/categories.component';
 import { MonthDetailsComponent } from './components/views/app/month-details/month-details.component'; 
+import { AddLaunchInComponent } from './components/views/app/launch-in/add-launch-in/add-launch-in.component';
+import { EditLaunchInComponent } from './components/views/app/launch-in/edit-launch-in/edit-launch-in.component';
+import { AddLaunchOutComponent } from './components/views/app/launch-out/add-launch-out/add-launch-out.component';
+import { EditLaunchOutComponent } from './components/views/app/launch-out/edit-launch-out/edit-launch-out.component';
 
 const routes: Routes = [
     {
@@ -52,11 +54,21 @@ const routes: Routes = [
     },
     {
         path: "app/launch/in",
-        component: LaunchInComponent
+        component: AddLaunchInComponent,
+        pathMatch: 'full'
+    },
+    {
+        path: 'app/launch/in/:id',
+        component: EditLaunchInComponent
     },
     {
         path: "app/launch/out",
-        component: LaunchOutComponent
+        component: AddLaunchOutComponent,
+        pathMatch: 'full'
+    },
+    {
+        path:"app/launch/out/:id",
+        component: EditLaunchOutComponent
     },
     {
         path: "app/launch/filter",
