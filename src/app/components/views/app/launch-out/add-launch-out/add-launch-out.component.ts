@@ -1,20 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { HeaderService } from 'src/app/services/template/header/header.service';
 import { SystemService } from 'src/app/services/system/system.service';
 import { LaunchService } from 'src/app/services/user/launch.service';
-import { HeaderService } from 'src/app/services/template/header/header.service';
-
-import { PayMethods } from 'src/app/models/payMethod.model';
 import { Categories } from 'src/app/models/category.model';
+import { PayMethods } from 'src/app/models/payMethod.model';
 import { LaunchOut } from 'src/app/models/launch/launchOut.model';
 
 @Component({
-    selector: 'app-launch-out',
-    templateUrl: 'launch-out.component.html',
-    styleUrls: ['./launch-out.component.css']
+    selector: 'app-add-launch-out',
+    templateUrl: 'add-launch-out.component.html',
+    styleUrls: ['./add-launch-out.component.css']
 })
-export class LaunchOutComponent implements OnInit {
+export class AddLaunchOutComponent implements OnInit {
 
     token: string = localStorage.getItem('authToken');
 
@@ -42,29 +40,70 @@ export class LaunchOutComponent implements OnInit {
 
     launchOutForm: FormGroup;
 
-    get f() { return this.launchOutForm.controls; }
-
     constructor(
+        private formBuilder: FormBuilder,
         private headerService: HeaderService,
         private systemService: SystemService,
         private launchService: LaunchService,
-        private formBuilder: FormBuilder,
     ) {
         headerService.headerData = {
             topMenu: 'appMenu',
             sideMenu: 'launchMenu',
         }
+    }
 
+    ngOnInit(): void {
+        this.getCategories();
+        this.getPayMethod();
+        this.launchForm();
+    }
+
+    onSubmit() {
+        this.launchOut.date = this.launchOutForm.value.date;
+        this.launchOut.id_category = this.launchOutForm.value.idCategory;
+        this.launchOut.description = this.launchOutForm.value.description;
+        this.launchOut.value = this.launchOutForm.value.value;
+        this.launchOut.id_pay_method = this.launchOutForm.value.idPayMethod;
+
+        if (this.launchOutForm.value.isPaid) this.launchOut.status = 'paid';
+
+        this.newLaunchOut();
+
+        this.resetForm();
+    }
+
+    newLaunchOut(): void {
+        this.launchService.storeOut(this.launchOut, this.token).subscribe(launchOutReturn => {
+            this.inputValue = '';
+            this.launchOut = launchOutReturn;
+            this.launchService.showMessage(launchOutReturn.success);
+
+            this.launchOut.date = new Date;
+            this.launchOut.description = '';
+            this.launchOut.id_category = 0;
+            this.launchOut.value = 0;
+            this.launchOut.id_pay_method = 0;
+            this.launchOut.status = 'pending';
+
+            // set all as the beginning
+            launchOutReturn = this.launchOut;
+            delete launchOutReturn.success;
+        });
+    }
+
+    getCategories() {
         this.systemService.getCategories('out', this.token).subscribe(categoriesReturn => {
             this.categories = categoriesReturn;
         });
+    }
 
+    getPayMethod() {
         this.systemService.getPayMethod(this.token).subscribe(paymethodsReturn => {
             this.payMethods = paymethodsReturn;
         });
     }
 
-    ngOnInit(): void {
+    launchForm() {
         this.launchOutForm = this.formBuilder.group({
             date: new FormControl(
                 this.launchOut.date,
@@ -101,37 +140,8 @@ export class LaunchOutComponent implements OnInit {
         });
     }
 
-    onSubmit() {
-        this.launchOut.date = this.launchOutForm.value.date;
-        this.launchOut.id_category = this.launchOutForm.value.idCategory;
-        this.launchOut.description = this.launchOutForm.value.description;
-        this.launchOut.value = this.launchOutForm.value.value;
-        this.launchOut.id_pay_method = this.launchOutForm.value.idPayMethod;
-        
-        if(this.launchOutForm.value.isPaid) this.launchOut.status = 'paid';
-
-        this.newLaunchOut();
-
+    resetForm() {
         this.launchOutForm.reset();
-    }
-
-    newLaunchOut(): void {
-        this.launchService.storeOut(this.launchOut, this.token).subscribe(launchOutReturn => {
-            this.inputValue = '';
-            this.launchOut = launchOutReturn;
-            this.launchService.showMessage(launchOutReturn.success);
-
-            this.launchOut.date = new Date;
-            this.launchOut.description = '';
-            this.launchOut.id_category = 0;
-            this.launchOut.value = 0;
-            this.launchOut.id_pay_method = 0;
-            this.launchOut.status = 'pending';
-
-            // set all as the beginning
-            launchOutReturn = this.launchOut;
-            delete launchOutReturn.success;
-        });
     }
 
 }
