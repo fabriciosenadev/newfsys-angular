@@ -92,4 +92,10 @@ export class LaunchShowComponent implements OnInit {
 		});
 	}
 
+	sendToEdit(){
+		let launchType = 'in';
+		if(this.pay_method !== null) launchType = 'out';
+
+		this.router.navigate([`/app/launch/${launchType}/${this.id}`]);
+	}
 }
