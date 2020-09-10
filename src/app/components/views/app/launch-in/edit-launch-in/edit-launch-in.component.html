@@ -1,0 +1,114 @@
+<!-- <hr> -->
+
+<!-- inicio  conteudo do site-->
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-sm">
+            <app-side-menu></app-side-menu>
+        </div>
+
+        <div class="col-md-8" id="main">
+            <div class="row justify-content-center" style="margin-top:50px;margin-bottom: 80px;">
+
+
+                <div class="border-top border-success rounded-bottom"
+                    style="width:500px;padding: 10px; background-color:white;">
+
+                    <form [formGroup]="editLaunchInForm" (ngSubmit)="onSubmit()">
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md">
+                                <h2>Editar entrada</h2>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label for="inputDate">Data</label>
+                                <input type="date" id="inputDate" name="date" formControlName="date"
+                                    class="form-control">
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+
+                                <label for="inputCategory">
+                                    Categoria
+                                    <app-categories-link></app-categories-link>
+                                </label>
+                                <select id="dropCategory" name="category" class="form-control"
+                                    formControlName="id_category">
+                                    <option *ngFor="let item of categories.data" [ngValue]="item.id">
+                                        {{item.category}}
+                                    </option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputDescription">Descrição</label>
+                            <input type="text" class="form-control" id="inputDescription" formControlName="description"
+                                placeholder="Ex: pagamento" name="description">
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label for="inputValue">Valor</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">R$</div>
+                                    </div>
+                                    <input currencyMask min="0.01" name="value" formControlName="value"
+                                        placeholder="Ex: 1,57" class="form-control" id="inputValue" />
+                                </div>
+
+                            </div>
+
+                            <div class="form-group col-6">
+
+                                <div class="row align-items-center justify-content-center">
+
+                                    <div class="custom-control custom-switch" style="margin-top: 35px;">
+                                        <input type="checkbox" class="custom-control-input" id="isReceivedCheckbox"
+                                            formControlName="received">
+                                        <label class="custom-control-label" for="isReceivedCheckbox">Marcar como
+                                            recebido</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <div class="row align-items-center justify-content-center">
+                                    <button type="submit" [disabled]="!editLaunchInForm.valid" class="btn btn-success"
+                                        id="btnSave">
+                                        Gravar
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-sm-2"></div>
+
+    </div>
+</div>

@@ -11,6 +11,8 @@ import { UserInfo } from '../../models/user/userInfo.model';
 import { Categories } from 'src/app/models/category.model';
 import { PayMethods } from 'src/app/models/payMethod.model';
 import { Month } from 'src/app/models/month.model';
+import { LaunchIn } from 'src/app/models/launch/launchIn.model';
+import { LaunchOut } from 'src/app/models/launch/launchOut.model';
 
 @Injectable({
     providedIn: 'root'
@@ -142,6 +144,40 @@ export class SystemService {
                 params:{
                     month,
                     year,
+                }
+            }
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error))
+        );
+    }
+
+    getLaunchIn(id: number, token: string): Observable<LaunchIn> {
+        this.route = this.api.route.system;
+        this.systemRoute = this.api.systemRoute.launch;
+
+        return this.http.get<LaunchIn>(
+            `${this.baseUrl}/${this.route}/${this.systemRoute}/${id}`,
+            {
+                headers: {
+                    auth_pass: token,
+                }
+            }
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error))
+        );
+    }
+
+    getLaunchOut(id: number, token: string): Observable<LaunchOut> {
+        this.route = this.api.route.system;
+        this.systemRoute = this.api.systemRoute.launch;
+
+        return this.http.get<LaunchOut>(
+            `${this.baseUrl}/${this.route}/${this.systemRoute}/${id}`,
+            {
+                headers: {
+                    auth_pass: token,
                 }
             }
         ).pipe(

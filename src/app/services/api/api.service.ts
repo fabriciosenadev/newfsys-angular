@@ -39,6 +39,7 @@ export class ApiService {
         userProfile: 'user_profile',
         pieChart: 'pie_chart',
         detailsByCategory: 'details_by_category',
+        launch: 'launch',
     };
 
     systemAction = {

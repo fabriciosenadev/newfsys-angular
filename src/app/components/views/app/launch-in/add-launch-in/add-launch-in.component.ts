@@ -1,23 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { HeaderService } from 'src/app/services/template/header/header.service';
 import { SystemService } from 'src/app/services/system/system.service';
 import { LaunchService } from 'src/app/services/user/launch.service';
-import { HeaderService } from 'src/app/services/template/header/header.service';
-
 import { Categories } from 'src/app/models/category.model';
 import { LaunchIn } from 'src/app/models/launch/launchIn.model';
 
 @Component({
-    selector: 'app-launch-in',
-    templateUrl: 'launch-in.component.html',
-    styleUrls: ['./launch-in.component.css']
+    selector: 'app-add-launch-in',
+    templateUrl: 'add-launch-in.component.html',
+    styleUrls: ['./add-launch-in.component.css']
 })
-export class LaunchInComponent implements OnInit {
-
+export class AddLaunchInComponent implements OnInit {
     token: string = localStorage.getItem('authToken');
-
-    inputValue: string = '';
 
     categories: Categories = {
         id: 0,
@@ -35,25 +30,59 @@ export class LaunchInComponent implements OnInit {
 
     launchInForm: FormGroup;
 
-    get f() { return this.launchInForm.controls; }
-
     constructor(
+        private formBuilder: FormBuilder,
         private headerService: HeaderService,
         private systemService: SystemService,
         private launchService: LaunchService,
-        private formBuilder: FormBuilder,
     ) {
         headerService.headerData = {
             topMenu: 'appMenu',
             sideMenu: 'launchMenu',
         }
+    }
 
+    ngOnInit(): void {
+        this.getCategories();
+        this.launchForm();
+    }
+
+    onSubmit() {
+        this.launchIn.date = this.launchInForm.value.date;
+        this.launchIn.id_category = this.launchInForm.value.idCategory;
+        this.launchIn.description = this.launchInForm.value.description;
+        this.launchIn.value = this.launchInForm.value.value;
+
+        if (this.launchInForm.value.isReceived) this.launchIn.status = 'received';
+
+        this.newLaunchIn();
+        this.resetForm();
+    }
+
+    newLaunchIn(): void {
+        this.launchService.storeIn(this.launchIn, this.token).subscribe(launchInReturn => {
+            this.launchIn = launchInReturn;
+            this.launchService.showMessage(launchInReturn.success);
+
+            this.launchIn.date = new Date;
+            this.launchIn.description = '';
+            this.launchIn.id_category = 0;
+            this.launchIn.value = 0;
+            this.launchIn.status = 'pending';
+
+            // set all as the beginning
+            delete launchInReturn.success;
+            launchInReturn = this.launchIn;
+        });
+    }
+
+    getCategories() {
         this.systemService.getCategories('in', this.token).subscribe(categoriesReturn => {
             this.categories = categoriesReturn;
         });
     }
 
-    ngOnInit(): void {
+    launchForm() {
         this.launchInForm = this.formBuilder.group({
             date: new FormControl(
                 this.launchIn.date,
@@ -84,35 +113,7 @@ export class LaunchInComponent implements OnInit {
         });
     }
 
-    onSubmit() {
-        this.launchIn.date = this.launchInForm.value.date;
-        this.launchIn.id_category = this.launchInForm.value.idCategory;
-        this.launchIn.description = this.launchInForm.value.description;
-        this.launchIn.value = this.launchInForm.value.value;
-
-        if(this.launchInForm.value.isReceived) this.launchIn.status = 'received';
-        
-        this.newLaunchIn();
-
+    resetForm() {
         this.launchInForm.reset();
     }
-
-    newLaunchIn(): void {
-        this.launchService.storeIn(this.launchIn, this.token).subscribe(launchInReturn => {
-            this.inputValue = '';
-            this.launchIn = launchInReturn;
-            this.launchService.showMessage(launchInReturn.success);
-
-            this.launchIn.date = new Date;
-            this.launchIn.description = '';
-            this.launchIn.id_category = 0;
-            this.launchIn.value = 0;
-            this.launchIn.status = 'pending';
-
-            // set all as the beginning
-            delete launchInReturn.success;
-            launchInReturn = this.launchIn;
-        });
-    }
-
 }

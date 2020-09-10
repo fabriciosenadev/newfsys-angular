@@ -32,8 +32,10 @@ import { RegisterComponent } from './components/views/site/register/register.com
 import { LoginComponent } from './components/views/app/login/login.component';
 import { ProfileComponent } from './components/views/app/profile/profile.component';
 import { MenuComponent } from './components/template/app/menu/menu.component';
-import { LaunchInComponent } from './components/views/app/launch-in/launch-in.component';
-import { LaunchOutComponent } from './components/views/app/launch-out/launch-out.component';
+import { AddLaunchInComponent } from './components/views/app/launch-in/add-launch-in/add-launch-in.component';
+import { EditLaunchInComponent } from './components/views/app/launch-in/edit-launch-in/edit-launch-in.component';
+import { AddLaunchOutComponent} from './components/views/app/launch-out/add-launch-out/add-launch-out.component';
+import { EditLaunchOutComponent } from './components/views/app/launch-out/edit-launch-out/edit-launch-out.component';
 import { LogoutComponent } from './components/views/app/logout/logout.component';
 import { LaunchFilterComponent } from './components/views/app/launch-filter/launch-filter.component';
 import { LaunchShowComponent } from './components/views/app/launch-show/launch-show.component';
@@ -46,6 +48,7 @@ import { CategoriesLinkComponent } from './components/template/app/categories-li
 import { MonthDetailsComponent } from './components/views/app/month-details/month-details.component';
 import { PieChartComponent } from './components/template/app/graphs/pie-chart/pie-chart.component';
 import { MonthCardComponent } from './components/template/app/month-card/month-card.component';
+import { TableComponent } from './components/template/app/table/table.component';
 
 import { PositionDirective } from './directives/position.directive';
 
@@ -78,8 +81,10 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     ProfileComponent,
     MenuComponent,
     SideMenuComponent,
-    LaunchInComponent,
-    LaunchOutComponent,
+    AddLaunchInComponent,
+    EditLaunchInComponent,
+    AddLaunchOutComponent,
+    EditLaunchOutComponent,
     LogoutComponent,
     LaunchFilterComponent,
     LaunchShowComponent,
@@ -93,6 +98,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     MonthDetailsComponent,
     PieChartComponent,
     MonthCardComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
