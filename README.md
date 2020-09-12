@@ -15,4 +15,4 @@ O backend foi construído utilizando NodeJS e pode ser encontrado clicando [aqui
 
 ## Como testar
 
-Para testar online clique [aqui](https://fabriciosenadev.github.io/newfsys-angular/)
+Para testar online clique [aqui](https://newfsys.vercel.app/)
