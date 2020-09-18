@@ -40,6 +40,8 @@ export class ApiService {
         pieChart: 'pie_chart',
         detailsByCategory: 'details_by_category',
         launch: 'launch',
+        checkScheduling: 'check_scheduling',
+        createLaunchScheduled: 'create_launch_scheduled'
     };
 
     systemAction = {
