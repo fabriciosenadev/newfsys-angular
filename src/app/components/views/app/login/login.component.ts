@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
             if (loginReturn.token) {
                 localStorage.setItem('authToken', loginReturn.token);
                 this.sessionService.showMessage('Logado com sucesso');
-                this.router.navigate(['/app/profile']);
+                this.router.navigate(['/app/prepare/profile']);
             }
         });
     }
