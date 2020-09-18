@@ -53,6 +53,7 @@ import { TableComponent } from './components/template/app/table/table.component'
 import { PositionDirective } from './directives/position.directive';
 
 import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
+import { PrepareProfileComponent } from './components/views/app/prepare-profile/prepare-profile.component';
 
 registerLocaleData(localePt);
 
@@ -99,6 +100,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     PieChartComponent,
     MonthCardComponent,
     TableComponent,
+    PrepareProfileComponent,
   ],
   imports: [
     BrowserModule,
