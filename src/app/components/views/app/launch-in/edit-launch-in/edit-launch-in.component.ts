@@ -16,7 +16,9 @@ export class EditLaunchInComponent implements OnInit {
 
     token: string = localStorage.getItem('authToken');
 
-    idLaunchIn: number
+    idLaunchIn: number;
+    isSchedulingEnable: boolean;
+    next_month: string;
 
     categories: Categories = {
         id: 0,
@@ -29,6 +31,7 @@ export class EditLaunchInComponent implements OnInit {
         description: null,
         value: 0,
         received: false,
+        scheduled: false,
     }
 
     LaunchIn = {
@@ -38,8 +41,10 @@ export class EditLaunchInComponent implements OnInit {
         value: 0,
         status: 'pending',
         received: false,
+        scheduled: false,
+        next_month: null,
     }
-    
+
     editLaunchInForm: FormGroup;
 
     constructor(
@@ -97,6 +102,10 @@ export class EditLaunchInComponent implements OnInit {
                 this.formData.received,
                 [],
             ),
+            scheduled: new FormControl(
+                this.formData.scheduled,
+                []
+            ),
         });
     }
 
@@ -113,8 +122,19 @@ export class EditLaunchInComponent implements OnInit {
             this.formData.description = launchReturn.data.description;
             this.formData.value = launchReturn.data.value;
             this.formData.received = launchReturn.data.status === 'received' ? true : false;
-            console.log(this.formData,launchReturn.data);
-            
+
+            this.isSchedulingEnable = this.verifyMonthToSchedule(launchReturn.data.date);
+            if (launchReturn.schedulingData.next_month === 'scheduled')
+                this.formData.scheduled = true;
+            else {
+                if (launchReturn.schedulingData.next_month === 'launched') {
+                    this.formData.scheduled = true;
+                    this.isSchedulingEnable = false;
+                }
+            }
+
+            this.next_month = launchReturn.schedulingData.next_month;
+
             this.editLaunchInForm.setValue(this.formData);
         });
     }
@@ -126,7 +146,15 @@ export class EditLaunchInComponent implements OnInit {
         this.LaunchIn.description = this.editLaunchInForm.value.description;
         this.LaunchIn.value = this.editLaunchInForm.value.value;
         this.LaunchIn.status = this.editLaunchInForm.value.received === true ? 'received' : 'pending';
-        
+
+        if (this.editLaunchInForm.value.scheduled === true)
+            if (this.next_month === 'launched')
+                this.LaunchIn.next_month = this.next_month;
+            else
+                this.LaunchIn.next_month = 'scheduled';
+        else
+            this.LaunchIn.next_month = null;
+
         this.launchService.updateIn(
             this.LaunchIn,
             this.idLaunchIn,
@@ -137,5 +165,21 @@ export class EditLaunchInComponent implements OnInit {
                 this.router.navigate([`/app/launch/${this.idLaunchIn}`]);
             }
         });
+    }
+
+    verifyMonthToSchedule(date: string) {
+        const arrMonth = date.split(/-/);
+        const launchedMonth = parseInt(arrMonth[1]);
+        const currentMonth = new Date().getMonth() + 1;
+
+        let result = false;
+        if ((currentMonth - launchedMonth) < 2 && (currentMonth - launchedMonth) >= 0)
+            result = true;
+        else if (currentMonth === 1 && launchedMonth > 11)
+            result = true;
+        else if (currentMonth === 2 && launchedMonth >= 1 && launchedMonth < 3)
+            result = true;
+
+        return result;
     }
 }
