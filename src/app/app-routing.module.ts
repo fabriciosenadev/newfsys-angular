@@ -9,6 +9,7 @@ import { ForgotComponent } from './components/views/site/forgot/forgot.component
 
 // app components
 import { LoginComponent } from './components/views/app/login/login.component';
+import { PrepareProfileComponent } from './components/views/app/prepare-profile/prepare-profile.component';
 import { ProfileComponent } from './components/views/app/profile/profile.component';
 import { LogoutComponent } from './components/views/app/logout/logout.component';
 import { LaunchFilterComponent } from './components/views/app/launch-filter/launch-filter.component';
@@ -47,6 +48,10 @@ const routes: Routes = [
     {
         path: "logout",
         component: LogoutComponent
+    },
+    {
+        path: "app/prepare/profile",
+        component: PrepareProfileComponent
     },
     {
         path: "app/profile",

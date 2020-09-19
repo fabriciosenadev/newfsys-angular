@@ -31,7 +31,7 @@
                             <div class="form-group col-md-6">
                                 <label for="inputDate">Data</label>
                                 <input type="date" id="inputDate" name="date" formControlName="date"
-                                    class="form-control">
+                                    class="form-control" (change)="EnableScheduling($event.target.value)">
 
                             </div>
 
@@ -71,11 +71,15 @@
 
                             </div>
 
-                            <div class="form-group col-6">
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
 
                                 <div class="row align-items-center justify-content-center">
 
-                                    <div class="custom-control custom-switch" style="margin-top: 35px;">
+                                    <div class="custom-control custom-switch" style="margin-top: 10px;">
                                         <input type="checkbox" class="custom-control-input" id="isReceivedCheckbox"
                                             formControlName="isReceived">
                                         <label class="custom-control-label" for="isReceivedCheckbox">Marcar como
@@ -86,7 +90,24 @@
 
                             </div>
 
+                            <div class="form-group col-md-6">
+
+                                <div class="row align-items-center justify-content-center">
+
+                                    <div class="custom-control custom-switch" style="margin-top: 10px;"
+                                        *ngIf="isEnableScheduling">
+                                        <input type="checkbox" class="custom-control-input" id="scheduledCheckbox"
+                                            formControlName="isScheduled">
+                                        <label class="custom-control-label" for="scheduledCheckbox">Agendar para o
+                                            próximo mês</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
                         </div>
+
                         <div class="form-row">
 
                             <div class="form-group col-md-6">

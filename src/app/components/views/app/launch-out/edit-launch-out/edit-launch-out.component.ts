@@ -17,7 +17,9 @@ export class EditLaunchOutComponent implements OnInit {
 
     token: string = localStorage.getItem('authToken');
 
-    idLaunchOut: number
+    idLaunchOut: number;
+    isSchedulingEnable: boolean;
+    next_month: string;
 
     categories: Categories = {
         id: 0,
@@ -35,7 +37,8 @@ export class EditLaunchOutComponent implements OnInit {
         description: null,
         value: 0.0,
         id_pay_method: 0,
-        paid: false
+        paid: false,
+        scheduled: false,
     }
 
     launchOut: LaunchOut = {
@@ -45,7 +48,9 @@ export class EditLaunchOutComponent implements OnInit {
         value: 0.0,
         id_pay_method: 0,
         status: 'pending',
-        paid: false
+        paid: false,
+        scheduled: false,
+        next_month: null,
     }
 
     editLaunchOutForm: FormGroup;
@@ -79,7 +84,7 @@ export class EditLaunchOutComponent implements OnInit {
 
     getCategories() {
         this.systemService.getCategories('out', this.token).subscribe(categoriesReturn => {
-            this.categories = categoriesReturn;            
+            this.categories = categoriesReturn;
         });
     }
 
@@ -123,10 +128,14 @@ export class EditLaunchOutComponent implements OnInit {
                 this.formData.paid,
                 []
             ),
+            scheduled: new FormControl(
+                this.formData.scheduled,
+                []
+            ),
         });
     }
 
-    getLaunch(id: number){
+    getLaunch(id: number) {
         this.systemService.getLaunchOut(id, this.token).subscribe(launchReturn => {
             this.formData.date = launchReturn.data.date;
             this.formData.id_category = launchReturn.data.id_category;
@@ -134,7 +143,20 @@ export class EditLaunchOutComponent implements OnInit {
             this.formData.value = launchReturn.data.value;
             this.formData.id_pay_method = launchReturn.data.id_pay_method;
             this.formData.paid = launchReturn.data.status === 'paid' ? true : false;
-            
+            this.formData.scheduled = false;
+
+            this.isSchedulingEnable = this.verifyMonthToSchedule(launchReturn.data.date);
+            if (launchReturn.schedulingData.next_month === 'scheduled')
+                this.formData.scheduled = true;
+            else {
+                if (launchReturn.schedulingData.next_month === 'launched') {
+                    this.formData.scheduled = true;
+                    this.isSchedulingEnable = false;
+                }
+            }
+
+            this.next_month = launchReturn.schedulingData.next_month;
+
             this.editLaunchOutForm.setValue(this.formData);
         });
     }
@@ -146,7 +168,15 @@ export class EditLaunchOutComponent implements OnInit {
         this.launchOut.value = this.editLaunchOutForm.value.value;
         this.launchOut.id_pay_method = this.editLaunchOutForm.value.id_pay_method;
         this.launchOut.status = this.editLaunchOutForm.value.paid === true ? 'paid' : 'pending';
-        
+
+        if (this.editLaunchOutForm.value.scheduled === true)
+            if (this.next_month === 'launched')
+                this.launchOut.next_month = this.next_month;
+            else
+                this.launchOut.next_month = 'scheduled';
+        else
+            this.launchOut.next_month = null;
+
         this.launchService.updateOut(
             this.launchOut,
             this.idLaunchOut,
@@ -159,4 +189,20 @@ export class EditLaunchOutComponent implements OnInit {
         });
     }
 
+    verifyMonthToSchedule(date: string) {
+        const arrMonth = date.split(/-/);
+        const launchedMonth = parseInt(arrMonth[1]);
+        const currentMonth = new Date().getMonth() + 1;
+
+        const diff = currentMonth - launchedMonth;
+        let result = false;
+        if (diff < 2 && diff >= 0)
+            result = true;
+        else if (currentMonth === 1 && launchedMonth > 11)
+            result = true;
+        else if (currentMonth === 2 && launchedMonth >= 1 && launchedMonth < 3)
+            result = true;
+
+        return result;
+    }
 }

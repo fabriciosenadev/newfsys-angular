@@ -30,6 +30,7 @@ import { ForgotComponent } from './components/views/site/forgot/forgot.component
 import { RegisterComponent } from './components/views/site/register/register.component';
 
 import { LoginComponent } from './components/views/app/login/login.component';
+import { PrepareProfileComponent } from './components/views/app/prepare-profile/prepare-profile.component';
 import { ProfileComponent } from './components/views/app/profile/profile.component';
 import { MenuComponent } from './components/template/app/menu/menu.component';
 import { AddLaunchInComponent } from './components/views/app/launch-in/add-launch-in/add-launch-in.component';
@@ -99,6 +100,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     PieChartComponent,
     MonthCardComponent,
     TableComponent,
+    PrepareProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ import { LaunchIn } from 'src/app/models/launch/launchIn.model';
 })
 export class AddLaunchInComponent implements OnInit {
     token: string = localStorage.getItem('authToken');
+    isEnableScheduling: boolean = true;
 
     categories: Categories = {
         id: 0,
@@ -26,6 +27,8 @@ export class AddLaunchInComponent implements OnInit {
         value: 0,
         status: 'pending',
         received: false,
+        scheduled: false,
+        next_month: null,
     }
 
     launchInForm: FormGroup;
@@ -54,6 +57,8 @@ export class AddLaunchInComponent implements OnInit {
         this.launchIn.value = this.launchInForm.value.value;
 
         if (this.launchInForm.value.isReceived) this.launchIn.status = 'received';
+        if (this.launchInForm.value.isScheduled && this.isEnableScheduling)
+            this.launchIn.next_month = 'scheduled';
 
         this.newLaunchIn();
         this.resetForm();
@@ -110,10 +115,32 @@ export class AddLaunchInComponent implements OnInit {
                 this.launchIn.received,
                 [],
             ),
+            isScheduled: new FormControl(
+                this.launchIn.scheduled,
+                [],
+            ),
         });
     }
 
     resetForm() {
         this.launchInForm.reset();
+    }
+
+    EnableScheduling(date: string): void {
+        console.log(date);
+
+        const arrMonth = date.split(/-/);
+        const launchedMonth = parseInt(arrMonth[1]);
+        const currentMonth = new Date().getMonth() + 1;
+        const diff = currentMonth - launchedMonth;
+
+        if (diff < 2 && diff >= 0)
+            this.isEnableScheduling = true;
+        else if (currentMonth === 1 && launchedMonth > 11)
+            this.isEnableScheduling = true;
+        else if (currentMonth === 2 && launchedMonth >= 1 && launchedMonth < 3)
+            this.isEnableScheduling = true;
+        else
+            this.isEnableScheduling = false;
     }
 }

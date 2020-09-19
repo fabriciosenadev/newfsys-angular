@@ -71,15 +71,36 @@
 
                             </div>
 
+                        </div>
+
+                        <div class="form-row">
+
                             <div class="form-group col-6">
 
                                 <div class="row align-items-center justify-content-center">
 
-                                    <div class="custom-control custom-switch" style="margin-top: 35px;">
+                                    <div class="custom-control custom-switch" style="margin-top: 10px;">
                                         <input type="checkbox" class="custom-control-input" id="isReceivedCheckbox"
                                             formControlName="received">
-                                        <label class="custom-control-label" for="isReceivedCheckbox">Marcar como
-                                            recebido</label>
+                                        <label class="custom-control-label" for="isReceivedCheckbox">
+                                            Marcar como recebido
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group col-6">
+
+                                <div class="row align-items-center justify-content-center">
+
+                                    <div class="custom-control custom-switch" style="margin-top: 10px;" *ngIf="isSchedulingEnable">
+                                        <input type="checkbox" class="custom-control-input" id="scheduledCheckbox"
+                                            formControlName="scheduled">
+                                        <label class="custom-control-label" for="scheduledCheckbox">
+                                            Agendar para o próximo mês
+                                        </label>
                                     </div>
 
                                 </div>
