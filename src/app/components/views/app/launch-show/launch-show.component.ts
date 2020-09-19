@@ -25,6 +25,7 @@ export class LaunchShowComponent implements OnInit {
 	id: Number;
 	pay_method: String;
 	value: Number;
+	scheduling: String = '';
 
 	launchDelete: any;
 
@@ -58,6 +59,9 @@ export class LaunchShowComponent implements OnInit {
 			this.value = this.launch.value;
 			this.description = this.launch.description;
 			this.status = this.launch.status;
+			this.scheduling = launchReturn.schedulingData.next_month;
+			console.log(this.scheduling);
+			
 		});
 	}
 
@@ -92,9 +96,9 @@ export class LaunchShowComponent implements OnInit {
 		});
 	}
 
-	sendToEdit(){
+	sendToEdit() {
 		let launchType = 'in';
-		if(this.pay_method !== null) launchType = 'out';
+		if (this.pay_method !== null) launchType = 'out';
 
 		this.router.navigate([`/app/launch/${launchType}/${this.id}`]);
 	}

@@ -26,7 +26,8 @@
                         {{ date | date }}
                     </p>
                     <p>
-                        <strong>&raquo;</strong> Status:
+                        <strong>&raquo;</strong> Status do 
+                        {{ applicable == 'out' ? 'pagamento' : 'recebimento' }}:
                         <span class="bg-success text-white rounded-pill" *ngIf="status === 'paid'"
                             style="padding: 0.2rem 0.3rem;">
                             Paguei
@@ -55,6 +56,18 @@
                                 Pendente
                             </span>
                         </a>
+                    </p>
+                    <p>
+                        <strong>&raquo;</strong> Situação: 
+                        <span *ngIf="scheduling === 'scheduled'">
+                            Agendado para o mês seguinte
+                        </span>
+                        <span *ngIf="scheduling === 'launched'">
+                            Criado no mês seguinte
+                        </span>
+                        <span *ngIf="scheduling !== 'scheduled' && scheduling !== 'launched'">
+                            Sem agendamento prévio
+                        </span>
                     </p>
                     <p>
                         <strong>&raquo;</strong> Categoria:
