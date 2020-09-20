@@ -39,6 +39,7 @@ export class EditLaunchInComponent implements OnInit {
         id_category: 0,
         description: null,
         value: 0,
+        oldValue: 0,
         status: 'pending',
         received: false,
         scheduled: false,
@@ -120,7 +121,7 @@ export class EditLaunchInComponent implements OnInit {
             this.formData.date = launchReturn.data.date;
             this.formData.id_category = launchReturn.data.id_category;
             this.formData.description = launchReturn.data.description;
-            this.formData.value = launchReturn.data.value;
+            this.formData.value = this.LaunchIn.oldValue = launchReturn.data.value;
             this.formData.received = launchReturn.data.status === 'received' ? true : false;
 
             this.isSchedulingEnable = this.verifyMonthToSchedule(launchReturn.data.date);

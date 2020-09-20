@@ -46,6 +46,7 @@ export class EditLaunchOutComponent implements OnInit {
         id_category: 0,
         description: null,
         value: 0.0,
+        oldValue: 0,
         id_pay_method: 0,
         status: 'pending',
         paid: false,
@@ -140,7 +141,7 @@ export class EditLaunchOutComponent implements OnInit {
             this.formData.date = launchReturn.data.date;
             this.formData.id_category = launchReturn.data.id_category;
             this.formData.description = launchReturn.data.description;
-            this.formData.value = launchReturn.data.value;
+            this.formData.value = this.launchOut.oldValue = launchReturn.data.value;
             this.formData.id_pay_method = launchReturn.data.id_pay_method;
             this.formData.paid = launchReturn.data.status === 'paid' ? true : false;
             this.formData.scheduled = false;
