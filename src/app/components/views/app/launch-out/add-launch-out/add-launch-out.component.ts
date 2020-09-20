@@ -161,7 +161,7 @@ export class AddLaunchOutComponent implements OnInit {
         const currentMonth = new Date().getMonth() + 1;
         const diff = currentMonth - launchedMonth;
 
-        if (diff < 2 && diff >= 0)
+        if (diff < 1 && diff >= 0)
             this.isEnableScheduling = true;
         else if (currentMonth === 1 && launchedMonth > 11)
             this.isEnableScheduling = true;

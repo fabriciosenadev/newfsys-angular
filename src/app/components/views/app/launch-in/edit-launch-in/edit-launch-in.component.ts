@@ -172,8 +172,9 @@ export class EditLaunchInComponent implements OnInit {
         const launchedMonth = parseInt(arrMonth[1]);
         const currentMonth = new Date().getMonth() + 1;
 
+        const diff = currentMonth - launchedMonth;
         let result = false;
-        if ((currentMonth - launchedMonth) < 2 && (currentMonth - launchedMonth) >= 0)
+        if (diff < 1 && diff >= 0)
             result = true;
         else if (currentMonth === 1 && launchedMonth > 11)
             result = true;

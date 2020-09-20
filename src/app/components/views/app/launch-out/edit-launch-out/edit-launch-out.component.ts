@@ -196,7 +196,7 @@ export class EditLaunchOutComponent implements OnInit {
 
         const diff = currentMonth - launchedMonth;
         let result = false;
-        if (diff < 2 && diff >= 0)
+        if (diff < 1 && diff >= 0)
             result = true;
         else if (currentMonth === 1 && launchedMonth > 11)
             result = true;
