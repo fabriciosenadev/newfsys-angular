@@ -99,7 +99,7 @@ export class SystemService {
                 headers: {
                     auth_pass: token,
                 },
-                params:{
+                params: {
                     month,
                     year,
                 }
@@ -141,7 +141,7 @@ export class SystemService {
                 headers: {
                     auth_pass: token,
                 },
-                params:{
+                params: {
                     month,
                     year,
                 }
@@ -175,6 +175,23 @@ export class SystemService {
 
         return this.http.get<LaunchOut>(
             `${this.baseUrl}/${this.route}/${this.systemRoute}/${id}`,
+            {
+                headers: {
+                    auth_pass: token,
+                }
+            }
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error))
+        );
+    }
+
+    getAmountAvailable(token: string): Observable<any> {
+        this.route = this.api.route.system;
+        this.systemRoute = this.api.systemRoute.amountAvailable;
+
+        return this.http.get<any>(
+            `${this.baseUrl}/${this.route}/${this.systemRoute}`,
             {
                 headers: {
                     auth_pass: token,

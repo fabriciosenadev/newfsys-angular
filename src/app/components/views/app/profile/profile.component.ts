@@ -12,10 +12,10 @@ import { Month } from 'src/app/models/month.model';
 })
 export class ProfileComponent implements OnInit {
 
-    // userLogin: UserLogin = {}
     token = localStorage.getItem('authToken');
+    amountAvailable = 0;
+
     date: Date = new Date();
-    // year: any = this.date.getFullYear();
     year: any;
     click: number = 1;
     month: Month;
@@ -96,6 +96,7 @@ export class ProfileComponent implements OnInit {
     ngOnInit(): void {
         this.year = this.date.getFullYear();
         this.getMonth();
+        this.getAmountAvailable();
     }
 
     decreaseYear(): void {
@@ -228,6 +229,12 @@ export class ProfileComponent implements OnInit {
 
             this.decemberReceived = this.month.received[0].value == null ? 0 : this.month.received[0].value;
             this.decemberPaid = this.month.paid[0].value == null ? 0 : this.month.paid[0].value;
+        });
+    }
+
+    getAmountAvailable() {
+        this.systemService.getAmountAvailable(this.token).subscribe(amountReturn => {
+            this.amountAvailable = amountReturn.data.amount_available;            
         });
     }
 }
