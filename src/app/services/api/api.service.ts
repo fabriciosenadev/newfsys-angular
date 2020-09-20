@@ -41,7 +41,8 @@ export class ApiService {
         detailsByCategory: 'details_by_category',
         launch: 'launch',
         checkScheduling: 'check_scheduling',
-        createLaunchScheduled: 'create_launch_scheduled'
+        createLaunchScheduled: 'create_launch_scheduled',
+        amountAvailable: 'amount_available',
     };
 
     systemAction = {
