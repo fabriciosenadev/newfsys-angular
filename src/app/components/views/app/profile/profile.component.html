@@ -9,33 +9,49 @@
         </div>
 
         <div class="col-md-8" id="main">
-            <div class="row justify-content-center">
-                <!-- <h1>Main Area</h1> -->
-            </div>
 
             <div class="row justify-content-center" style="margin-top: 50px;">
-                <div style="margin-right:45px;">
-                    <button (click)="decreaseYear()" class="btn btn-sm">
-                        <h2>
-                            <i class="material-icons">
-                                arrow_back_ios
-                            </i>
-                        </h2>
-                    </button>
+
+                <div class="col-md">
+
+                    <div class="row justify-content-center">
+                        <!-- <div> -->
+                        <div style="margin-right:45px;">
+                            <button (click)="decreaseYear()" class="btn btn-sm">
+                                <h2>
+                                    <i class="material-icons">
+                                        arrow_back_ios
+                                    </i>
+                                </h2>
+                            </button>
+                        </div>
+
+
+                        <h2>{{ year }}</h2>
+
+                        <!-- <div> -->
+                        <div style="margin-left:50px;">
+
+                            <button (click)="increaseYear()" class="btn btn-sm">
+                                <h2>
+                                    <i class="material-icons">
+                                        arrow_forward_ios
+                                    </i>
+                                </h2>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
 
+                <div class="col-md">
+                    <div class="row justify-content-center">
 
-                <h2>{{ year }}</h2>
-
-                <div style="margin-left:50px;">
-
-                    <button (click)="increaseYear()" class="btn btn-sm">
-                        <h2>
-                            <i class="material-icons">
-                                arrow_forward_ios
-                            </i>
-                        </h2>
-                    </button>
+                        <h1>
+                            Saldo disp.
+                            {{ amountAvailable | currency:'BRL'}}
+                        </h1>
+                    </div>
                 </div>
             </div>
 
@@ -92,14 +108,14 @@
 
                 <div class="card-deck">
 
-                    <app-month-card [monthId]="october" [monthReceived]="octoberReceived"
-                        [monthPaid]="octoberPaid" [selectedYear]="year"></app-month-card>
+                    <app-month-card [monthId]="october" [monthReceived]="octoberReceived" [monthPaid]="octoberPaid"
+                        [selectedYear]="year"></app-month-card>
 
-                    <app-month-card [monthId]="november" [monthReceived]="novemberReceived"
-                        [monthPaid]="novemberPaid" [selectedYear]="year"></app-month-card>
+                    <app-month-card [monthId]="november" [monthReceived]="novemberReceived" [monthPaid]="novemberPaid"
+                        [selectedYear]="year"></app-month-card>
 
-                    <app-month-card [monthId]="december" [monthReceived]="decemberReceived"
-                        [monthPaid]="decemberPaid" [selectedYear]="year"></app-month-card>
+                    <app-month-card [monthId]="december" [monthReceived]="decemberReceived" [monthPaid]="decemberPaid"
+                        [selectedYear]="year"></app-month-card>
 
                 </div>
 
