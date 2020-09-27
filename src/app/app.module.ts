@@ -27,6 +27,7 @@ import { SideMenuComponent } from './components/template/app/side-menu/side-menu
 import { HomeComponent } from './components/views/site/home/home.component';
 import { AboutComponent } from './components/views/site/about/about.component';
 import { ForgotComponent } from './components/views/site/forgot/forgot.component';
+import { TryResetComponent } from './components/views/site/try-reset/try-reset.component';
 import { RegisterComponent } from './components/views/site/register/register.component';
 
 import { LoginComponent } from './components/views/app/login/login.component';
@@ -101,6 +102,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     MonthCardComponent,
     TableComponent,
     PrepareProfileComponent,
+    TryResetComponent,
   ],
   imports: [
     BrowserModule,

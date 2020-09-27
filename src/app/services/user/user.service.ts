@@ -28,7 +28,8 @@ export class UserService {
         private http: HttpClient,
         private api: ApiService,
         private snackBar: MatSnackBar,
-        private sessionService: SessionService
+        private sessionService: SessionService,
+        private router: Router,
     ) { }
 
     baseUrl = this.api.url;
@@ -69,13 +70,23 @@ export class UserService {
             catchError(error => this.errorHandler(error))
         );
     }
-    reset(userResetPass: UserResetPass): Observable<UserResetPass> {
+
+    reset(
+        userResetPass: UserResetPass, 
+        token: string,
+        ): Observable<UserResetPass> {
         this.route = this.api.route.user;
         this.action = this.api.userAction.resetPass;
-
+            console.log(userResetPass);
+            
         return this.http.post<UserResetPass>(
             `${this.baseUrl}/${this.route}/${this.action}`,
-            userResetPass
+            userResetPass,
+            {
+                headers:{
+                    reset_token: token,
+                }
+            }
         ).pipe(
             map(obj => obj),
             catchError(error => this.errorHandler(error))
@@ -115,19 +126,18 @@ export class UserService {
     errorHandler(errorRes: any): Observable<any> {
         console.log(errorRes);
 
-        if (errorRes.error.auth === false) this.sessionService.forceLogin();
-
         let showMsg = '';
-        let param = '';
 
         if (errorRes.error.data) {
             showMsg = errorRes.error.data[0].msg;
-            // param = errorRes.error.data[0].param;
             this.showMessage(showMsg, true);
         }
         else if (errorRes.error.msg) {
             showMsg = errorRes.error.msg;
             this.showMessage(showMsg, true);
+
+            if (errorRes.error.isEnableReset === false) 
+                this.router.navigate(['/try_reset']);    
         }
 
         return EMPTY;

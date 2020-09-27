@@ -15,11 +15,14 @@ import { MustMatch } from 'src/app/_helpers/must-match.validator';
 })
 export class ForgotComponent implements OnInit {
 
+    token: string;
+
+    isEnableReset = false;
+
     userResetPass: UserResetPass = {
         email: '',
         password: '',
         verifyPass: '',
-        userId: 0
     }
 
     forgotForm: FormGroup;
@@ -40,6 +43,42 @@ export class ForgotComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.formForgot();
+        this.formReset();
+    }
+
+    onSubmit() {
+        if(!this.isEnableReset)
+        {
+            this.userResetPass.email = this.forgotForm.value.email;
+            this.forgotPass();
+        }
+        else
+        {
+            this.userResetPass.password = this.resetForm.value.password;
+            this.userResetPass.verifyPass = this.resetForm.value.verifyPass;
+            this.resetPass(this.token);
+        }
+    }
+
+    forgotPass(): void {
+        this.userService.forgot(this.userResetPass).subscribe(userForgotReturn => {
+            this.token = userForgotReturn.token;
+            this.isEnableReset = userForgotReturn.isEnableReset;            
+            this.userService.showMessage(userForgotReturn.success);
+
+        });
+    }
+
+    resetPass (token: string) {
+        this.userResetPass.email = '';
+        this.userService.reset(this.userResetPass, token).subscribe(userResetReturn => {           
+            this.userService.showMessage(userResetReturn.success);
+            this.router.navigate(['/login']);
+        });    
+    }
+
+    formForgot() {
         this.forgotForm = this.formBuilder.group({
             email: new FormControl(
                 this.userResetPass.email,
@@ -48,7 +87,9 @@ export class ForgotComponent implements OnInit {
                 ],
             )
         });
+    }
 
+    formReset() {
         this.resetForm = this.formBuilder.group({
             password: new FormControl(
                 this.userResetPass.password,
@@ -66,35 +107,6 @@ export class ForgotComponent implements OnInit {
             ),
         },{
             validator: MustMatch('password','verifyPass'),
-        });
-    }
-
-    onSubmit() {
-        if(this.userResetPass.userId == 0)
-        {
-            this.userResetPass.email = this.forgotForm.value.email;
-            this.forgotPass();
-        }
-        else
-        {
-            this.userResetPass.password = this.resetForm.value.password;
-            this.userResetPass.verifyPass = this.resetForm.value.verifyPass;
-            this.resetPass(this.userResetPass.userId.id);
-        }
-    }
-
-    forgotPass(): void {
-        this.userService.forgot(this.userResetPass).subscribe(userForgotReturn => {
-            this.userResetPass = userForgotReturn;
-            this.userService.showMessage(userForgotReturn.success);
-        });
-    }
-
-    resetPass(userId = this.userResetPass.userId.id): void {
-        this.userResetPass.id = userId;
-        this.userService.reset(this.userResetPass).subscribe(userResetReturn => {
-            this.userService.showMessage(userResetReturn.success);
-            this.router.navigate(['/login']);
         });
     }
 }
