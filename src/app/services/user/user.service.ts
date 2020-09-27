@@ -77,8 +77,7 @@ export class UserService {
         ): Observable<UserResetPass> {
         this.route = this.api.route.user;
         this.action = this.api.userAction.resetPass;
-            console.log(userResetPass);
-            
+          
         return this.http.post<UserResetPass>(
             `${this.baseUrl}/${this.route}/${this.action}`,
             userResetPass,
