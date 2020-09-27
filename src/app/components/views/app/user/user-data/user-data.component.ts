@@ -47,6 +47,33 @@ export class UserDataComponent implements OnInit {
             this.userInfo = userInfoReturn;
         });
 
+        this.formReset();
+    }
+
+    onSubmit() {
+        this.userResetPass.email = this.userInfo.email;
+        this.changePass();
+    }
+
+    changePass(): void {
+        this.userService.forgot(this.userResetPass).subscribe(userForgotReturn => {
+            this.userResetPass = userForgotReturn;
+
+            this.userResetPass.password = this.resetForm.value.password;
+            this.userResetPass.verifyPass = this.resetForm.value.verifyPass;
+            this.resetPass();
+        });
+    }
+
+    resetPass(): void {
+        this.userResetPass.email = '';
+        this.userService.reset(this.userResetPass, this.token).subscribe(userResetReturn => {
+            this.userService.showMessage(userResetReturn.success);
+            this.resetForm.reset();
+        });
+    }
+
+    formReset() {
         this.resetForm = this.formBuilder.group({
             password: new FormControl(
                 // this.userResetPass.password,
@@ -66,33 +93,6 @@ export class UserDataComponent implements OnInit {
             ),
         }, {
             validator: MustMatch('password', 'verifyPass'),
-        });
-    }
-
-    onSubmit() {
-        this.userResetPass.email = this.userInfo.email;
-        this.changePass();
-        // console.log(this.userResetPass.userId);
-        // this.userResetPass.password = this.resetForm.value.password;
-        // this.userResetPass.verifyPass = this.resetForm.value.verifyPass;
-        // this.resetPass(this.userResetPass.userId.id);
-    }
-
-    changePass(): void {
-        this.userService.forgot(this.userResetPass).subscribe(userForgotReturn => {
-            this.userResetPass = userForgotReturn;
-
-            this.userResetPass.password = this.resetForm.value.password;
-            this.userResetPass.verifyPass = this.resetForm.value.verifyPass;
-            this.resetPass(this.userResetPass.userId.id);
-        });
-    }
-
-    resetPass(userId = this.userResetPass.userId.id): void {
-        this.userResetPass.id = userId;
-        this.userService.reset(this.userResetPass, this.token).subscribe(userResetReturn => {
-            this.userService.showMessage(userResetReturn.success);
-            this.resetForm.reset();
         });
     }
 
