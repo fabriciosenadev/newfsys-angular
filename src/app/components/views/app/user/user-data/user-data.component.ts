@@ -13,6 +13,8 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class UserDataComponent implements OnInit {
 
+    token: string = localStorage.getItem('authToken');
+
     userInfo: UserInfo = {
         full_name: '',
         email: '',
@@ -88,7 +90,7 @@ export class UserDataComponent implements OnInit {
 
     resetPass(userId = this.userResetPass.userId.id): void {
         this.userResetPass.id = userId;
-        this.userService.reset(this.userResetPass).subscribe(userResetReturn => {
+        this.userService.reset(this.userResetPass, this.token).subscribe(userResetReturn => {
             this.userService.showMessage(userResetReturn.success);
             this.resetForm.reset();
         });
