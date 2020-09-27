@@ -6,6 +6,7 @@ import { HomeComponent } from './components/views/site/home/home.component';
 import { AboutComponent } from './components/views/site/about/about.component';
 import { RegisterComponent } from './components/views/site/register/register.component';
 import { ForgotComponent } from './components/views/site/forgot/forgot.component';
+import { TryResetComponent } from './components/views/site/try-reset/try-reset.component';
 
 // app components
 import { LoginComponent } from './components/views/app/login/login.component';
@@ -40,6 +41,10 @@ const routes: Routes = [
     {
         path: "forgot",
         component: ForgotComponent
+    },
+    {
+        path: "try_reset",
+        component: TryResetComponent
     },
     {
         path: "login",
