@@ -8,7 +8,7 @@
 
         <div class="col-md-8" id="main">
 
-            <div class="row justify-content-center" style="margin-top:10px;" *ngIf="!userResetPass.userId">
+            <div class="row justify-content-center" style="margin-top:10px;" *ngIf="!isEnableReset">
 
 
                 <div class="border border-success rounded" style="width:400px;padding: 10px; background-color:white;">
@@ -39,7 +39,7 @@
 
             </div>
 
-            <div class="row justify-content-center" style="margin-top:10px;" *ngIf="userResetPass.userId">
+            <div class="row justify-content-center" style="margin-top:10px;" *ngIf="isEnableReset">
 
 
                 <div class="border border-success rounded" style="width:400px;padding: 10px; background-color:white;">
