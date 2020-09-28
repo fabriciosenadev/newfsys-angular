@@ -10,6 +10,7 @@ import { UserRegister } from '../../models/user/userRegister.model';
 import { UserResetPass } from '../../models/user/userResetPass.model';
 import { UserInfo } from '../../models/user/userInfo.model';
 import { SessionService } from '../system/session.service';
+import { UserChangePass } from 'src/app/models/user/userChangePass.model';
 
 
 @Injectable({
@@ -72,9 +73,9 @@ export class UserService {
     }
 
     reset(
-        userResetPass: UserResetPass, 
+        userResetPass: UserResetPass,
         token: string,
-        ): Observable<UserResetPass> {
+    ): Observable<UserResetPass> {
         this.route = this.api.route.user;
         this.action = this.api.userAction.resetPass;
           
@@ -82,7 +83,7 @@ export class UserService {
             `${this.baseUrl}/${this.route}/${this.action}`,
             userResetPass,
             {
-                headers:{
+                headers: {
                     reset_token: token,
                 }
             }
@@ -101,6 +102,27 @@ export class UserService {
             {
                 headers: {
                     auth_pass: userInfo.token
+                }
+            }
+        ).pipe(
+            map(obj => obj),
+            catchError(error => this.errorHandler(error))
+        );
+    }
+
+    changePassword(userChangePass: UserChangePass, token: string): Observable<UserChangePass> {
+        this.route = this.api.route.user;
+        this.action = this.api.userAction.changePass;
+
+        console.log(this.api.userAction.changePass);
+        
+
+        return this.http.post<UserChangePass>(
+            `${this.baseUrl}/${this.route}/${this.action}`,
+            userChangePass,
+            {
+                headers: {
+                    auth_pass: token
                 }
             }
         ).pipe(
@@ -135,8 +157,8 @@ export class UserService {
             showMsg = errorRes.error.msg;
             this.showMessage(showMsg, true);
 
-            if (errorRes.error.isEnableReset === false) 
-                this.router.navigate(['/try_reset']);    
+            if (errorRes.error.isEnableReset === false)
+                this.router.navigate(['/try_reset']);
         }
 
         return EMPTY;

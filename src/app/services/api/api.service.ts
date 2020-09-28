@@ -18,7 +18,8 @@ export class ApiService {
         register: 'register',
         login: 'login',
         forgot: 'forgot',
-        resetPass: 'reset_password'
+        resetPass: 'reset_password',
+        changePass: 'change_password'
     };
 
     launchAction = {
