@@ -55,7 +55,6 @@ export class UserDataComponent implements OnInit {
         
         this.changePass();
         this.resetForm.reset();
-        
     }
 
     changePass() {
