@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-    url = 'https://newfsys-backend.herokuapp.com'; 
+    url = 'http://app-24628.nuvem-us-02.absamcloud.com/'; 
 
     route = {
         user: 'user',
